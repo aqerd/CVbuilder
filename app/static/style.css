@@ -1,0 +1,9 @@
+body {
+    margin: 20px;
+    background-color: #111111;
+    color: #ffffff;
+}
+
+h1, p {
+    font-family: Arial;
+}
