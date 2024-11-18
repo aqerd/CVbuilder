@@ -7,3 +7,45 @@ body {
 h1, p {
     font-family: Arial;
 }
+
+input[type="text"], input[type="email"], input[type="number"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 1em;
+            margin-top: 5px;
+            background-color: #333;
+            color: #ffffff;
+            border: 1px solid #444;
+            border-radius: 5px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #444;
+    margin-right: 10px;
+}
+
+button {
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    color: white;
+    background-color: #222;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #111;
+}
+
+button:active {
+    background-color: #000;
+}
