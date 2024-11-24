@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, send_file, request
 
 app = Flask(__name__)
 
@@ -34,6 +34,18 @@ def samples():
 @app.route('/export')
 def export():
     return render_template('export.html')
+
+@app.route('/download/<file_type>')
+def download(file_type):
+    if file_type == 'pdf':
+        filename = 'example.pdf'
+    elif file_type == 'doc':
+        filename = 'example.doc'
+    elif file_type == 'jpg':
+        filename = 'example.jpg'
+    else:
+        return "File type not found", 404
+    return send_file(filename, as_attachment=True)
 
 @app.route('/help')
 def help_page():

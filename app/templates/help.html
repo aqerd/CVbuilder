@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help - CV Builder</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <aside>
-        <form action="/profile" method="get"><button type="submit">Profile</button></form>
-        <form action="/samples" method="get"><button type="submit">Samples</button></form>
-        <form action="/export" method="get"><button type="submit">Export</button></form>
-        <form action="/help" method="get"><button type="submit">?</button></form>
-    </aside>
-    <main>
-        <a>Build your CV fast and easy</a>
-        <ol>
-            <li>Create your profile. Fill your CV with work experience etc</li>
-            <li>Choose sample design we got for you</li>
-            <li>Export it in pdf, doc or send email</li>
-        </ol>
-    </main>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Help - CV Builder</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <aside>
+                <form action="/profile" method="get"><button type="submit">Profile</button></form>
+                <form action="/samples" method="get"><button type="submit">Samples</button></form>
+                <form action="/export" method="get"><button type="submit">Export</button></form>
+                <form action="/help" method="get"><button type="submit">?</button></form>
+            </aside>
+            <main>
+                <a>Build your CV fast and easy</a>
+                <ol>
+                    <li>Create your profile. Fill your CV with work experience etc</li>
+                    <li>Choose sample design we got for you</li>
+                    <li>Export it in pdf, doc or send email</li>
+                </ol>
+            </main>
+        </div>
+    </body>
 </html>
