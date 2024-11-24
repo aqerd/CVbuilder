@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CV Builder</title>
+        <title>Export - CV Builder</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
@@ -15,9 +15,16 @@
                 <form action="/help" method="get"><button type="submit">?</button></form>
             </aside>
             <main>
-                <h1>CV Builder</h1>
-                <p>Hello! We glad you are using our app to create CV. Let’s dive into</p>
-                <form action="/profile" method="get"><button type="submit">Let's begin</button></form>
+                <h1>Export</h1>
+                <form action="/download/pdf" method="get">
+                    <button type="submit">PDF</button>
+                </form>
+                <form action="/download/doc" method="get">
+                    <button type="submit">Doc</button>
+                </form>
+                <form action="/download/jpg" method="get">
+                    <button type="submit">JPG</button>
+                </form>
             </main>
         </div>
     </body>
