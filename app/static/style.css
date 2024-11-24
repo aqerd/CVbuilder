@@ -28,13 +28,13 @@ input[type="text"], input[type="email"], input[type="number"] {
 }
 
 input[type="date"] {
-    border: 1px solid #ccc; /* Обводка */
-    border-radius: 4px; /* Скругленные углы */
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 input[type="date"]:focus {
-    border-color: #000; /* Цвет обводки при фокусе */
-    outline: none; /* Убираем стандартный фокусный контур */
+    border-color: #000;
+    outline: none;
 }
 
 button {
@@ -55,58 +55,53 @@ button:active {
     background-color: #000;
 }
 
-
 .form-group {
-    display: grid; /* Используем Grid для более гибкого расположения */
-    grid-template-columns: 1fr 1fr; /* Первая колонка для aside, вторая для main */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     height: 20px;
     gap: 10px;
 }
 
 .form-group label {
-    margin-right: 10px; /* Отступ между label и input */
+    margin-right: 10px;
 }
 
 .form-group input {
 }
 
-/* Для выравнивания иконок */
 .social-icons {
     display: flex;
     align-items: center;
 }
 
 .social-icons .add-icon {
-    margin-left: 10px; /* Отступ слева для иконки */
+    margin-left: 10px;
 }
 
-/* Контейнер с Grid */
 .container {
-    display: grid; /* Используем Grid для более гибкого расположения */
-    grid-template-columns: 350px 1fr; /* Первая колонка для aside, вторая для main */
-    min-height: 100vh; /* Задаем минимальную высоту контейнера */
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    min-height: 100vh;
 }
 
-/* Стили для aside */
 aside {
-    padding: 40px; /* Отступы внутри aside */
-    display: flex; /* Flexbox для выравнивания кнопок */
-    flex-direction: column; /* Направление кнопок по вертикали */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Стили для кнопок в aside */
 aside form {
-    margin: 0; /* Убираем отступы вокруг формы */
+    margin: 0;
 }
 
 aside button {
-    background-color: #000; /* Цвет кнопок при наведении */
+    background-color: #000;
     width: 100%;
     height: 80px;
 }
 
 aside button:hover {
-    background-color: #0056b3; /* Цвет кнопок при наведении */
+    background-color: #0056b3;
 }
 
 main {
