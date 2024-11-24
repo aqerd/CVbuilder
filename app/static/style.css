@@ -9,7 +9,6 @@ h1, p {
 
 input[type="text"], input[type="email"], input[type="number"] {
     font-size: 1em;
-    margin-top: 5px;
     background-color: #333;
     color: #ffffff;
     border: 1px solid #444;
@@ -26,7 +25,16 @@ input[type="text"], input[type="email"], input[type="number"] {
     height: 40px;
     border-radius: 50%;
     background-color: #444;
-    margin-right: 10px;
+}
+
+input[type="date"] {
+    border: 1px solid #ccc; /* Обводка */
+    border-radius: 4px; /* Скругленные углы */
+}
+
+input[type="date"]:focus {
+    border-color: #000; /* Цвет обводки при фокусе */
+    outline: none; /* Убираем стандартный фокусный контур */
 }
 
 button {
@@ -46,6 +54,7 @@ button:hover {
 button:active {
     background-color: #000;
 }
+
 
 .form-group {
     display: grid; /* Используем Grid для более гибкого расположения */

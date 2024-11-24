@@ -34,7 +34,7 @@
 
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input type="number" id="age" name="age" placeholder="20">
+                        <input type="number" id="age" name="age" placeholder="25">
                     </div>
 
                     <div class="form-group">
@@ -43,16 +43,157 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" placeholder="01.01.2000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="citizenship">Citizenship</label>
+                        <input type="text" id="citizenship" name="citizenship" placeholder="Russia">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="Yekaterinburg, Russia">
+                    </div>
+
+                    <div class="form-group">
                         <label for="socials">Socials</label>
                         <div class="social-icons">
-                            <span class="add-icon"></span>
-                            <span class="add-icon"></span>
+                            <span class="add-icon">tg</span>
+                            <span class="add-icon">x</span>
+                            <span class="add-icon">be</span>
+                            <span class="add-icon">in</span>
+                            <span class="add-icon">gh</span>
                             <span class="add-icon">+</span>
                         </div>
                     </div>
+
+                    <div id="portfolio-container">
+                        <div class="portfolio-item">
+                            <div class="form-group">
+                                <label for="project-name-1">Project Name</label>
+                                <input type="text" id="project-name-1" name="project-name" placeholder="Project Title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-time-1">Project Time (From - To)</label>
+                                <input type="text" id="project-time-1" name="project-time" placeholder="From - To">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-link-1">Project Link</label>
+                                <input type="url" id="project-link-1" name="project-link" placeholder="https://example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-description-1">Project Description</label>
+                                <textarea id="project-description-1" name="project-description" placeholder="Describe the project"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="add-button" type="button" onclick="addProject(event)">+ Add Project</button>
+
+                    <div id="experience-container">
+                        <div class="experience-item">
+                            <div class="form-group">
+                                <label for="company-name-1">Company Name</label>
+                                <input type="text" id="company-name-1" name="company-name" placeholder="Company Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="job-title-1">Job Title</label>
+                                <input type="text" id="job-title-1" name="job-title" placeholder="Job Title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="work-period-1">Work Period (From - To)</label>
+                                <input type="text" id="work-period-1" name="work-period" placeholder="From - To">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="job-description-1">Job Description</label>
+                                <textarea id="job-description-1" name="job-description" placeholder="Describe your job responsibilities"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="add-button" type="button" onclick="addExperience(event)">+ Add Job</button>
+
                     <button type="submit">Submit</button>
                 </form>
             </main>
         </div>
+
+        <script>
+            let projectCount = 1;
+            let experienceCount = 1;
+
+            function addProject(event) {
+                event.preventDefault();
+
+                projectCount++;
+
+                const newProjectDiv = document.createElement('div');
+                newProjectDiv.classList.add('portfolio-item');
+                newProjectDiv.innerHTML = `
+                    <div class="form-group">
+                        <label for="project-name-${projectCount}">Project Name</label>
+                        <input type="text" id="project-name-${projectCount}" name="project-name" placeholder="Project Title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-time-${projectCount}">Project Time (From - To)</label>
+                        <input type="text" id="project-time-${projectCount}" name="project-time" placeholder="From - To">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-link-${projectCount}">Project Link</label>
+                        <input type="url" id="project-link-${projectCount}" name="project-link" placeholder="https://example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-description-${projectCount}">Project Description</label>
+                        <textarea id="project-description-${projectCount}" name="project-description" placeholder="Describe the project"></textarea>
+                    </div>
+                `;
+
+                document.getElementById('portfolio-container').appendChild(newProjectDiv);
+            }
+
+            // Функция для добавления нового опыта работы
+            function addExperience(event) {
+                event.preventDefault();
+
+                experienceCount++;
+
+                const newExperienceDiv = document.createElement('div');
+                newExperienceDiv.classList.add('experience-item');
+                newExperienceDiv.innerHTML = `
+                    <div class="form-group">
+                        <label for="company-name-${experienceCount}">Company Name</label>
+                        <input type="text" id="company-name-${experienceCount}" name="company-name" placeholder="Company Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="job-title-${experienceCount}">Job Title</label>
+                        <input type="text" id="job-title-${experienceCount}" name="job-title" placeholder="Job Title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="work-period-${experienceCount}">Work Period (From - To)</label>
+                        <input type="text" id="work-period-${experienceCount}" name="work-period" placeholder="From - To">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="job-description-${experienceCount}">Job Description</label>
+                        <textarea id="job-description-${experienceCount}" name="job-description" placeholder="Describe your job responsibilities"></textarea>
+                    </div>
+                `;
+
+                document.getElementById('experience-container').appendChild(newExperienceDiv);
+            }
+        </script>
     </body>
 </html>
