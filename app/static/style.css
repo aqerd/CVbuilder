@@ -109,8 +109,14 @@ aside button:hover {
     background-color: #0056b3; /* Цвет кнопок при наведении */
 }
 
-/* Стили для main */
 main {
     padding: 20px;
-    flex: 1; /* Основной контент занимает оставшуюся ширину */
+    flex: 1;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+    box-sizing: border-box;
+    overflow: hidden;
 }

@@ -6,7 +6,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if request.method == 'POST':
@@ -15,14 +14,32 @@ def profile():
         last_name = request.form.get('last-name')
         age = request.form.get('age')
         email = request.form.get('email')
-        socials = request.form.get('socials')
+        dob = request.form.get('dob')
+        citizenship = request.form.get('citizenship')
+        city = request.form.get('city')
 
         print(f"Name: {name}")
         print(f"Middle Name: {middle_name}")
         print(f"Last Name: {last_name}")
         print(f"Age: {age}")
         print(f"Email: {email}")
-        print(f"Socials: {socials}")
+        print(f"Date of Birth: {dob}")
+        print(f"Citizenship: {citizenship}")
+        print(f"City: {city}")
+
+        socials = []
+        social_count = 1
+        while request.form.get(f'social-service-{social_count}'):
+            social_service = request.form.get(f'social-service-{social_count}')
+            social_link = request.form.get(f'social-link-{social_count}')
+            socials.append({
+                'service': social_service,
+                'link': social_link
+            })
+            print(f"Social Network {social_count}:")
+            print(f"  Service: {social_service}")
+            print(f"  Link: {social_link}")
+            social_count += 1
 
         projects = []
         project_count = 1
@@ -45,7 +62,6 @@ def profile():
             print(f"  Description: {project_description}")
             project_count += 1
 
-        # Извлечение данных о опыте работы
         experiences = []
         experience_count = 1
         while request.form.get(f'company-name-{experience_count}'):
@@ -67,8 +83,40 @@ def profile():
             print(f"  Job Description: {job_description}")
             experience_count += 1
 
-        # Здесь можно вернуть эти данные обратно в шаблон, если нужно
-        return render_template('profile.html', projects=projects, experiences=experiences)
+        education = []
+        education_count = 1
+        while request.form.get(f'institution-name-{education_count}'):
+            institution_name = request.form.get(f'institution-name-{education_count}')
+            education_period = request.form.get(f'education-period-{education_count}')
+            field_of_study = request.form.get(f'field-of-study-{education_count}')
+
+            education.append({
+                'institution': institution_name,
+                'period': education_period,
+                'field': field_of_study
+            })
+            print(f"Education {education_count}:")
+            print(f"  Institution: {institution_name}")
+            print(f"  Period: {education_period}")
+            print(f"  Field of Study: {field_of_study}")
+            education_count += 1
+
+        languages = []
+        language_count = 1
+        while request.form.get(f'language-name-{language_count}'):
+            language_name = request.form.get(f'language-name-{language_count}')
+            language_level = request.form.get(f'language-level-{language_count}')
+            languages.append({
+                'language': language_name,
+                'level': language_level
+            })
+            print(f"Language {language_count}:")
+            print(f"  Language: {language_name}")
+            print(f"  Level: {language_level}")
+            language_count += 1
+
+        return render_template('profile.html', projects=projects, experiences=experiences,
+                               education=education, languages=languages, socials=socials)
 
     return render_template('profile.html')
 
