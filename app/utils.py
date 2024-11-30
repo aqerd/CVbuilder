@@ -173,5 +173,58 @@ def create_pdf(data):
 
     return pdf_path
 
+def create_docx(data):
+    docx_path = os.path.join(PATH_SAVE, 'filename.docx')
+    doc = Document()
+    doc.add_heading(f'{data["name"]} {data["middle_name"]} {data["last_name"]}', 0)
+    doc.add_paragraph(f'Age: {data["age"]}')
+    doc.add_paragraph(f'Date of Birth: {data["dob"]}')
+    doc.add_paragraph(f'Email: {data["email"]}')
+    doc.add_paragraph(f'Citizenship: {data["citizenship"]}')
+    doc.add_paragraph(f'City: {data["city"]}')
+    
+    
+    if data["socials"]:
+        doc.add_heading('Social Networks', level=1)
+        for social in data["socials"]:
+            doc.add_paragraph(f'{social["service"]}: {social["link"]}')
+    
+    
+    if data["projects"]:
+        doc.add_heading('Projects', level=1)
+        for project in data["projects"]:
+            doc.add_paragraph(f'Project Name: {project["name"]}')
+            doc.add_paragraph(f'Time: {project["time"]}')
+            doc.add_paragraph(f'Link: {project["link"]}')
+            doc.add_paragraph(f'Description: {project["description"]}')
+    
+    
+    if data["experiences"]:
+        doc.add_heading('Experience', level=1)
+        for exp in data["experiences"]:
+            doc.add_paragraph(f'Company: {exp["company"]}')
+            doc.add_paragraph(f'Job Title: {exp["title"]}')
+            doc.add_paragraph(f'Period: {exp["period"]}')
+            doc.add_paragraph(f'Description: {exp["description"]}')
+    
+    
+    if data["education"]:
+        doc.add_heading('Education', level=1)
+        for edu in data["education"]:
+            doc.add_paragraph(f'Institution: {edu["institution"]}')
+            doc.add_paragraph(f'Period: {edu["period"]}')
+            doc.add_paragraph(f'Field of Study: {edu["field"]}')
+    
+    
+    if data["languages"]:
+        doc.add_heading('Languages', level=1)
+        for lang in data["languages"]:
+            doc.add_paragraph(f'{lang["language"]}: {lang["level"]}')
+    
+    
+    doc.save(docx_path)
+
+    return docx_path
+
     
 
