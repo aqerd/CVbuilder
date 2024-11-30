@@ -88,5 +88,90 @@ def collect_data(request):
     return { 'name': name, 'middle_name': middle_name, 'last_name': last_name, 'age': age, 'email': email,
     'dob': dob, 'citizenship': citizenship, 'city': city, 'socials': socials, 'projects': projects,
     'experiences': experiences, 'education': education, 'languages': languages}
+
+def create_pdf(data):
+    pdf_path = os.path.join(PATH_SAVE, 'filename.pdf')
+    c = canvas.Canvas(pdf_path, pagesize=letter)
+    width, height = letter  
+    
+    c.setFont("Helvetica-Bold", 20)
+    c.drawString(80, height - 100, f'{data["name"]} {data["middle_name"]} {data["last_name"]}')
+    
+    c.setFont("Helvetica", 12)
+    c.drawString(100, height - 130, f'Age: {data["age"]}')
+    c.drawString(100, height - 150, f'Date of Birth: {data["dob"]}')
+    c.drawString(100, height - 170, f'Email: {data["email"]}')
+    c.drawString(100, height - 190, f'Citizenship: {data["citizenship"]}')
+    c.drawString(100, height - 210, f'City: {data["city"]}')
+    
+
+    if data["socials"]:
+        c.setFont("Helvetica-Bold", 14)
+        c.drawString(80, height - 240, 'Social Networks:')  
+        y_position = height - 260
+        c.setFont("Helvetica", 12)
+        for social in data["socials"]:
+            c.drawString(100, y_position, f'{social["service"]}: {social["link"]}')
+            y_position -= 20
+    
+
+    if data["projects"]:
+        c.setFont("Helvetica-Bold", 14)
+        c.drawString(80, y_position, 'Projects:')  
+        y_position -= 20
+        c.setFont("Helvetica", 12)
+        for project in data["projects"]:
+            c.drawString(100, y_position, f'Project Name: {project["name"]}')
+            y_position -= 20
+            c.drawString(100, y_position, f'Time: {project["time"]}')
+            y_position -= 20
+            c.drawString(100, y_position, f'Link: {project["link"]}')
+            y_position -= 20
+            c.drawString(100, y_position, f'Description: {project["description"]}')
+            y_position -= 20
+    
+    
+    if data["experiences"]:
+        c.setFont("Helvetica-Bold", 14)
+        c.drawString(80, y_position, 'Experience:')  
+        y_position -= 20
+        c.setFont("Helvetica", 12)
+        for exp in data["experiences"]:
+            c.drawString(100, y_position, f'Company: {exp["company"]}')
+            y_position -= 20
+            c.drawString(100, y_position, f'Job Title: {exp["title"]}')
+            y_position -= 20
+            c.drawString(100, y_position, f'Period: {exp["period"]}')
+            y_position -= 20
+            c.drawString(100, y_position, f'Description: {exp["description"]}')
+            y_position -= 20
+    
+    
+    if data["education"]:
+        c.setFont("Helvetica-Bold", 14)
+        c.drawString(80, y_position, 'Education:')  
+        y_position -= 20
+        c.setFont("Helvetica", 12)
+        for edu in data["education"]:
+            c.drawString(100, y_position, f'Institution: {edu["institution"]}')
+            y_position -= 20
+            c.drawString(100, y_position, f'Period: {edu["period"]}')
+            y_position -= 20
+            c.drawString(100, y_position, f'Field of Study: {edu["field"]}')
+            y_position -= 20
+    
+    
+    if data["languages"]:
+        c.setFont("Helvetica-Bold", 14)
+        c.drawString(80, y_position, 'Languages:')  
+        y_position -= 20
+        c.setFont("Helvetica", 12)
+        for lang in data["languages"]:
+            c.drawString(100, y_position, f'{lang["language"]}: {lang["level"]}')
+            y_position -= 20
+    c.save()
+
+    return pdf_path
+
     
 
