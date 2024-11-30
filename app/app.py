@@ -1,6 +1,9 @@
-from flask import Flask, render_template, send_file, request
+from flask import Flask, render_template, send_file, request, session
+from utils import * 
+import os
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
 @app.route('/')
 def index():
@@ -9,114 +12,13 @@ def index():
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if request.method == 'POST':
-        name = request.form.get('name')
-        middle_name = request.form.get('middle-name')
-        last_name = request.form.get('last-name')
-        age = request.form.get('age')
-        email = request.form.get('email')
-        dob = request.form.get('dob')
-        citizenship = request.form.get('citizenship')
-        city = request.form.get('city')
+        
+        data = collect_data(request)
 
-        print(f"Name: {name}")
-        print(f"Middle Name: {middle_name}")
-        print(f"Last Name: {last_name}")
-        print(f"Age: {age}")
-        print(f"Email: {email}")
-        print(f"Date of Birth: {dob}")
-        print(f"Citizenship: {citizenship}")
-        print(f"City: {city}")
+        session['data'] = data
 
-        socials = []
-        social_count = 1
-        while request.form.get(f'social-service-{social_count}'):
-            social_service = request.form.get(f'social-service-{social_count}')
-            social_link = request.form.get(f'social-link-{social_count}')
-            socials.append({
-                'service': social_service,
-                'link': social_link
-            })
-            print(f"Social Network {social_count}:")
-            print(f"  Service: {social_service}")
-            print(f"  Link: {social_link}")
-            social_count += 1
-
-        projects = []
-        project_count = 1
-        while request.form.get(f'project-name-{project_count}'):
-            project_name = request.form.get(f'project-name-{project_count}')
-            project_time = request.form.get(f'project-time-{project_count}')
-            project_link = request.form.get(f'project-link-{project_count}')
-            project_description = request.form.get(f'project-description-{project_count}')
-
-            projects.append({
-                'name': project_name,
-                'time': project_time,
-                'link': project_link,
-                'description': project_description
-            })
-            print(f"Project {project_count}:")
-            print(f"  Name: {project_name}")
-            print(f"  Time: {project_time}")
-            print(f"  Link: {project_link}")
-            print(f"  Description: {project_description}")
-            project_count += 1
-
-        experiences = []
-        experience_count = 1
-        while request.form.get(f'company-name-{experience_count}'):
-            company_name = request.form.get(f'company-name-{experience_count}')
-            job_title = request.form.get(f'job-title-{experience_count}')
-            work_period = request.form.get(f'work-period-{experience_count}')
-            job_description = request.form.get(f'job-description-{experience_count}')
-
-            experiences.append({
-                'company': company_name,
-                'title': job_title,
-                'period': work_period,
-                'description': job_description
-            })
-            print(f"Experience {experience_count}:")
-            print(f"  Company: {company_name}")
-            print(f"  Job Title: {job_title}")
-            print(f"  Work Period: {work_period}")
-            print(f"  Job Description: {job_description}")
-            experience_count += 1
-
-        education = []
-        education_count = 1
-        while request.form.get(f'institution-name-{education_count}'):
-            institution_name = request.form.get(f'institution-name-{education_count}')
-            education_period = request.form.get(f'education-period-{education_count}')
-            field_of_study = request.form.get(f'field-of-study-{education_count}')
-
-            education.append({
-                'institution': institution_name,
-                'period': education_period,
-                'field': field_of_study
-            })
-            print(f"Education {education_count}:")
-            print(f"  Institution: {institution_name}")
-            print(f"  Period: {education_period}")
-            print(f"  Field of Study: {field_of_study}")
-            education_count += 1
-
-        languages = []
-        language_count = 1
-        while request.form.get(f'language-name-{language_count}'):
-            language_name = request.form.get(f'language-name-{language_count}')
-            language_level = request.form.get(f'language-level-{language_count}')
-            languages.append({
-                'language': language_name,
-                'level': language_level
-            })
-            print(f"Language {language_count}:")
-            print(f"  Language: {language_name}")
-            print(f"  Level: {language_level}")
-            language_count += 1
-
-        return render_template('profile.html', projects=projects, experiences=experiences,
-                               education=education, languages=languages, socials=socials)
+        return render_template('profile.html', projects=data.get("projects"), experiences=data.get("experiences"),
+                               education=data.get("education"), languages=data.get("languages"), socials=data.get("socials"))
 
     return render_template('profile.html')
 
@@ -129,12 +31,16 @@ def samples():
 def export():
     return render_template('export.html')
 
-@app.route('/download/<file_type>')
+@app.route('/download/<file_type>',  methods=['GET'])
 def download(file_type):
+    data = session.get('data')  # Получаем данные из сессии
+
+    if not data:
+        return "No data available", 400
     if file_type == 'pdf':
-        filename = 'example.pdf'
+        filename = create_pdf(data)
     elif file_type == 'doc':
-        filename = 'example.doc'
+        filename = create_docx(data)
     elif file_type == 'jpg':
         filename = 'example.jpg'
     else:
