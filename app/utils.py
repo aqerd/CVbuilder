@@ -5,6 +5,9 @@ from docx import Document
 
 PATH_SAVE = os.path.join(os.path.dirname(__file__), 'BD')
 
+if not os.path.exists(PATH_SAVE):
+    os.makedirs(PATH_SAVE)
+
 
 def collect_data(request):
     name = request.form.get('name')
