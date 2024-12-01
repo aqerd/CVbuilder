@@ -107,11 +107,11 @@ def create_pdf(data):
     c.drawString(100, height - 190, f'Citizenship: {data["citizenship"]}')
     c.drawString(100, height - 210, f'City: {data["city"]}')
     
-
+    y_position = height - 240
     if data["socials"]:
         c.setFont("Helvetica-Bold", 14)
-        c.drawString(80, height - 240, 'Social Networks:')  
-        y_position = height - 260
+        c.drawString(80, y_position, 'Social Networks:')  
+        y_position -= 20
         c.setFont("Helvetica", 12)
         for social in data["socials"]:
             c.drawString(100, y_position, f'{social["service"]}: {social["link"]}')
