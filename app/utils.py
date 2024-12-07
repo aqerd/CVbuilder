@@ -17,7 +17,6 @@ PATH_SAVE = os.path.join(os.path.dirname(__file__), 'BD')
 if not os.path.exists(PATH_SAVE):
     os.makedirs(PATH_SAVE)
 
-
 def collect_data(request):
     name = request.form.get('name')
     middle_name = request.form.get('middle-name')
@@ -101,6 +100,18 @@ def collect_data(request):
     'dob': dob, 'citizenship': citizenship, 'city': city, 'socials': socials, 'projects': projects,
     'experiences': experiences, 'education': education, 'languages': languages}
 
+def create_type(data, file_type):
+    match file_type:
+        case 'pdf':
+            filename = create_pdf(data)
+        case 'doc':
+            filename = create_docx(data)
+        case 'jpg':
+            filename = create_jpg(data)
+        case _:
+            return "File type not found", 404
+    return filename
+
 def create_pdf(data):
     pdf_path = os.path.join(PATH_SAVE, 'filename.pdf')
     c = canvas.Canvas(pdf_path, pagesize=letter)
@@ -125,7 +136,6 @@ def create_pdf(data):
         for social in data["socials"]:
             c.drawString(100, y_position, f'{social["service"]}: {social["link"]}')
             y_position -= 20
-    
 
     if data["projects"]:
         c.setFont("DejaVuSans-Bold", 14)
@@ -142,7 +152,6 @@ def create_pdf(data):
             c.drawString(100, y_position, f'Description: {project["description"]}')
             y_position -= 20
     
-    
     if data["experiences"]:
         c.setFont("DejaVuSans-Bold", 14)
         c.drawString(80, y_position, 'Experience:')  
@@ -158,7 +167,6 @@ def create_pdf(data):
             c.drawString(100, y_position, f'Description: {exp["description"]}')
             y_position -= 20
     
-    
     if data["education"]:
         c.setFont("DejaVuSans-Bold", 14)
         c.drawString(80, y_position, 'Education:')  
@@ -171,7 +179,6 @@ def create_pdf(data):
             y_position -= 20
             c.drawString(100, y_position, f'Field of Study: {edu["field"]}')
             y_position -= 20
-    
     
     if data["languages"]:
         c.setFont("DejaVuSans-Bold", 14)
@@ -194,13 +201,11 @@ def create_docx(data):
     doc.add_paragraph(f'Email: {data["email"]}')
     doc.add_paragraph(f'Citizenship: {data["citizenship"]}')
     doc.add_paragraph(f'City: {data["city"]}')
-    
-    
+
     if data["socials"]:
         doc.add_heading('Social Networks', level=1)
         for social in data["socials"]:
             doc.add_paragraph(f'{social["service"]}: {social["link"]}')
-    
     
     if data["projects"]:
         doc.add_heading('Projects', level=1)
@@ -210,7 +215,6 @@ def create_docx(data):
             doc.add_paragraph(f'Link: {project["link"]}')
             doc.add_paragraph(f'Description: {project["description"]}')
     
-    
     if data["experiences"]:
         doc.add_heading('Experience', level=1)
         for exp in data["experiences"]:
@@ -219,23 +223,19 @@ def create_docx(data):
             doc.add_paragraph(f'Period: {exp["period"]}')
             doc.add_paragraph(f'Description: {exp["description"]}')
     
-    
     if data["education"]:
         doc.add_heading('Education', level=1)
         for edu in data["education"]:
             doc.add_paragraph(f'Institution: {edu["institution"]}')
             doc.add_paragraph(f'Period: {edu["period"]}')
             doc.add_paragraph(f'Field of Study: {edu["field"]}')
-    
-    
+
     if data["languages"]:
         doc.add_heading('Languages', level=1)
         for lang in data["languages"]:
             doc.add_paragraph(f'{lang["language"]}: {lang["level"]}')
-    
-    
-    doc.save(docx_path)
-
+          
+    doc.save(docx_path) 
     return docx_path
 
 def create_jpg(data):
@@ -325,5 +325,4 @@ def create_jpg(data):
             y_position += 23
 
     image.save(jpg_path)
-    return jpg_path    
-
+    return jpg_path

@@ -12,16 +12,11 @@ def index():
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if request.method == 'POST':
-        
         data = collect_data(request)
-
         session['data'] = data
-
         return render_template('profile.html', projects=data.get("projects"), experiences=data.get("experiences"),
                                education=data.get("education"), languages=data.get("languages"), socials=data.get("socials"))
-
     return render_template('profile.html')
-
 
 @app.route('/samples')
 def samples():
@@ -33,18 +28,13 @@ def export():
 
 @app.route('/download/<file_type>',  methods=['GET'])
 def download(file_type):
-    data = session.get('data')  # Получаем данные из сессии
+    data = session.get('data')
 
     if not data:
         return "No data available", 400
-    if file_type == 'pdf':
-        filename = create_pdf(data)
-    elif file_type == 'doc':
-        filename = create_docx(data)
-    elif file_type == 'jpg':
-        filename = create_jpg(data)
-    else:
-        return "File type not found", 404
+
+    filename = create_type(data, file_type)
+
     return send_file(filename, as_attachment=True)
 
 @app.route('/help')
