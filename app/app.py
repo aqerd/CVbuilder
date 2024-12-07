@@ -42,7 +42,7 @@ def download(file_type):
     elif file_type == 'doc':
         filename = create_docx(data)
     elif file_type == 'jpg':
-        filename = 'example.jpg'
+        filename = create_jpg(data)
     else:
         return "File type not found", 404
     return send_file(filename, as_attachment=True)
