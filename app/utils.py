@@ -2,6 +2,14 @@ import os
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from docx import Document
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+
+regular_font_path = "app/static/fonts/DejaVuSans.ttf"
+bold_font_path = "app/static/fonts/DejaVuSans-Bold.ttf"
+
+pdfmetrics.registerFont(TTFont("DejaVuSans", regular_font_path))
+pdfmetrics.registerFont(TTFont("DejaVuSans-Bold", bold_font_path))
 
 PATH_SAVE = os.path.join(os.path.dirname(__file__), 'BD')
 
@@ -97,10 +105,10 @@ def create_pdf(data):
     c = canvas.Canvas(pdf_path, pagesize=letter)
     width, height = letter  
     
-    c.setFont("Helvetica-Bold", 20)
+    c.setFont("DejaVuSans-Bold", 20)
     c.drawString(80, height - 100, f'{data["name"]} {data["middle_name"]} {data["last_name"]}')
     
-    c.setFont("Helvetica", 12)
+    c.setFont("DejaVuSans", 12)
     c.drawString(100, height - 130, f'Age: {data["age"]}')
     c.drawString(100, height - 150, f'Date of Birth: {data["dob"]}')
     c.drawString(100, height - 170, f'Email: {data["email"]}')
@@ -109,20 +117,20 @@ def create_pdf(data):
     
     y_position = height - 240
     if data["socials"]:
-        c.setFont("Helvetica-Bold", 14)
+        c.setFont("DejaVuSans-Bold", 14)
         c.drawString(80, y_position, 'Social Networks:')  
         y_position -= 20
-        c.setFont("Helvetica", 12)
+        c.setFont("DejaVuSans", 12)
         for social in data["socials"]:
             c.drawString(100, y_position, f'{social["service"]}: {social["link"]}')
             y_position -= 20
     
 
     if data["projects"]:
-        c.setFont("Helvetica-Bold", 14)
+        c.setFont("DejaVuSans-Bold", 14)
         c.drawString(80, y_position, 'Projects:')  
         y_position -= 20
-        c.setFont("Helvetica", 12)
+        c.setFont("DejaVuSans", 12)
         for project in data["projects"]:
             c.drawString(100, y_position, f'Project Name: {project["name"]}')
             y_position -= 20
@@ -135,10 +143,10 @@ def create_pdf(data):
     
     
     if data["experiences"]:
-        c.setFont("Helvetica-Bold", 14)
+        c.setFont("DejaVuSans-Bold", 14)
         c.drawString(80, y_position, 'Experience:')  
         y_position -= 20
-        c.setFont("Helvetica", 12)
+        c.setFont("DejaVuSans", 12)
         for exp in data["experiences"]:
             c.drawString(100, y_position, f'Company: {exp["company"]}')
             y_position -= 20
@@ -151,10 +159,10 @@ def create_pdf(data):
     
     
     if data["education"]:
-        c.setFont("Helvetica-Bold", 14)
+        c.setFont("DejaVuSans-Bold", 14)
         c.drawString(80, y_position, 'Education:')  
         y_position -= 20
-        c.setFont("Helvetica", 12)
+        c.setFont("DejaVuSans", 12)
         for edu in data["education"]:
             c.drawString(100, y_position, f'Institution: {edu["institution"]}')
             y_position -= 20
@@ -165,10 +173,10 @@ def create_pdf(data):
     
     
     if data["languages"]:
-        c.setFont("Helvetica-Bold", 14)
+        c.setFont("DejaVuSans-Bold", 14)
         c.drawString(80, y_position, 'Languages:')  
         y_position -= 20
-        c.setFont("Helvetica", 12)
+        c.setFont("DejaVuSans", 12)
         for lang in data["languages"]:
             c.drawString(100, y_position, f'{lang["language"]}: {lang["level"]}')
             y_position -= 20
