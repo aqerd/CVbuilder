@@ -12,7 +12,7 @@ bold_font_path = "app/static/fonts/DejaVuSans-Bold.ttf"
 pdfmetrics.registerFont(TTFont("DejaVuSans", regular_font_path))
 pdfmetrics.registerFont(TTFont("DejaVuSans-Bold", bold_font_path))
 
-PATH_SAVE = os.path.join(os.path.dirname(__file__), 'BD')
+PATH_SAVE = os.path.join(os.path.dirname(__file__), 'files')
 
 if not os.path.exists(PATH_SAVE):
     os.makedirs(PATH_SAVE)
