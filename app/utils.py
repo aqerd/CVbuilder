@@ -19,7 +19,6 @@ PATH_SAVE = os.path.join(os.path.dirname(__file__), 'files')
 if not os.path.exists(PATH_SAVE):
     os.makedirs(PATH_SAVE)
 
-
 def collect_data(request):
     data = {
         "name": request.form.get('name'),
