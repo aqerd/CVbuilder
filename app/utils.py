@@ -115,14 +115,14 @@ def create_type(data, file_type):
     return filename
 
 def create_pdf(data):
-    pdf_path = os.path.join(PATH_SAVE, 'filename.pdf')
+    pdf_path = os.path.join(PATH_SAVE, 'CV.pdf')
     c = canvas.Canvas(pdf_path, pagesize=letter)
     width, height = letter  
     
-    c.setFont("DejaVuSans-Bold", 20)
+    c.setFont(bold_font, 20)
     c.drawString(80, height - 100, f'{data["name"]} {data["middle_name"]} {data["last_name"]}')
     
-    c.setFont("DejaVuSans", 12)
+    c.setFont(regular_font, 12)
     c.drawString(100, height - 130, f'Age: {data["age"]}')
     c.drawString(100, height - 150, f'Date of Birth: {data["dob"]}')
     c.drawString(100, height - 170, f'Email: {data["email"]}')
@@ -131,19 +131,19 @@ def create_pdf(data):
     
     y_position = height - 240
     if data["socials"]:
-        c.setFont("DejaVuSans-Bold", 14)
+        c.setFont(bold_font, 14)
         c.drawString(80, y_position, 'Social Networks:')  
         y_position -= 20
-        c.setFont("DejaVuSans", 12)
+        c.setFont(regular_font, 12)
         for social in data["socials"]:
             c.drawString(100, y_position, f'{social["service"]}: {social["link"]}')
             y_position -= 20
 
     if data["projects"]:
-        c.setFont("DejaVuSans-Bold", 14)
+        c.setFont(bold_font, 14)
         c.drawString(80, y_position, 'Projects:')  
         y_position -= 20
-        c.setFont("DejaVuSans", 12)
+        c.setFont(regular_font, 12)
         for project in data["projects"]:
             c.drawString(100, y_position, f'Project Name: {project["name"]}')
             y_position -= 20
@@ -155,10 +155,10 @@ def create_pdf(data):
             y_position -= 20
     
     if data["experiences"]:
-        c.setFont("DejaVuSans-Bold", 14)
+        c.setFont(bold_font, 14)
         c.drawString(80, y_position, 'Experience:')  
         y_position -= 20
-        c.setFont("DejaVuSans", 12)
+        c.setFont(regular_font, 12)
         for exp in data["experiences"]:
             c.drawString(100, y_position, f'Company: {exp["company"]}')
             y_position -= 20
@@ -170,10 +170,10 @@ def create_pdf(data):
             y_position -= 20
     
     if data["education"]:
-        c.setFont("DejaVuSans-Bold", 14)
+        c.setFont(bold_font, 14)
         c.drawString(80, y_position, 'Education:')  
         y_position -= 20
-        c.setFont("DejaVuSans", 12)
+        c.setFont(regular_font, 12)
         for edu in data["education"]:
             c.drawString(100, y_position, f'Institution: {edu["institution"]}')
             y_position -= 20
@@ -183,10 +183,10 @@ def create_pdf(data):
             y_position -= 20
     
     if data["languages"]:
-        c.setFont("DejaVuSans-Bold", 14)
+        c.setFont(bold_font, 14)
         c.drawString(80, y_position, 'Languages:')  
         y_position -= 20
-        c.setFont("DejaVuSans", 12)
+        c.setFont(regular_font, 12)
         for lang in data["languages"]:
             c.drawString(100, y_position, f'{lang["language"]}: {lang["level"]}')
             y_position -= 20
@@ -195,7 +195,7 @@ def create_pdf(data):
     return pdf_path
 
 def create_docx(data):
-    docx_path = os.path.join(PATH_SAVE, 'filename.docx')
+    docx_path = os.path.join(PATH_SAVE, 'CV.docx')
     doc = Document()
     doc.add_heading(f'{data["name"]} {data["middle_name"]} {data["last_name"]}', 0)
     doc.add_paragraph(f'Age: {data["age"]}')
@@ -241,7 +241,7 @@ def create_docx(data):
     return docx_path
 
 def create_jpg(data):
-    jpg_path = os.path.join(PATH_SAVE, 'filename.jpg')
+    jpg_path = os.path.join(PATH_SAVE, 'CV.jpg')
     
     width, height = 600, 800
     image = Image.new("RGB", (width, height), (255, 255, 255))  
