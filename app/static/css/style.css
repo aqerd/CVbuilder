@@ -62,8 +62,17 @@ button:active {
     gap: 10px;
 }
 
+main form {
+    margin-bottom: 4px;
+}
+
+.group {
+    margin-bottom: 10px;
+}
+
 .form-group label {
     margin-right: 10px;
+    margin-bottom: 4px;
 }
 
 .form-group input {
