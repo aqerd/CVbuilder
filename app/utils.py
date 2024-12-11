@@ -6,11 +6,12 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from PIL import Image, ImageDraw, ImageFont
 
-regular_font_path = "app/static/fonts/DejaVuSans.ttf"
-bold_font_path = "app/static/fonts/DejaVuSans-Bold.ttf"
-
-pdfmetrics.registerFont(TTFont("DejaVuSans", regular_font_path))
-pdfmetrics.registerFont(TTFont("DejaVuSans-Bold", bold_font_path))
+regular_font = "Arial"
+bold_font = "Arial-Bold"
+regular_font_path = "C:\\Windows\\Fonts\\arial.ttf"
+bold_font_path = "C:\\Windows\\Fonts\\arialbd.ttf"
+pdfmetrics.registerFont(TTFont(regular_font, regular_font_path))
+pdfmetrics.registerFont(TTFont(bold_font, bold_font_path))
 
 PATH_SAVE = os.path.join(os.path.dirname(__file__), 'files')
 
