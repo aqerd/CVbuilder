@@ -102,6 +102,7 @@ def create_pdf(data):
     if data["socials"]:
         c.setFont(bold_font, 14)
         c.drawString(80, y_position, 'Social Networks:')
+
         y_position -= 20
         c.setFont(regular_font, 12)
         for social in data["socials"]:
@@ -111,6 +112,7 @@ def create_pdf(data):
     if data["projects"]:
         c.setFont(bold_font, 14)
         c.drawString(80, y_position, 'Projects:')
+
         y_position -= 20
         c.setFont(regular_font, 12)
         for project in data["projects"]:
@@ -125,7 +127,7 @@ def create_pdf(data):
 
     if data["experiences"]:
         c.setFont(bold_font, 14)
-        c.drawString(80, y_position, 'Experience:')
+        c.drawString(80, y_position, 'Experience:')  
         y_position -= 20
         c.setFont(regular_font, 12)
         for exp in data["experiences"]:
@@ -140,7 +142,7 @@ def create_pdf(data):
 
     if data["education"]:
         c.setFont(bold_font, 14)
-        c.drawString(80, y_position, 'Education:')
+        c.drawString(80, y_position, 'Education:')  
         y_position -= 20
         c.setFont(regular_font, 12)
         for edu in data["education"]:
@@ -153,7 +155,7 @@ def create_pdf(data):
 
     if data["languages"]:
         c.setFont(bold_font, 14)
-        c.drawString(80, y_position, 'Languages:')
+        c.drawString(80, y_position, 'Languages:')  
         y_position -= 20
         c.setFont(regular_font, 12)
         for lang in data["languages"]:
