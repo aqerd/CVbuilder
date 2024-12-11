@@ -8,8 +8,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 regular_font = "Arial"
 bold_font = "Arial-Bold"
-regular_font_path = "C:\\Windows\\Fonts\\arial.ttf"
-bold_font_path = "C:\\Windows\\Fonts\\arialbd.ttf"
+regular_font_path = "static/fonts/arial.ttf"
+bold_font_path = "static/fonts/arialbd.ttf"
+
 pdfmetrics.registerFont(TTFont(regular_font, regular_font_path))
 pdfmetrics.registerFont(TTFont(bold_font, bold_font_path))
 
