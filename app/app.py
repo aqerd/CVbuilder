@@ -1,9 +1,11 @@
 from flask import Flask, render_template, send_file, request, session, make_response
+from flask_wtf.csrf import CSRFProtect
 from utils import *
 import os
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+csrf = CSRFProtect(app)
 
 @app.route('/')
 def index():
@@ -31,10 +33,6 @@ def profile():
             data[key] = value
 
     return render_template('profile.html', **data)
-
-@app.route('/samples')
-def samples():
-    return render_template('samples.html')
 
 @app.route('/export')
 def export():

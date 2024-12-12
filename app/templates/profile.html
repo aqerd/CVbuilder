@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Profile - CV Builder</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-        <script src="{{ url_for('static', filename='js/addNewButton.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     </head>
     <body>
         <div class="container">
@@ -17,6 +17,7 @@
             <main>
                 <h1>Profile</h1>
                 <form action="/profile" method="post">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="group" id="main-info">
                         <div class="form-group">
                             <label for="name">Name</label>
