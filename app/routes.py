@@ -1,6 +1,6 @@
-from app.utils import *
 from app import app
-from flask import Flask, render_template, send_file, request, session, make_response
+from app.utils import *
+from flask import render_template, make_response, send_file, request, session
 
 @app.route('/')
 def index():
