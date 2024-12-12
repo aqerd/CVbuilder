@@ -1,7 +1,7 @@
 from app import app
 from app.utils.data_collector import collect_data
 from app.utils.file_utils import create_type
-from flask import render_template, make_response, send_file, request, session
+from flask import render_template, make_response, send_file, jsonify, request, session
 
 @app.route('/')
 def index():
@@ -37,6 +37,13 @@ def samples():
 @app.route('/export')
 def export():
     return render_template('export.html')
+
+@app.route('/set_format', methods=['POST'])
+def set_format():
+    format_type = request.form.get('format')
+    session['format'] = format_type
+    return jsonify(success=True, format=format_type)
+
 
 @app.route('/download/<file_type>', methods=['GET'])
 def download(file_type):
