@@ -1,4 +1,4 @@
-# CVbuilder
+![Logo](images/logo.png)
 [![Follow @aqerd on GitHub](https://img.shields.io/github/followers/aqerd?label=Ruslan%20Suleymanov&style=social-&labelColor=black&color=black)](https://github.com/aqerd)
 [![Follow @RasulGasanbekov on GitHub](https://img.shields.io/github/followers/RasulGasanbekov?label=Rasul%20Gasanbekov&style=social-&labelColor=black&color=black)](https://github.com/RasulGasanbekov)
 [![Follow @tazik23 on GitHub](https://img.shields.io/github/followers/tazik23?label=Vladimir%20Golubev&style=social-&labelColor=black&color=black)](https://github.com/tazik23)
@@ -6,7 +6,7 @@
 [![Star CVbuilder on GitHub](https://img.shields.io/github/stars/aqerd/CVbuilder?label=Star&style=social-&labelColor=black&color=black)](https://github.com/aqerd/CVbuilder)
 [![Open issues for CVbuilder](https://img.shields.io/github/issues/aqerd/CVbuilder?label=Issues&labelColor=black&color=black)](https://github.com/aqerd/CVbuilder/issues)
 #### This site helps you create your CV
-
+![Profile](images/profile.png)
 ## 🚀 Usage
 Site is not deployed yet
 
@@ -18,8 +18,16 @@ git clone git@github.com:aqerd/CVbuilder.git
 Make sure you have Flask and Python installed on your machine
 
 ## 🔨 Powered by
-- Python 3.12
+- Python 
+  - Pillow
+  - Reportlab
+  - Python-docx
 - Flask
+- HTML with CSS
+- JavaScript
+
+## 🎨 Site design
+Site was created by Ruslan Suleymanov in [Figma](https://www.figma.com). See this project on [Behance](https://www.behance.net/ruslansuleymanov)
 
 ## 🧑‍💻 Credits
 Project made by **Ruslan Suleymanov**, **Rasul Gasanbekov** and **Vladimir Golubev** for Python course at Ural Federal University 
