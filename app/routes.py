@@ -1,5 +1,6 @@
 from app import app
-from app.utils import *
+from app.utils.data_collector import collect_data
+from app.utils.file_utils import create_type
 from flask import render_template, make_response, send_file, request, session
 
 @app.route('/')
