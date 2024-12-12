@@ -23,6 +23,7 @@ Make sure you have Flask and Python installed on your machine
   - Reportlab
   - Python-docx
 - Flask
+  - Flask-WTF 
 - HTML with CSS
 - JavaScript
 
