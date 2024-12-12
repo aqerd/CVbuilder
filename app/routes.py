@@ -45,12 +45,14 @@ def set_format():
     return jsonify(success=True, format=format_type)
 
 
-@app.route('/download/<file_type>', methods=['GET'])
-def download(file_type):
+@app.route('/download',  methods=['GET'])
+def download():
     data = session.get('data')
     if not data:
         return "No data available", 400
+    file_type = session.get('format')
     filename = create_type(data, file_type)
+
     return send_file(filename, as_attachment=True)
 
 @app.route('/about')
