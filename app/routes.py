@@ -1,9 +1,6 @@
+from app.utils import *
+from app import app
 from flask import Flask, render_template, send_file, request, session, make_response
-from utils import *
-import os
-
-app = Flask(__name__)
-app.secret_key = os.urandom(24)
 
 @app.route('/')
 def index():
@@ -51,6 +48,3 @@ def download(file_type):
 @app.route('/about')
 def about():
     return render_template('about.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
