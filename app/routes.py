@@ -1,7 +1,8 @@
 from app import app
 from app.utils.data_collector import collect_data
 from app.utils.file_utils import create_type
-from flask import render_template, make_response, send_file, jsonify, request, session
+from app.utils.email_utils import send_cv_mail
+from flask import render_template, make_response, redirect, send_file, jsonify, request, session
 
 @app.route('/')
 def index():
@@ -54,6 +55,21 @@ def download():
     filename = create_type(data, file_type)
 
     return send_file(filename, as_attachment=True)
+
+@app.route('/email')
+def sendEmail():
+    data = session.get('data')
+
+    if not data:
+        return "No data available", 400
+    
+    file_type = session.get('format')
+    filename = create_type(data, file_type)
+    try:
+        send_cv_mail(recipient=data['email'], name=data['name'], cv_path=filename)
+        return redirect('/export')
+    except:
+        return "Error sending email", 500
 
 @app.route('/about')
 def about():
