@@ -24,7 +24,8 @@ Make sure you have Flask and Python installed on your machine
   - Python-docx
 - Flask
   - Flask-WTF 
-- HTML with CSS
+- HTML 
+  - CSS
 - JavaScript
 
 ## 🎨 Site design
