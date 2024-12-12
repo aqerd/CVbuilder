@@ -1,65 +1,67 @@
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url('app/static/fonts/IBMPlexMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url('app/static/fonts/IBMPlexMono-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
 body {
     background-color: #111111;
     color: #ffffff;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
 }
 
-h1, p {
-    font-family: Arial;
+h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 48px;
 }
 
-input[type="text"], input[type="email"], input[type="number"] {
+a:visited {
+    color: cyan;
+}
+
+input, textarea, select {
     font-size: 1em;
     background-color: #333;
     color: #ffffff;
     border: 1px solid #444;
     border-radius: 5px;
-}
-
-.social-icons {
-    margin-top: 20px;
-}
-
-.social-icons span {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #444;
-}
-
-input[type="date"] {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type="date"]:focus {
-    border-color: #000;
     outline: none;
 }
 
-button {
-    display: inline-block;
-    width: 100px;
-    height: 20px;
-    color: white;
-    background-color: #222;
-    border: none;
-    border-radius: 5px;
+input, textarea, select, button {
+    font-family: inherit;
 }
 
-button:hover {
-    background-color: #111;
+input:focus, textarea:focus, select:focus {
+    border-color: #000;
 }
 
-button:active {
-    background-color: #000;
+input[type="date"] {
+    color: #888888;
 }
 
-.form-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 20px;
-    gap: 10px;
+input[type="date"]:focus {
+    color: #ffffff;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+main {
+    padding: 20px;
+    flex: 1;
 }
 
 main form {
@@ -68,23 +70,17 @@ main form {
 
 .group {
     margin-bottom: 10px;
+    gap: 4px;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .form-group label {
     margin-right: 10px;
     margin-bottom: 4px;
-}
-
-.form-group input {
-}
-
-.social-icons {
-    display: flex;
-    align-items: center;
-}
-
-.social-icons .add-icon {
-    margin-left: 10px;
 }
 
 .container {
@@ -103,24 +99,83 @@ aside form {
     margin: 0;
 }
 
-aside button {
-    background-color: #000;
-    width: 100%;
-    height: 80px;
-}
-
-aside button:hover {
-    background-color: #0056b3;
-}
-
-main {
-    padding: 20px;
-    flex: 1;
-}
-
 textarea {
     width: 100%;
     resize: vertical;
     box-sizing: border-box;
     overflow: hidden;
+}
+
+button {
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+    background-color: #222;
+    border: none;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #161616;
+}
+
+button:active {
+    background-color: #111;
+}
+
+aside button {
+    background-color: #111;
+    width: 100%;
+    height: 60px;
+}
+
+aside button:hover {
+    background-color: #161616;
+}
+
+aside button:active {
+    background-color: #141414;
+}
+
+.submit {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 20px;
+    background-color: #181818;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #161616;
+}
+
+.submit:active {
+    background-color: #111;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 5px;
 }
