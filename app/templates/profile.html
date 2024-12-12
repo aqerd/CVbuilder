@@ -17,6 +17,7 @@
             <main>
                 <h1>Profile</h1>
                 <form action="/profile" method="post">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="group" id="main-info">
                         <div class="form-group">
                             <label for="name">Name</label>
