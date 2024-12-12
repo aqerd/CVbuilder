@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Export - CV Builder</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -15,16 +16,34 @@
             </aside>
             <main>
                 <h1>Export</h1>
-                <form action="/download/pdf" method="get">
-                    <button type="submit">PDF</button>
+                <div>
+                    <button class="format-btn" data-format="pdf">PDF</button>
+                    <button class="format-btn" data-format="jpg">JPG</button>
+                    <button class="format-btn" data-format="doc">DOCX</button>
+                </div>
+                <script>
+                    $(document).ready(function(){
+                        $('button').click(function(){
+                            $('button').removeClass('active');
+                            $(this).addClass('active');
+            
+                            var format = $(this).data('format');
+
+                            $.post('/set_format', {format: format}, function(response) {
+                            });
+                        });
+                    });
+                </script>
+                
+                 <form action="/download" method="get">
+                    <button type="submit">Download</button>
                 </form>
-                <form action="/download/doc" method="get">
-                    <button type="submit">Doc</button>
-                </form>
-                <form action="/download/jpg" method="get">
-                    <button type="submit">JPG</button>
+                <form action="/email" method="get">
+                    <button type="submit">Get by email</button>
                 </form>
             </main>
         </div>
     </body>
 </html>
+
+               
