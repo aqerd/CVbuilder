@@ -55,6 +55,11 @@ button:active {
     background-color: #000;
 }
 
+.active {
+    color: #222;
+    background-color: #ffffff; 
+}
+
 .form-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -64,6 +69,7 @@ button:active {
 
 main form {
     margin-bottom: 4px;
+    margin-top: 4px;
 }
 
 .group {
@@ -124,3 +130,4 @@ textarea {
     box-sizing: border-box;
     overflow: hidden;
 }
+
