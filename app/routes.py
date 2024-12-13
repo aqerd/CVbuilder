@@ -6,6 +6,10 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 csrf = CSRFProtect(app)
+from app import app
+from app.utils.data_collector import collect_data
+from app.utils.file_utils import create_type
+from flask import render_template, make_response, send_file, request, session
 
 @app.route('/')
 def index():
@@ -34,6 +38,10 @@ def profile():
 
     return render_template('profile.html', **data)
 
+@app.route('/samples')
+def samples():
+    return render_template('samples.html')
+
 @app.route('/export')
 def export():
     return render_template('export.html')
@@ -49,6 +57,3 @@ def download(file_type):
 @app.route('/about')
 def about():
     return render_template('about.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
