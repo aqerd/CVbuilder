@@ -19,6 +19,18 @@ PATH_SAVE = os.path.join(os.path.dirname(__file__), 'files')
 if not os.path.exists(PATH_SAVE):
     os.makedirs(PATH_SAVE)
 
+def create_type(data, file_type):
+    match file_type:
+        case 'pdf':
+            filename = create_pdf(data)
+        case 'doc':
+            filename = create_docx(data)
+        case 'jpg':
+            filename = create_jpg(data)
+        case _:
+            return "File type not found", 404
+    return filename
+
 def create_pdf(data):
     pdf_path = os.path.join(PATH_SAVE, 'CV.pdf')
     c = canvas.Canvas(pdf_path, pagesize=letter)
@@ -235,15 +247,3 @@ def create_jpg(data):
 
     image.save(jpg_path)
     return jpg_path
-
-def create_type(data, file_type):
-    match file_type:
-        case 'pdf':
-            filename = create_pdf(data)
-        case 'doc':
-            filename = create_docx(data)
-        case 'jpg':
-            filename = create_jpg(data)
-        case _:
-            return "File type not found", 404
-    return filename
