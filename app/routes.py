@@ -1,11 +1,11 @@
 from flask import Flask, render_template, send_file, request, session, make_response
 from flask_wtf.csrf import CSRFProtect
-from utils import *
 import os
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 csrf = CSRFProtect(app)
+
 from app import app
 from app.utils.data_collector import collect_data
 from app.utils.file_utils import create_type
