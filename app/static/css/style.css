@@ -62,10 +62,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 main {
     padding: 20px;
     flex: 1;
+.active {
+    color: #222;
+    background-color: #ffffff;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 20px;
+    gap: 10px;
 }
 
 main form {
     margin-bottom: 4px;
+    margin-top: 4px;
 }
 
 .group {
@@ -179,3 +190,4 @@ aside button:active {
     background: #222;
     border-radius: 5px;
 }
+
