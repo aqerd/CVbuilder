@@ -162,3 +162,5 @@ cython_debug/
 .idea/
 
 structure.txt
+/app/files/CV.pdf
+/app/utils/files/CV.pdf

@@ -8,8 +8,8 @@ from reportlab.pdfbase.ttfonts import TTFont
 
 regular_font = "Arial"
 bold_font = "Arial-Bold"
-regular_font_path = r"C:\Users\goag\Desktop\CvBuilder\CVbuilder\app\static\fonts\arial.ttf"
-bold_font_path = r"C:\Users\goag\Desktop\CvBuilder\CVbuilder\app\static\fonts\arialbd.ttf"
+regular_font_path = r"app/static/fonts/arial.ttf"
+bold_font_path = r"app/static/fonts/arialbd.ttf"
 
 pdfmetrics.registerFont(TTFont(regular_font, regular_font_path))
 pdfmetrics.registerFont(TTFont(bold_font, bold_font_path))
@@ -18,6 +18,18 @@ PATH_SAVE = os.path.join(os.path.dirname(__file__), 'files')
 
 if not os.path.exists(PATH_SAVE):
     os.makedirs(PATH_SAVE)
+
+def create_type(data, file_type):
+    match file_type:
+        case 'pdf':
+            filename = create_pdf(data)
+        case 'doc':
+            filename = create_docx(data)
+        case 'jpg':
+            filename = create_jpg(data)
+        case _:
+            return "File type not found", 404
+    return filename
 
 def create_pdf(data):
     pdf_path = os.path.join(PATH_SAVE, 'CV.pdf')
@@ -235,15 +247,3 @@ def create_jpg(data):
 
     image.save(jpg_path)
     return jpg_path
-
-def create_type(data, file_type):
-    match file_type:
-        case 'pdf':
-            filename = create_pdf(data)
-        case 'doc':
-            filename = create_docx(data)
-        case 'jpg':
-            filename = create_jpg(data)
-        case _:
-            return "File type not found", 404
-    return filename

@@ -62,7 +62,7 @@ def sendEmail():
 
     if not data:
         return "No data available", 400
-    
+
     file_type = session.get('format')
     filename = create_type(data, file_type)
     try:
