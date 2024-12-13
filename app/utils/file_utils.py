@@ -8,9 +8,14 @@ from reportlab.pdfbase.ttfonts import TTFont
 
 regular_font = "Arial"
 bold_font = "Arial-Bold"
+<<<<<<<< HEAD:app/utils/create_file.py
 regular_font_path = r"app/static/fonts/arial.ttf"
 bold_font_path = r"app/static/fonts/arialbd.ttf"
 
+========
+regular_font_path = r"app\static\fonts\arial.ttf"
+bold_font_path = r"app\static\fonts\arialbd.ttf"
+>>>>>>>> 3df9b63 (Code update):app/utils/file_utils.py
 pdfmetrics.registerFont(TTFont(regular_font, regular_font_path))
 pdfmetrics.registerFont(TTFont(bold_font, bold_font_path))
 
@@ -19,6 +24,7 @@ PATH_SAVE = os.path.join(os.path.dirname(__file__), 'files')
 if not os.path.exists(PATH_SAVE):
     os.makedirs(PATH_SAVE)
 
+<<<<<<<< HEAD:app/utils/create_file.py
 def create_type(data, file_type):
     match file_type:
         case 'pdf':
@@ -31,6 +37,8 @@ def create_type(data, file_type):
             return "File type not found", 404
     return filename
 
+========
+>>>>>>>> 3df9b63 (Code update):app/utils/file_utils.py
 def create_pdf(data):
     pdf_path = os.path.join(PATH_SAVE, 'CV.pdf')
     c = canvas.Canvas(pdf_path, pagesize=letter)
@@ -75,7 +83,7 @@ def create_pdf(data):
 
     if data["experiences"]:
         c.setFont(bold_font, 14)
-        c.drawString(80, y_position, 'Experience:')  
+        c.drawString(80, y_position, 'Experience:')
         y_position -= 20
         c.setFont(regular_font, 12)
         for exp in data["experiences"]:
@@ -90,7 +98,7 @@ def create_pdf(data):
 
     if data["education"]:
         c.setFont(bold_font, 14)
-        c.drawString(80, y_position, 'Education:')  
+        c.drawString(80, y_position, 'Education:')
         y_position -= 20
         c.setFont(regular_font, 12)
         for edu in data["education"]:
@@ -103,7 +111,7 @@ def create_pdf(data):
 
     if data["languages"]:
         c.setFont(bold_font, 14)
-        c.drawString(80, y_position, 'Languages:')  
+        c.drawString(80, y_position, 'Languages:')
         y_position -= 20
         c.setFont(regular_font, 12)
         for lang in data["languages"]:
@@ -127,7 +135,7 @@ def create_docx(data):
         doc.add_heading('Social Networks', level=1)
         for social in data["socials"]:
             doc.add_paragraph(f'{social["service"]}: {social["link"]}')
-    
+
     if data["projects"]:
         doc.add_heading('Projects', level=1)
         for project in data["projects"]:
@@ -135,7 +143,7 @@ def create_docx(data):
             doc.add_paragraph(f'Time: {project["time"]}')
             doc.add_paragraph(f'Link: {project["link"]}')
             doc.add_paragraph(f'Description: {project["description"]}')
-    
+
     if data["experiences"]:
         doc.add_heading('Experience', level=1)
         for exp in data["experiences"]:
@@ -143,7 +151,7 @@ def create_docx(data):
             doc.add_paragraph(f'Job Title: {exp["title"]}')
             doc.add_paragraph(f'Period: {exp["period"]}')
             doc.add_paragraph(f'Description: {exp["description"]}')
-    
+
     if data["education"]:
         doc.add_heading('Education', level=1)
         for edu in data["education"]:
@@ -155,28 +163,30 @@ def create_docx(data):
         doc.add_heading('Languages', level=1)
         for lang in data["languages"]:
             doc.add_paragraph(f'{lang["language"]}: {lang["level"]}')
-          
-    doc.save(docx_path) 
+
+    doc.save(docx_path)
     return docx_path
+
 
 def create_jpg(data):
     jpg_path = os.path.join(PATH_SAVE, 'CV.jpg')
-    
+
     width, height = 600, 800
-    image = Image.new("RGB", (width, height), (255, 255, 255))  
+    image = Image.new("RGB", (width, height), (255, 255, 255))
     draw = ImageDraw.Draw(image)
 
     try:
         font_regular = ImageFont.truetype(regular_font_path, 17)
         font_bold = ImageFont.truetype(bold_font_path, 20)
-        font_bold_big_size = ImageFont.truetype(bold_font_path,30 )
+        font_bold_big_size = ImageFont.truetype(bold_font_path, 30)
     except IOError:
         print("Font file not found")
         return
 
     y_position = 30
-        
-    draw.text((70, y_position), f'{data["name"]} {data["middle_name"]} {data["last_name"]}', font=font_bold_big_size, fill=(0, 0, 0))
+
+    draw.text((70, y_position), f'{data["name"]} {data["middle_name"]} {data["last_name"]}', font=font_bold_big_size,
+              fill=(0, 0, 0))
     y_position += 40
     draw.text((100, y_position), f'Age: {data["age"]}', font=font_regular, fill=(0, 0, 0))
     y_position += 23
@@ -189,7 +199,6 @@ def create_jpg(data):
     draw.text((100, y_position), f'City: {data["city"]}', font=font_regular, fill=(0, 0, 0))
     y_position += 30
 
-    
     if data["socials"]:
         draw.text((80, y_position), 'Social Networks:', font=font_bold, fill=(0, 0, 0))
         y_position += 25
@@ -197,7 +206,6 @@ def create_jpg(data):
             draw.text((100, y_position), f'{social["service"]}: {social["link"]}', font=font_regular, fill=(0, 0, 0))
             y_position += 23
 
-    
     if data["projects"]:
         draw.text((80, y_position), 'Projects:', font=font_bold, fill=(0, 0, 0))
         y_position += 25
@@ -211,7 +219,6 @@ def create_jpg(data):
             draw.text((100, y_position), f'Description: {project["description"]}', font=font_regular, fill=(0, 0, 0))
             y_position += 23
 
-    
     if data["experiences"]:
         draw.text((80, y_position), 'Experience:', font=font_bold, fill=(0, 0, 0))
         y_position += 25
@@ -225,7 +232,6 @@ def create_jpg(data):
             draw.text((100, y_position), f'Description: {exp["description"]}', font=font_regular, fill=(0, 0, 0))
             y_position += 23
 
-    
     if data["education"]:
         draw.text((80, y_position), 'Education:', font=font_bold, fill=(0, 0, 0))
         y_position += 25
@@ -237,7 +243,6 @@ def create_jpg(data):
             draw.text((100, y_position), f'Field of Study: {edu["field"]}', font=font_regular, fill=(0, 0, 0))
             y_position += 23
 
-    
     if data["languages"]:
         draw.text((80, y_position), 'Languages:', font=font_bold, fill=(0, 0, 0))
         y_position += 25
@@ -247,3 +252,18 @@ def create_jpg(data):
 
     image.save(jpg_path)
     return jpg_path
+<<<<<<<< HEAD:app/utils/create_file.py
+========
+
+def create_type(data, file_type):
+    match file_type:
+        case 'pdf':
+            filename = create_pdf(data)
+        case 'doc':
+            filename = create_docx(data)
+        case 'jpg':
+            filename = create_jpg(data)
+        case _:
+            return "File type not found", 404
+    return filename
+>>>>>>>> 3df9b63 (Code update):app/utils/file_utils.py
