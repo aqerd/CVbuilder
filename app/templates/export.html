@@ -21,14 +21,11 @@
                         <button class="filetype" data-format="pdf">PDF</button>
                         <button class="filetype" data-format="doc">DOCX</button>
                         <button class="filetype" data-format="jpg">JPG</button>
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     </div>
                     <div class="button-row">
-                        <form action="/download" method="get">
-                            <button type="submit">Download</button>
-                        </form>
-                        <form action="/email" method="get">
-                            <button type="submit">Send email</button>
-                        </form>
+                        <button id="downloadBtn" type="button">Download</button>
+                        <button id="emailBtn" type="button">Send email</button>
                     </div>
                 </div>
             </main>
