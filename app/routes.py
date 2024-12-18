@@ -1,13 +1,7 @@
-from flask import Flask, render_template, send_file, request, session, make_response, redirect
-from flask_wtf import CSRFProtect
+from flask import render_template, send_file, jsonify, request, session, make_response, redirect
 from app.utils.email_utils import send_cv_mail
 from app.utils.file_utils import *
 from app.utils.data_collector import collect_data
-
-app = Flask(__name__)
-app.secret_key = os.urandom(36)
-csrf = CSRFProtect(app)
-
 from app import app
 
 @app.route('/')
@@ -49,28 +43,30 @@ def export():
 def about():
     return render_template('about.html')
 
-@app.route('/download/<file_type>', methods=['GET'])
-def download(file_type):
+@app.route('/set_format', methods=['POST'])
+def set_format():
+    format_type = request.form.get('format')
+    session['format'] = format_type
+    return jsonify(success=True, format=format_type)
+     
+@app.route('/download', methods=['GET'])
+def download():
     data = session.get('data')
     if not data:
         return "No data available", 400
-    filename = create_type(data, file_type)
-    if not os.path.exists(filename):
-        return "File not found", 404
+    filetype = session.get('format')
+    filename = create_type(data, filetype)
     return send_file(filename, as_attachment=True)
 
-@app.route('/email')
+@app.route('/email', methods = ['GET'])
 def email():
     data = session.get('data')
     if not data:
         return "No data available", 400
-    file_type = session.get('format')
-    filename = create_type(data, file_type)
-    if not os.path.exists(filename):
-        return "File not found", 404
+    filetype = session.get('format')
+    filename = create_type(data, filetype)
     try:
         send_cv_mail(recipient=data['email'], name=data['name'], lastname=data['last_name'], cv_path=filename)
         return redirect('/export')
     except Exception as e:
-        print(f"Error sending email: {e}")
-        return "Error sending email", 500
+        return "Error sending email " + e, 500
