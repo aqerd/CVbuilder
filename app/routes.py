@@ -13,9 +13,7 @@ def index():
 def profile():
     if request.method == 'POST':
         data = collect_data(request)
-        response = make_response(render_template('profile.html', projects=data.get("projects"),
-                                                 experiences=data.get("experiences"), education=data.get("education"),
-                                                 languages=data.get("languages"), socials=data.get("socials")))
+        response = make_response(redirect('/export'))
         for key, value in data.items():
             if isinstance(value, (list, dict)):
                 continue
@@ -52,16 +50,14 @@ def set_format():
      
 @app.route('/download', methods=['GET'])
 @data_required
-def download():
-    data = session.get('data')
+def download(data):
     filetype = session.get('format')
     filename = create_type(data, filetype)
     return send_file(filename, as_attachment=True)
 
 @app.route('/email', methods = ['GET'])
 @data_required
-def email():
-    data = session.get('data')
+def email(data):
     filetype = session.get('format')
     filename = create_type(data, filetype)
     try:
