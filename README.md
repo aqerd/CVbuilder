@@ -5,7 +5,7 @@
 [![Watch CVbuilder on GitHub](https://img.shields.io/github/watchers/aqerd/CVbuilder?label=Watch&style=social-&labelColor=black&color=black)](https://github.com/aqerd/CVbuilder/subscription)
 [![Star CVbuilder on GitHub](https://img.shields.io/github/stars/aqerd/CVbuilder?label=Star&style=social-&labelColor=black&color=black)](https://github.com/aqerd/CVbuilder)
 [![Open issues for CVbuilder](https://img.shields.io/github/issues/aqerd/CVbuilder?label=Issues&labelColor=black&color=black)](https://github.com/aqerd/CVbuilder/issues)
-#### This site helps you create your CV
+#### Build your CV fast and easy way
 ![Profile](images/profile.png)
 ## 🚀 Usage
 Site is not deployed yet
