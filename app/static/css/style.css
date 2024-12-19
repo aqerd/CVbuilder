@@ -25,6 +25,14 @@ h1 {
     font-size: 48px;
 }
 
+a {
+    color: white;
+}
+
+a:hover {
+    color: cyan;
+}
+
 a:visited {
     color: cyan;
 }
@@ -33,7 +41,7 @@ input, textarea, select {
     font-size: 1em;
     background-color: #333;
     color: #ffffff;
-    border: 1px solid #444;
+    border: 2px solid #222;
     border-radius: 5px;
     outline: none;
 }
@@ -44,10 +52,11 @@ input, textarea, select, button {
 
 input:focus, textarea:focus, select:focus {
     border-color: #000;
+    border: 2px solid #fff;
 }
 
 input[type="date"] {
-    color: #888888;
+    color: #888;
 }
 
 input[type="date"]:focus {
@@ -96,7 +105,7 @@ main form {
 
 .container {
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: auto 1fr;
     min-height: 100vh;
 }
 
@@ -106,8 +115,11 @@ aside {
     flex-direction: column;
 }
 
-aside form {
+.goto {
     margin: 0;
+}
+
+.goto:active {
 }
 
 textarea {
@@ -132,32 +144,58 @@ button {
 }
 
 button:hover {
-    background-color: #161616;
+    background-color: #333;
 }
 
 button:active {
     background-color: #111;
 }
 
+.button-row {
+    display: flex;
+    gap: 10px;
+}
+
+.button-row form {
+    margin: 0;
+}
+
+.button-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 aside button {
     background-color: #111;
     width: 100%;
     height: 60px;
+    text-align: left;
 }
 
 aside button:hover {
-    background-color: #161616;
+    background-color: #333;
 }
 
 aside button:active {
-    background-color: #141414;
+    background-color: #222;
+}
+
+.current {
+    color: #222;
+    background-color: #ffffff;
+}
+
+.current:hover {
+    color: #222;
+    background-color: #ffffff;
 }
 
 .submit {
     width: 100%;
     padding: 10px 15px;
     font-size: 20px;
-    background-color: #181818;
+    background-color: #222;
     color: white;
     border: none;
     border-radius: 10px;
@@ -165,7 +203,7 @@ aside button:active {
 }
 
 .submit:hover {
-    background-color: #161616;
+    background-color: #333;
 }
 
 .submit:active {
@@ -178,16 +216,15 @@ aside button:active {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #555;
+    background: #333;
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #777;
+    background: #666;
 }
 
 ::-webkit-scrollbar-track {
     background: #222;
-    border-radius: 5px;
 }
 

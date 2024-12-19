@@ -5,51 +5,58 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Profile - CV Builder</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/add_new_button.js') }}"></script>
     </head>
     <body>
         <div class="container">
             <aside>
-                <form action="/profile" method="get"><button type="submit">Profile</button></form>
-                <form action="/export" method="get"><button type="submit">Export</button></form>
-                <form action="/about" method="get"><button type="submit">About us</button></form>
+                <form class="goto" action="/profile" method="get"><button type="submit">Profile</button></form>
+                <form class="goto" action="/export" method="get"><button type="submit">Export</button></form>
+                <form class="goto" action="/about" method="get"><button type="submit">About us</button></form>
             </aside>
             <main>
                 <h1>Profile</h1>
                 <form action="/profile" method="post">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="group" id="main-info">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Ivan" value="{{ name }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
                             <label for="middle-name">Middle name (or patronym)</label>
                             <input type="text" id="middle-name" name="middle-name" placeholder="Ivanovich" value="{{ middle_name }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
                             <label for="last-name">Last Name</label>
                             <input type="text" id="last-name" name="last-name" placeholder="Ivanov" value="{{ last_name }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
                             <label for="age">Age</label>
                             <input type="number" id="age" name="age" placeholder="20" value="{{ age }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" placeholder="example@cvbuilder.com" value="{{ email }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
                             <label for="dob">Date of Birth</label>
                             <input type="date" id="dob" name="dob" placeholder="06.06.2005" value="{{ dob }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
                             <label for="citizenship">Citizenship</label>
                             <input type="text" id="citizenship" name="citizenship" placeholder="Russia" value="{{ citizenship }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
                             <label for="city">City</label>
                             <input type="text" id="city" name="city" placeholder="Yekaterinburg" value="{{ city }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                     </div>
                     <div class="group" id="socials">
@@ -60,11 +67,13 @@
                                 <div class="form-group">
                                     <label>Social Name</label>
                                     <input type="text" name="social-service-{{ loop.index }}" value="{{ social.service }}">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Link</label>
                                     <input type="url" name="social-link-{{ loop.index }}" value="{{ social.link }}">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
                             </div>
                             {% endfor %}
@@ -73,11 +82,13 @@
                                 <div class="form-group">
                                     <label>Social Name</label>
                                     <input type="text" name="social-service-1" placeholder="Telegram">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Link</label>
                                     <input type="url" name="social-link-1" placeholder="https://t.me/yourprofile">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
                             </div>
                             {% endif %}
@@ -90,14 +101,17 @@
                                 <div class="form-group">
                                     <label for="project-name-1">Project Name</label>
                                     <input type="text" id="project-name-1" name="project-name-1" placeholder="Project Title">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="project-time-1">Was made (From - To)</label>
                                     <input type="text" id="project-time-1" name="project-time-1" placeholder="From - To">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="project-link-1">Link</label>
                                     <input type="url" id="project-link-1" name="project-link-1" placeholder="https://example.com">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="project-description-1">Description</label>
@@ -113,16 +127,19 @@
                                 <div class="form-group">
                                     <label for="company-name-1">Company</label>
                                     <input type="text" id="company-name-1" name="company-name-1" placeholder="Company Name">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="job-title-1">Job Title</label>
                                     <input type="text" id="job-title-1" name="job-title-1" placeholder="Job Title">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="work-period-1">Work Period (From - To)</label>
                                     <input type="text" id="work-period-1" name="work-period-1" placeholder="From - To">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
 
                                 <div class="form-group">
@@ -139,6 +156,7 @@
                                 <div class="form-group">
                                     <label for="institution-name-1">Institution Name</label>
                                     <input type="text" id="institution-name-1" name="institution-name-1" placeholder="University Name">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="education-period-1">Study Period</label>
@@ -147,6 +165,7 @@
                                 <div class="form-group">
                                     <label for="field-of-study-1">Field of Study</label>
                                     <input type="text" id="field-of-study-1" name="field-of-study-1" placeholder="Field of Study">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
                             </div>
                         </div>
@@ -158,6 +177,7 @@
                                 <div class="form-group">
                                     <label for="language-name-1">Language</label>
                                     <input type="text" id="language-name-1" name="language-name-1" placeholder="Language">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="language-level-1">Level</label>

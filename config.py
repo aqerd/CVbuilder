@@ -1,6 +1,7 @@
 import os
 
 class Config:
+    SECRET_KEY = os.urandom(36)
     MAIL_SERVER = 'smtp.mail.ru'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
