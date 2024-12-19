@@ -68,4 +68,4 @@ def email():
         send_cv_mail(recipient=data['email'], name=data['name'], lastname=data['last_name'], cv_path=filename)
         return redirect('/export')
     except Exception as e:
-        return "Error sending email " + e, 500
+        return render_template("error.html", msg_error=f"Error sending email: + {e}", error=500)
