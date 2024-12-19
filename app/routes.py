@@ -53,7 +53,7 @@ def set_format():
 def download():
     data = session.get('data')
     if not data:
-        return "No data available", 400
+        return render_template("error.html", msg_error="No data available", error=400)
     filetype = session.get('format')
     filename = create_type(data, filetype)
     return send_file(filename, as_attachment=True)
@@ -62,11 +62,11 @@ def download():
 def email():
     data = session.get('data')
     if not data:
-        return "No data available", 400
+        return render_template("error.html", msg_error="No data available", error=400)
     filetype = session.get('format')
     filename = create_type(data, filetype)
     try:
         send_cv_mail(recipient=data['email'], name=data['name'], lastname=data['last_name'], cv_path=filename)
         return redirect('/export')
     except Exception as e:
-        return "Error sending email " + e, 500
+        return render_template("error.html", msg_error=f"Error sending email: + {e}", error=500)
