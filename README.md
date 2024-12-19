@@ -24,9 +24,10 @@ Make sure you have Flask and Python installed on your machine
   - Python-docx
 - Flask
   - Flask-WTF 
+  - Flask-Mail
 - HTML 
   - CSS
-- JavaScript
+  - JavaScript
 
 ## 🎨 Site design
 Site was created by Ruslan Suleymanov in [Figma](https://www.figma.com). See this project on [Behance](https://www.behance.net/ruslansuleymanov)

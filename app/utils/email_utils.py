@@ -17,7 +17,7 @@ def send_mail(subject, recipients, text_body, attachments=None):
 
 def send_cv_mail(recipient, name, lastname, cv_path):
     send_mail(
-        subject='Ваше резюме',
+        subject='Your CV',
         recipients=[recipient],
         text_body=render_template('cv_email.txt', name=name, lastname=lastname),
         attachments=[cv_path]
