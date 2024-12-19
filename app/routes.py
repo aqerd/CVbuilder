@@ -70,3 +70,7 @@ def email():
         return redirect('/export')
     except Exception as e:
         return "Error sending email " + e, 500
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error.html', mas_error=f"Page not available: + {e}", error=404)
