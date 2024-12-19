@@ -2,6 +2,7 @@ from flask import render_template, send_file, jsonify, request, session, make_re
 from app.utils.email_utils import send_cv_mail
 from app.utils.file_utils import create_type
 from app.utils.data_collector import collect_data
+from app.utils.middlewares import data_required
 from app import app
 
 @app.route('/')
@@ -50,19 +51,17 @@ def set_format():
     return jsonify(success=True, format=format_type)
      
 @app.route('/download', methods=['GET'])
+@data_required
 def download():
     data = session.get('data')
-    if not data:
-        return "No data available", 400
     filetype = session.get('format')
     filename = create_type(data, filetype)
     return send_file(filename, as_attachment=True)
 
 @app.route('/email', methods = ['GET'])
+@data_required
 def email():
     data = session.get('data')
-    if not data:
-        return "No data available", 400
     filetype = session.get('format')
     filename = create_type(data, filetype)
     try:
