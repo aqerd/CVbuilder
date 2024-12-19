@@ -1,6 +1,6 @@
 from flask import render_template, send_file, jsonify, request, session, make_response, redirect
 from app.utils.email_utils import send_cv_mail
-from app.utils.file_utils import *
+from app.utils.file_utils import create_type
 from app.utils.data_collector import collect_data
 from app import app
 
