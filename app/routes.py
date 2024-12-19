@@ -68,10 +68,12 @@ def email():
         send_cv_mail(recipient=data['email'], name=data['name'], lastname=data['last_name'], cv_path=filename)
         return redirect('/export')
     except Exception as e:
+        if e.args[0][''][0] == 501:
+            return render_template("error.html", msg_error=f"Paste your email in Profile page", error=501)   
         return render_template("error.html", msg_error=f"Error sending email: + {e}", error=500)
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('error.html', mas_error=f"Page not available: + {e}", error=404)
+    return render_template('error.html', msg_error=f'Page not available: + {e}', error=404)
 
 
