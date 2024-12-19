@@ -213,3 +213,90 @@ aside button:active {
 ::-webkit-scrollbar-track {
     background: #222;
 }
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    aside {
+        flex-direction: row;
+        gap: 10px; 
+        padding: 20px;
+    }
+
+    aside button {
+        flex-grow: 0;
+        width: 100%; 
+    }
+    
+
+    button {
+        font-size: 18px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .submit {
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+
+    textarea {
+        font-size: 14px;
+    }
+
+    input, textarea, select {
+        font-size: 14px;
+    }
+
+    .group {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .form-group {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .submit {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .group {
+        margin-bottom: 6px;
+    }
+}
