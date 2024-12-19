@@ -8,14 +8,9 @@ from reportlab.pdfbase.ttfonts import TTFont
 
 regular_font = "Arial"
 bold_font = "Arial-Bold"
-<<<<<<<< HEAD:app/utils/create_file.py
-regular_font_path = r"app/static/fonts/arial.ttf"
-bold_font_path = r"app/static/fonts/arialbd.ttf"
 
-========
 regular_font_path = r"app\static\fonts\arial.ttf"
 bold_font_path = r"app\static\fonts\arialbd.ttf"
->>>>>>>> 3df9b63 (Code update):app/utils/file_utils.py
 pdfmetrics.registerFont(TTFont(regular_font, regular_font_path))
 pdfmetrics.registerFont(TTFont(bold_font, bold_font_path))
 
@@ -24,7 +19,6 @@ PATH_SAVE = os.path.join(os.path.dirname(__file__), 'files')
 if not os.path.exists(PATH_SAVE):
     os.makedirs(PATH_SAVE)
 
-<<<<<<<< HEAD:app/utils/create_file.py
 def create_type(data, file_type):
     match file_type:
         case 'pdf':
@@ -37,8 +31,7 @@ def create_type(data, file_type):
             return "File type not found", 404
     return filename
 
-========
->>>>>>>> 3df9b63 (Code update):app/utils/file_utils.py
+
 def create_pdf(data):
     pdf_path = os.path.join(PATH_SAVE, 'CV.pdf')
     c = canvas.Canvas(pdf_path, pagesize=letter)
@@ -252,8 +245,7 @@ def create_jpg(data):
 
     image.save(jpg_path)
     return jpg_path
-<<<<<<<< HEAD:app/utils/create_file.py
-========
+
 
 def create_type(data, file_type):
     match file_type:
@@ -266,4 +258,4 @@ def create_type(data, file_type):
         case _:
             return "File type not found", 404
     return filename
->>>>>>>> 3df9b63 (Code update):app/utils/file_utils.py
+
