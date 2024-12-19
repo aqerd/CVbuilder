@@ -37,6 +37,10 @@ a:visited {
     color: cyan;
 }
 
+b {
+    color: crimson;
+}
+
 input, textarea, select {
     font-size: 1em;
     background-color: #333;
