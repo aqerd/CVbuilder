@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="{{ url_for('static', filename='media/icon.png') }}" type="image/png">
+        {% include 'shared/info.html' %}
         <title>Profile - CV Builder</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <script src="{{ url_for('static', filename='js/add_new_button.js') }}"></script>
     </head>
     <body>
         <div class="container">
-            <aside>
-                <form class="goto" action="/profile" method="get"><button type="submit">Profile</button></form>
-                <form class="goto" action="/export" method="get"><button type="submit">Export</button></form>
-                <form class="goto" action="/about" method="get"><button type="submit">About</button></form>
-            </aside>
+            {% include 'shared/aside.html' %}
             <main>
                 <h1>Profile</h1>
                 <form action="/profile" method="post">

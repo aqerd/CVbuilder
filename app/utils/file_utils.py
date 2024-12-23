@@ -115,6 +115,7 @@ def create_pdf(data):
 
     return pdf_path
 
+
 def create_docx(data):
     docx_path = os.path.join(PATH_SAVE, 'CV.docx')
     doc = Document()
@@ -246,17 +247,3 @@ def create_jpg(data):
 
     image.save(jpg_path)
     return jpg_path
-
-
-def create_type(data, file_type):
-    match file_type:
-        case 'pdf':
-            filename = create_pdf(data)
-        case 'doc':
-            filename = create_docx(data)
-        case 'jpg':
-            filename = create_jpg(data)
-        case _:
-            return "File type not found", 404
-    return filename
-
