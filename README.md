@@ -30,7 +30,7 @@ Make sure you have Flask and Python installed on your machine
   - JavaScript
 
 ## 🎨 Site design
-Site was created by Ruslan Suleymanov in [Figma](https://www.figma.com). See this project on [Behance](https://www.behance.net/ruslansuleymanov)
+Site was created by Ruslan Suleymanov in Figma. See this project on [Behance](https://www.behance.net/gallery/215413437/CVbuilder)
 
 ## 🧑‍💻 Credits
 Project made by **Ruslan Suleymanov**, **Rasul Gasanbekov** and **Vladimir Golubev** for Python course at Ural Federal University 
