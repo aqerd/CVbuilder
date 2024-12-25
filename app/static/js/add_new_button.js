@@ -18,7 +18,7 @@ function addSocial(event) {
 
         <div class="form-group">
             <label for="social-link-${socialCount}">Profile Link</label>
-            <input type="url" id="social-link-${socialCount}" name="social-link-${socialCount}" placeholder="https://yourprofile">
+            <input type="url" id="social-link-${socialCount}" name="social-link-${socialCount}" placeholder="https://example.com/you">
         </div>
     `;
     document.getElementById('socials-container').appendChild(newSocialDiv);
@@ -37,7 +37,7 @@ function addProject(event) {
         </div>
 
         <div class="form-group">
-            <label for="project-time-${projectCount}">Project Time (From - To)</label>
+            <label for="project-time-${projectCount}">Project Time</label>
             <input type="text" id="project-time-${projectCount}" name="project-time-${projectCount}" placeholder="From - To">
         </div>
 
@@ -72,7 +72,7 @@ function addExperience(event) {
         </div>
 
         <div class="form-group">
-            <label for="work-period-${experienceCount}">Work Period (From - To)</label>
+            <label for="work-period-${experienceCount}">Work Period</label>
             <input type="text" id="work-period-${experienceCount}" name="work-period-${experienceCount}" placeholder="From - To">
         </div>
 
@@ -97,7 +97,7 @@ function addEducation(event) {
         </div>
 
         <div class="form-group">
-            <label for="education-period-${educationCount}">Study Period (From - To)</label>
+            <label for="education-period-${educationCount}">Study Period</label>
             <input type="text" id="education-period-${educationCount}" name="education-period-${educationCount}" placeholder="From - To">
         </div>
 
