@@ -1,11 +1,10 @@
 const CACHE_NAME = 'cvbuilder-cache-v1';
 const ASSETS_TO_CACHE = [
-    '/', // Кэшируем главную страницу
-    '/offline.html', // Статический оффлайн-файл
-    '/static/style.css',
-    '/static/js/register_sw.js',
-    '/static/js/service_worker.js',
-    // Добавьте другие статические ресурсы по необходимости
+    '/offline.html',
+    '/style.css',
+    '/js/register_sw.js',
+    '/service_worker.js',
+    '/media/icon.png',
 ];
 
 self.addEventListener('install', (event) => {
@@ -38,7 +37,6 @@ self.addEventListener('fetch', (event) => {
         caches.match(event.request).then((response) => {
             return response || fetch(event.request);
         }).catch(() => {
-            // Возвращаем оффлайн-страницу только для навигационных запросов
             if (event.request.mode === 'navigate') {
                 return caches.match('/offline.html');
             }

@@ -1,4 +1,4 @@
-from flask import render_template, send_file, jsonify, request, session, make_response, redirect
+from flask import render_template, send_file, jsonify, request, session, make_response, redirect, send_from_directory
 from app.utils.email_utils import send_cv_mail
 from app.utils.file_utils import create_type
 from app.utils.data_collector import collect_data
@@ -67,10 +67,6 @@ def email(data):
         if e.args[0][''][0] == 501:
             return render_template("error.html", msg_error=f"Paste your email in Profile page", error=501)   
         return render_template("error.html", msg_error=f"Error sending email: {e}", error=500)
-
-@app.route('/offline')
-def offline():
-    return render_template("offline.html")
 
 @app.errorhandler(404)
 def page_not_found(e):
