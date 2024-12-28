@@ -68,6 +68,10 @@ def email(data):
             return render_template("error.html", msg_error=f"Paste your email in Profile page", error=501)   
         return render_template("error.html", msg_error=f"Error sending email: {e}", error=500)
 
+@app.route('/offline')
+def offline():
+    return render_template("offline.html")
+
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('error.html', msg_error=f'Page not available: {e}', error=404)
+    return render_template('error.html', msg_error=f'{e}', error=404)

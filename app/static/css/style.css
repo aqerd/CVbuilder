@@ -81,6 +81,15 @@ main form {
     margin-bottom: 4px;
 }
 
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
 .group {
     margin-bottom: 10px;
     gap: 4px;
