@@ -3,15 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="media/icon.png" type="image/png">
-        <link rel="stylesheet" href="css/style.css">
-        <title>No internet access</title>
+        <link rel="shortcut icon" href="/static/media/icon.png" type="image/png">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <title>No internet access - CV Builder</title>
+        <script src="/static/js/register_sw.js"></script>
+        <script src="/static/js/offline_redirect.js"></script>
     </head>
     <body>
         <div class="centered">
-            <h1>No internet connection</h1>
+            <h1>No internet access</h1>
             <p>Email us <a href="mailto:cv_builder@mail.ru">cv_builder@mail.ru</a></p>
-                <form action="/profile" method="get"><button type="submit">Try again</button></form>
+            <form action="/profile" method="get"><button type="submit">Try again</button></form>
         </div>
     </body>
 </html>
