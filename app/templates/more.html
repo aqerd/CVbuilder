@@ -2,14 +2,21 @@
 <html lang="en">
     <head>
         {% include 'shared/info.html' %}
-        <title>Help - CV Builder</title>
+        <title>More - CV Builder</title>
+        <script src="{{ url_for('static', filename='js/theme_toggle.js') }}"></script>
     </head>
     <body>
         <div class="container">
             {% include 'shared/aside.html' %}
             <main>
+                <h1>Switch themes</h1>
+                <div class="button-row">
+                    <button data-theme="light" class="theme-toggle">Light</button>
+                    <button data-theme="dark" class="theme-toggle">Dark</button>
+                    <button data-theme="blue" class="theme-toggle">Blue</button>
+                </div>
                 <h1>About this site</h1>
-                <a>Build your CV fast and easy way</a>
+                <p>Build your CV fast and easy way</p>
                 <ol>
                     <li>Create your profile. Fill your CV with work experience etc</li>
                     <li>Choose sample design we got for you</li>
