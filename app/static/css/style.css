@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+:root {
+  --bg-black: #111;
+  --border-black: #222;
+  --input-black: #333;
+  --background-color: #fff;
+}
+
 body {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 20px;
@@ -22,46 +29,14 @@ h1 {
     font-size: 48px;
 }
 
-a {
-    color: white;
-}
-
-a:hover {
-    color: cyan;
-}
-
-a:visited {
-    color: cyan;
-}
-
-b {
-    color: crimson;
-}
-
 input, textarea, select {
     font-size: 1em;
-    background-color: #333;
-    color: #ffffff;
-    border: 2px solid #222;
     border-radius: 5px;
     outline: none;
 }
 
 input, textarea, select, button {
     font-family: inherit;
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: #000;
-    border: 2px solid #fff;
-}
-
-input[type="date"] {
-    color: #888;
-}
-
-input[type="date"]:focus {
-    color: #ffffff;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -118,9 +93,7 @@ textarea {
 
 button {
     display: inline-block;
-    color: white;
     font-size: 20px;
-    background-color: #222;
     border: none;
     border-radius: 10px;
     padding-left: 30px;
@@ -128,14 +101,6 @@ button {
     padding-top: 8px;
     padding-bottom: 8px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #333;
-}
-
-button:active {
-    background-color: #111;
 }
 
 .button-row {
@@ -154,47 +119,18 @@ button:active {
 }
 
 aside button {
-    background-color: #111;
     width: 100%;
     height: 60px;
     text-align: left;
-}
-
-aside button:hover {
-    background-color: #333;
-}
-
-aside button:active {
-    background-color: #222;
-}
-
-.current {
-    color: #222;
-    background-color: #ffffff;
-}
-
-.current:hover {
-    color: #222;
-    background-color: #ffffff;
 }
 
 .submit {
     width: 100%;
     padding: 10px 15px;
     font-size: 20px;
-    background-color: #222;
-    color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-}
-
-.submit:hover {
-    background-color: #333;
-}
-
-.submit:active {
-    background-color: #111;
 }
 
 ::-webkit-scrollbar {
@@ -214,7 +150,6 @@ aside button:active {
 ::-webkit-scrollbar-track {
     background: #222;
 }
-
 
 @media (max-width: 768px) {
     body {
@@ -243,7 +178,6 @@ aside button:active {
         flex-grow: 0;
         width: 100%; 
     }
-    
 
     button {
         font-size: 18px;

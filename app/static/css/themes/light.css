@@ -1,4 +1,103 @@
 body {
-    background-color: #fff;
-    color: #000;
+    background-color: white;
+    color: black;
+}
+
+a {
+    color: blue;
+}
+
+a:hover {
+    color: blue;
+}
+
+a:visited {
+    color: blue;
+}
+
+b {
+    color: red;
+}
+
+input, textarea, select {
+    background-color: #ccc;
+    color: black;
+    border: 2px solid #aaa;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: black;
+    border: 2px solid black;
+}
+
+input[type="date"] {
+    color: #777;
+}
+
+input[type="date"]:focus {
+    color: white;
+}
+
+button {
+    color: black;
+    background-color: #ccc;
+}
+
+button:hover {
+    background-color: #aaa;
+}
+
+button:active {
+    background-color: #ccc;
+}
+
+aside button {
+    background-color: white;
+    width: 100%;
+    height: 60px;
+    text-align: left;
+}
+
+aside button:hover {
+    background-color: #ccc;
+}
+
+aside button:active {
+    background-color: #aaa;
+}
+
+.current {
+    color: white;
+    background-color: black;
+}
+
+.current:hover {
+    color: white;
+    background-color: #222;
+}
+
+.submit {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #aaa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+::-webkit-scrollbar-track {
+    background: #ddd;
+}
+
+::selection {
+  background-color: black;
+  color: white;
 }
