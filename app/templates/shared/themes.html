@@ -1,0 +1,20 @@
+<button data-theme="dark" class="theme-toggle">
+    <span class="theme-toggle-text">Dark</span>
+    {% set background = '#111' %}
+    {% set colors = ['#fff', 'crimson', '#222'] %}
+    {% include 'shared/colors.html' %}
+</button>
+
+<button data-theme="light" class="theme-toggle">
+    <span class="theme-toggle-text">Light</span>
+    {% set background = 'white' %}
+    {% set colors = ['black', 'blue', '#ddd'] %}
+    {% include 'shared/colors.html' %}
+</button>
+
+<button data-theme="blue" class="theme-toggle">
+    <span class="theme-toggle-text">Blue</span>
+    {% set background = '#0000aa' %}
+    {% set colors = ['white', 'cyan', '#0f62fe'] %}
+    {% include 'shared/colors.html' %}
+</button>

@@ -12,8 +12,8 @@ Site is not deployed yet
 
 ## 🔗 How to start the project on your own
 To start this you can clone our repository:
-```bash
-git clone git@github.com:aqerd/CVbuilder.git
+```shell
+git clone https://github.com/aqerd/CVbuilder.git
 ```
 Make sure you have Flask and Python installed on your machine
 
