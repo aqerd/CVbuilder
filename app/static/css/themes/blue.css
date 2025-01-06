@@ -1,96 +1,10 @@
-body {
-    background-color: #0000AA;
-    color: white;
-}
+:root {
+    --bg-color: #0000aa;
+    --main-color: white;
+    --accent-color: cyan;
+    --interaction-color: #0f62fe;
 
-a {
-    color: cyan;
-}
-
-a:hover {
-    color: cyan;
-}
-
-a:visited {
-    color: cyan;
-}
-
-b {
-    color: cyan;
-}
-
-input, textarea, select {
-    background-color: #0000AA;
-    color: white;
-    border: 2px solid #0F62FE;
-}
-
-input::placeholder, textarea::placeholder, input[type="date"] {
-  color: #ddd;
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: white;
-    border: 2px solid white;
-}
-
-input[type="date"]:focus {
-    color: white;
-}
-
-button {
-    background-color: #0F62FE;
-    color: white;
-}
-
-button:hover {
-    background-color: white;
-    color: #0000AA;
-}
-
-button:active {
-    background-color: white;
-}
-
-aside button {
-    background-color: #0000AA;
-    width: 100%;
-    height: 60px;
-    text-align: left;
-}
-
-.current {
-    color: #0000AA;
-    background-color: white;
-}
-
-.current:hover {
-    color: white;
-    background-color: #40A7FF;
-}
-
-.submit {
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #0F62FE;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #40A7FF;
-}
-
-::-webkit-scrollbar-track {
-    background: #0000AA;
-}
-
-::selection {
-  background-color: white;
-  color: #0000AA;
+    --hover-color: #40a7ff;
+    --neutral-color: #40a7ff;
+    --border-color: cyan;
 }

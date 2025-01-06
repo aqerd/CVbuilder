@@ -28,13 +28,13 @@
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
-                            <label for="age">Age</label>
-                            <input type="number" id="age" name="age" placeholder="20" value="{{ age }}">
+                            <label for="email">Email <b>*</b></label>
+                            <input type="email" id="email" name="email" placeholder="example@cvbuilder.com" value="{{ email }}">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email <b>*</b></label>
-                            <input type="email" id="email" name="email" placeholder="example@cvbuilder.com" value="{{ email }}">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" placeholder="20" value="{{ age }}">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <div class="form-group">
@@ -53,6 +53,7 @@
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                     </div>
+                    <hr>
                     <div class="group" id="socials">
                         <div id="socials-container">
                             {% if socials %}
@@ -89,6 +90,7 @@
                         </div>
                         <button class="add-button" type="button" onclick="addSocial(event)">+ Add Social</button>
                     </div>
+                    <hr>
                     <div class="group" id="projects">
                         <div id="portfolio-container">
                             <div class="portfolio-item">
@@ -115,6 +117,7 @@
                         </div>
                         <button class="add-button" type="button" onclick="addProject(event)">+ Add Project</button>
                     </div>
+                    <hr>
                     <div class="group" id="jobs">
                         <div id="experience-container">
                             <div class="experience-item">
@@ -144,6 +147,7 @@
                         </div>
                         <button class="add-button" type="button" onclick="addExperience(event)">+ Add Job</button>
                     </div>
+                    <hr>
                     <div class="group" id="edu">
                         <div id="education-container">
                             <div class="education-item">
@@ -165,6 +169,7 @@
                         </div>
                         <button class="add-button" type="button" onclick="addEducation(event)">+ Add Education</button>
                     </div>
+                    <hr>
                     <div class="group" id="langs">
                         <div id="languages-container">
                             <div class="language-item">
