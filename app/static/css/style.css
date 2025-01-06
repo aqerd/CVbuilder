@@ -79,6 +79,7 @@ button:hover {
 
 .button-row {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
 }
 
