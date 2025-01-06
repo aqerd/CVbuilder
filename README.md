@@ -30,7 +30,8 @@ Make sure you have Flask and Python installed on your machine
   - JavaScript
 
 ## 🎨 Site design
-Site was created by Ruslan Suleymanov in Figma. See this project on [Behance](https://www.behance.net/gallery/215413437/CVbuilder)
+Site was created by Ruslan Suleymanov in Figma. See this project on [Behance](https://www.behance.net/gallery/215413437/CVbuilder).
+
 Want to create new theme? See this [documentation](https://github.com/aqerd/CVbuilder/blob/main/THEMES.md)
 
 ## 🧑‍💻 Credits
