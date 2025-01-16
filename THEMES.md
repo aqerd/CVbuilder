@@ -30,7 +30,7 @@ Create a new CSS file in [themes](https://github.com/aqerd/CVbuilder/tree/main/a
 - `--border-color` is for input borders.
 
 ## Add html code
-Go to [themes.html](https://github.com/aqerd/CVbuilder/blob/57cdaf1c0c5999498f2db070ce9312127ece1d49/app/templates/shared/themes.html) and add this to the end of the file:
+Go to [themes.html](https://github.com/aqerd/CVbuilder/blob/main/app/templates/shared/themes.html) and add this to the end of the file:
 ```html
 <button data-theme="light" class="theme-toggle">
     <span class="theme-toggle-text">Light</span>
