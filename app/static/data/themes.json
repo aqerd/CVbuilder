@@ -1,0 +1,20 @@
+{
+    "dark": {
+        "background": "#111",
+        "main": "#fff",
+        "interaction": "#222",
+        "accent": "crimson"
+    },
+    "light": {
+        "background": "white",
+        "main": "black",
+        "interaction": "#ddd",
+        "accent": "blue"
+    },
+    "blue": {
+        "background": "#0000aa",
+        "main": "white",
+        "interaction": "#0f62fe",
+        "accent": "cyan"
+    }
+}

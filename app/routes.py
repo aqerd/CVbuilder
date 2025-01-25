@@ -1,9 +1,10 @@
-from flask import render_template, send_file, jsonify, request, session, make_response, redirect
+from flask import render_template, send_file, jsonify, request, session, make_response, redirect, jsonify
 from app.utils.email_utils import send_cv_mail
 from app.utils.file_utils import create_type
 from app.utils.data_collector import collect_data
 from app.utils.middlewares import data_required
 from app import app
+import json
 
 @app.route('/')
 def index():
@@ -40,23 +41,25 @@ def export():
 
 @app.route('/more')
 def more():
-    return render_template('more.html')
+    with open('app/static/data/themes.json') as f:
+        themes = json.load(f)
+    return render_template('more.html', themes=themes)
 
 @app.route('/set_format', methods=['POST'])
 def set_format():
     format_type = request.form.get('format')
     session['format'] = format_type
     return jsonify(success=True, format=format_type)
-     
-@app.route('/download', methods=['GET'])
+
 @data_required
+@app.route('/download', methods=['GET'])
 def download(data):
     filetype = session.get('format')
     filename = create_type(data, filetype)
     return send_file(filename, as_attachment=True)
 
-@app.route('/email', methods = ['GET'])
 @data_required
+@app.route('/email', methods=['GET'])
 def email(data):
     filetype = session.get('format')
     filename = create_type(data, filetype)
@@ -65,7 +68,7 @@ def email(data):
         return redirect('/export')
     except Exception as e:
         if e.args[0][''][0] == 501:
-            return render_template("error.html", msg_error=f"Paste your email in Profile page", error=501)   
+            return render_template("error.html", msg_error=f"Paste your email in Profile page", error=501)
         return render_template("error.html", msg_error=f"Error sending email: {e}", error=500)
 
 @app.errorhandler(404)
