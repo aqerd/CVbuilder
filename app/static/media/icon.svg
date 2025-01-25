@@ -1,0 +1,9 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+    .bg { fill: var(--bg-color, #111); }
+    .main { fill: var(--main-color, white); }
+</style>
+<rect class="bg" width="256" height="256" rx="64" fill="white"/>
+<circle class="main" cx="76" cy="128" r="44" fill="black"/>
+<rect class="main" x="136" y="84" width="88" height="88" rx="16" fill="black"/>
+</svg>

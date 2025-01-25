@@ -3,15 +3,23 @@
     <head>
         {% include 'shared/info.html' %}
         <title>More - CV Builder</title>
-        <script src="{{ url_for('static', filename='js/theme_toggle.js') }}"></script>
     </head>
     <body>
         <div class="container">
             {% include 'shared/aside.html' %}
             <main>
                 <h1>Switch themes</h1>
-                <div class="button-row">
-                    {% include 'shared/themes.html' %}
+                <div class="button-row" id="theme-buttons">
+                    {% for theme, data in themes.items() %}
+                        <button data-theme="{{ theme }}" class="theme-toggle">
+                            <span class="theme-toggle-text">{{ theme.capitalize() }}</span>
+                            <div class="color-main" style="background-color: {{ data.background }};">
+                                <div class="color-box" style="background-color: {{ data.main }};"></div>
+                                <div class="color-box" style="background-color: {{ data.interaction }};"></div>
+                                <div class="color-box" style="background-color: {{ data.accent }};"></div>
+                            </div>
+                        </button>
+                    {% endfor %}
                 </div>
                 <h1>About this site</h1>
                 <p>Build your CV fast and easy way</p>
