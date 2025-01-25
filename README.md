@@ -35,6 +35,7 @@ Design was produced by Ruslan Suleymanov with Figma. See this project on [Behanc
 
 ## 🖼️ Contribute with new theme
 Want to contribute our project with new theme design? See this [documentation](https://github.com/aqerd/CVbuilder/blob/main/docs/THEMES.md)
+![Themes](images/themes.png)
 
 ## 🚀 Usage
 Site is not deployed yet

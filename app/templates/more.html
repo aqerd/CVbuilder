@@ -13,14 +13,10 @@
                     {% for theme, data in themes.items() %}
                         <button data-theme="{{ theme }}" class="theme-toggle">
                             <span class="theme-toggle-text">{{ theme.capitalize() }}</span>
-                            {% set background = data.background %}
-                            {% set main = data.main %}
-                            {% set interaction = data.interaction %}
-                            {% set accent = data.accent %}
-                            <div class="color-main" style="background-color: {{ background }};">
-                                <div class="color-box" style="background-color: {{ main }};"></div>
-                                <div class="color-box" style="background-color: {{ interaction }};"></div>
-                                <div class="color-box" style="background-color: {{ accent }};"></div>
+                            <div class="color-main" style="background-color: {{ data.background }};">
+                                <div class="color-box" style="background-color: {{ data.main }};"></div>
+                                <div class="color-box" style="background-color: {{ data.interaction }};"></div>
+                                <div class="color-box" style="background-color: {{ data.accent }};"></div>
                             </div>
                         </button>
                     {% endfor %}
