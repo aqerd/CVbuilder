@@ -51,15 +51,16 @@ def set_format():
     session['format'] = format_type
     return jsonify(success=True, format=format_type)
 
-@data_required
 @app.route('/download', methods=['GET'])
+@data_required
 def download(data):
+    print(data)
     filetype = session.get('format')
     filename = create_type(data, filetype)
     return send_file(filename, as_attachment=True)
 
-@data_required
 @app.route('/email', methods=['GET'])
+@data_required
 def email(data):
     filetype = session.get('format')
     filename = create_type(data, filetype)
