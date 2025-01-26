@@ -1,15 +1,18 @@
 const modal = document.getElementById("my-modal");
-const btn = document.getElementById("open-modal");
-const span = document.getElementsByClassName("close")[0];
+const btns = document.querySelectorAll("#open-modal");  // Все кнопки с id "open-modal"
+const closeButtons = document.getElementsByClassName("close");
 
-btn.onclick = function (event) {
-    event.preventDefault();
-    modal.style.display = "block";
-}
+btns.forEach(function(btn) {
+    btn.onclick = function (event) {
+        event.preventDefault();
+        modal.style.display = "block";
+    };
+});
 
-span.onclick = function () {
-    event.preventDefault();
-    modal.style.display = "none";
+for (let i = 0; i < closeButtons.length; i++) {
+    closeButtons[i].onclick = function () {
+        modal.style.display = "none";
+    };
 }
 
 window.onclick = function (event) {
