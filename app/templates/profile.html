@@ -2,9 +2,9 @@
 <html lang="ru">
     <head>
         {% include 'shared/info.html' %}
-        <title>Profile - CV Builder</title>
+        <title>Profile - CVbuilder</title>
         <script src="{{ url_for('static', filename='js/add_new_button.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/open_window.js') }}" defer></script>
+        <script src="{{ url_for('static', filename='js/open_modal.js') }}" defer></script>
     </head>
     <body>
         <div class="container">
@@ -100,7 +100,7 @@
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="project-time-1">Was made</label>
+                                    <label for="project-time-1">Timeline</label>
                                     <input type="text" id="project-time-1" name="project-time-1" placeholder="From - To">
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
@@ -116,7 +116,7 @@
                             </div>
                         </div>
                         <button class="add-button" type="button" onclick="addProject(event)">+ Add Project</button>
-                        {% include 'shared/openmodal.html' %}
+                        <button onclick="openModal(event)">Remake with AI</button>
                     </div>
                     <hr>
                     <div class="group" id="jobs">
@@ -127,19 +127,16 @@
                                     <input type="text" id="company-name-1" name="company-name-1" placeholder="Company Name">
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
-
                                 <div class="form-group">
                                     <label for="job-title-1">Job Title</label>
                                     <input type="text" id="job-title-1" name="job-title-1" placeholder="Job Title">
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
-
                                 <div class="form-group">
                                     <label for="work-period-1">Work Period</label>
                                     <input type="text" id="work-period-1" name="work-period-1" placeholder="From - To">
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
-
                                 <div class="form-group">
                                     <label for="job-description-1">Description</label>
                                     <textarea id="job-description-1" name="job-description-1" placeholder="Describe your job responsibilities"></textarea>
@@ -147,7 +144,7 @@
                             </div>
                         </div>
                         <button class="add-button" type="button" onclick="addExperience(event)">+ Add Job</button>
-                        {% include 'shared/openmodal.html' %}
+                        <button onclick="openModal(event)">Remake with AI</button>
                     </div>
                     <hr>
                     <div class="group" id="edu">
@@ -196,7 +193,7 @@
                         <button class="add-button" type="button" onclick="addLanguage(event)">+ Add Language</button>
                     </div>
                     <p>Fields with <b>*</b> are required</p>
-                    <button type="submit" class="submit">Submit</button>
+                    <button type="submit" name="action" value="submit" class="submit">Submit</button>
                 </form>
             </main>
         </div>

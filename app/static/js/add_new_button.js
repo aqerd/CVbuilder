@@ -15,7 +15,6 @@ function addSocial(event) {
             <label for="social-service-${socialCount}">Service Name</label>
             <input type="text" id="social-service-${socialCount}" name="social-service-${socialCount}" placeholder="Service Name">
         </div>
-
         <div class="form-group">
             <label for="social-link-${socialCount}">Profile Link</label>
             <input type="url" id="social-link-${socialCount}" name="social-link-${socialCount}" placeholder="https://example.com/you">
@@ -35,17 +34,14 @@ function addProject(event) {
             <label for="project-name-${projectCount}">Project Name</label>
             <input type="text" id="project-name-${projectCount}" name="project-name-${projectCount}" placeholder="Project Title">
         </div>
-
         <div class="form-group">
             <label for="project-time-${projectCount}">Project Time</label>
             <input type="text" id="project-time-${projectCount}" name="project-time-${projectCount}" placeholder="From - To">
         </div>
-
         <div class="form-group">
             <label for="project-link-${projectCount}">Project Link</label>
             <input type="url" id="project-link-${projectCount}" name="project-link-${projectCount}" placeholder="https://example.com">
         </div>
-
         <div class="form-group">
             <label for="project-description-${projectCount}">Project Description</label>
             <textarea id="project-description-${projectCount}" name="project-description-${projectCount}" placeholder="Describe the project"></textarea>
@@ -65,17 +61,14 @@ function addExperience(event) {
             <label for="company-name-${experienceCount}">Company Name</label>
             <input type="text" id="company-name-${experienceCount}" name="company-name-${experienceCount}" placeholder="Company Name">
         </div>
-
         <div class="form-group">
             <label for="job-title-${experienceCount}">Job Title</label>
             <input type="text" id="job-title-${experienceCount}" name="job-title-${experienceCount}" placeholder="Job Title">
         </div>
-
         <div class="form-group">
             <label for="work-period-${experienceCount}">Work Period</label>
             <input type="text" id="work-period-${experienceCount}" name="work-period-${experienceCount}" placeholder="From - To">
         </div>
-
         <div class="form-group">
             <label for="job-description-${experienceCount}">Job Description</label>
             <textarea id="job-description-${experienceCount}" name="job-description-${experienceCount}" placeholder="Describe your job responsibilities"></textarea>
@@ -95,12 +88,10 @@ function addEducation(event) {
             <label for="institution-name-${educationCount}">Institution Name</label>
             <input type="text" id="institution-name-${educationCount}" name="institution-name-${educationCount}" placeholder="University Name">
         </div>
-
         <div class="form-group">
             <label for="education-period-${educationCount}">Study Period</label>
             <input type="text" id="education-period-${educationCount}" name="education-period-${educationCount}" placeholder="From - To">
         </div>
-
         <div class="form-group">
             <label for="field-of-study-${educationCount}">Field of Study</label>
             <input type="text" id="field-of-study-${educationCount}" name="field-of-study-${educationCount}" placeholder="Field of Study">
@@ -120,7 +111,6 @@ function addLanguage(event) {
             <label for="language-name-${languageCount}">Language Name</label>
             <input type="text" id="language-name-${languageCount}" name="language-name-${languageCount}" placeholder="Language">
         </div>
-
         <div class="form-group">
             <label for="language-level-${languageCount}">Language Level</label>
             <select id="language-level-${languageCount}" name="language-level-${languageCount}">

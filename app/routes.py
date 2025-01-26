@@ -10,18 +10,20 @@ import json
 def index():
     return render_template('index.html')
 
+
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if request.method == 'POST':
-        data = collect_data(request)
-        response = make_response(redirect('/export'))
-        for key, value in data.items():
-            if isinstance(value, (list, dict)):
-                continue
-            response.set_cookie(key, str(value))
-        session['data'] = data
-        return response
-
+        action = request.form.get('action')
+        if action == 'submit':
+            data = collect_data(request)
+            response = make_response(redirect('/export'))
+            for key, value in data.items():
+                if isinstance(value, (list, dict)):
+                    continue
+                response.set_cookie(key, str(value))
+            session['data'] = data
+            return response
     data = {}
     cookies_to_load = ["name", "middle_name", "last_name", "email", "age", "dob", "citizenship", "city"]
     for key in cookies_to_load:
