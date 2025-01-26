@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             button.classList.add('current');
 
             selectedFormat = button.getAttribute('data-format');
-            console.log('Выбранный формат:', selectedFormat);
+            console.log('Chosen format:', selectedFormat);
 
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/set_format', true);

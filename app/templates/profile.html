@@ -4,6 +4,7 @@
         {% include 'shared/info.html' %}
         <title>Profile - CV Builder</title>
         <script src="{{ url_for('static', filename='js/add_new_button.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/open_window.js') }}" defer></script>
     </head>
     <body>
         <div class="container">
@@ -79,7 +80,6 @@
                                     <input type="text" name="social-service-1" placeholder="Telegram">
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                 </div>
-
                                 <div class="form-group">
                                     <label>Link</label>
                                     <input type="url" name="social-link-1" placeholder="https://t.me/yourprofile">
@@ -116,6 +116,7 @@
                             </div>
                         </div>
                         <button class="add-button" type="button" onclick="addProject(event)">+ Add Project</button>
+                        {% include 'shared/openmodal.html' %}
                     </div>
                     <hr>
                     <div class="group" id="jobs">
@@ -146,6 +147,7 @@
                             </div>
                         </div>
                         <button class="add-button" type="button" onclick="addExperience(event)">+ Add Job</button>
+                        {% include 'shared/openmodal.html' %}
                     </div>
                     <hr>
                     <div class="group" id="edu">

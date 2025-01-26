@@ -212,6 +212,28 @@ hr {
     margin: 0px 0px 4px 0px;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+    margin: 15% auto;
+    padding: 20px;
+    border: none;
+    width: 40%;
+    text-align: center;
+    border-radius: 10px;
+}
+
 ::selection {
     background-color: var(--main-color);
     color: var(--bg-color);
