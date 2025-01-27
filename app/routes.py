@@ -24,6 +24,13 @@ def profile():
                 response.set_cookie(key, str(value))
             session['data'] = data
             return response
+
+        if action == 'generate_description':
+            prompt = request.form['prompt']
+            # code
+            generated_description = f"Processed: {prompt}"
+            return jsonify({'description': generated_description})
+
     data = {}
     cookies_to_load = ["name", "middle_name", "last_name", "email", "age", "dob", "citizenship", "city"]
     for key in cookies_to_load:

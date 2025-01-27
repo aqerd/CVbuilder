@@ -12,11 +12,11 @@ function addSocial(event) {
     newSocialDiv.classList.add('social-item');
     newSocialDiv.innerHTML = `
         <div class="form-group">
-            <label for="social-service-${socialCount}">Service Name</label>
+            <label for="social-service-${socialCount}">Service</label>
             <input type="text" id="social-service-${socialCount}" name="social-service-${socialCount}" placeholder="Service Name">
         </div>
         <div class="form-group">
-            <label for="social-link-${socialCount}">Profile Link</label>
+            <label for="social-link-${socialCount}">Link</label>
             <input type="url" id="social-link-${socialCount}" name="social-link-${socialCount}" placeholder="https://example.com/you">
         </div>
     `;
@@ -43,7 +43,10 @@ function addProject(event) {
             <input type="url" id="project-link-${projectCount}" name="project-link-${projectCount}" placeholder="https://example.com">
         </div>
         <div class="form-group">
-            <label for="project-description-${projectCount}">Project Description</label>
+            <div class="text-with-btn">
+                <label for="project-description-${projectCount}">Project Description</label>
+                <button class="ai-btn" onclick="openModal(event)" data-id="project-description-${projectCount}">AI</button>
+            </div>
             <textarea id="project-description-${projectCount}" name="project-description-${projectCount}" placeholder="Describe the project"></textarea>
         </div>
     `;
@@ -70,7 +73,10 @@ function addExperience(event) {
             <input type="text" id="work-period-${experienceCount}" name="work-period-${experienceCount}" placeholder="From - To">
         </div>
         <div class="form-group">
-            <label for="job-description-${experienceCount}">Job Description</label>
+            <div class="text-with-btn">
+                <label for="job-description-${experienceCount}">Job Description</label>
+                <button class="ai-btn" onclick="openModal(event)" data-id="job-description-${projectCount}">AI</button>
+            </div>
             <textarea id="job-description-${experienceCount}" name="job-description-${experienceCount}" placeholder="Describe your job responsibilities"></textarea>
         </div>
     `;
