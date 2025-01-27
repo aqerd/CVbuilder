@@ -11,13 +11,15 @@ function openModal(event) {
     modalDiv.innerHTML = `
         <div class="modal-content">
             <h2>Generate your description with AI</h2>
-            <p>List your key highlights from your professional experience, like notable achievements, skills acquired, or the impact of your contributions</p>
+            <p id="small-text">List your key highlights from your professional experience, like notable achievements, skills acquired, or the impact of your contributions</p>
             <textarea id="prompt" name="prompt" placeholder="Enter your prompt here"></textarea>
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <p>Powered by GroqCloud with Meta's Llama 3.3 70B Versatile</p>
-            <button class="close-button">Close</button>
-            <button class="generate">Generate</button>
-            <button class="insert">Insert</button>
+            <p id="small-text">Powered by GroqCloud with Meta's Llama 3.3 70B Versatile</p>
+            <div class="button-row center">
+                <button class="close-button" id="small-text">Close</button>
+                <button class="generate" id="small-text">Generate</button>
+                <button class="insert" id="small-text">Insert</button>
+            </div>
         </div>
     `;
     document.body.appendChild(modalDiv);

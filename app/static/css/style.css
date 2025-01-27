@@ -93,6 +93,10 @@ button:hover {
     gap: 8px;
 }
 
+.button-row.center {
+    justify-content: center;
+}
+
 .button-row form {
     margin: 0;
 }
@@ -161,6 +165,7 @@ main form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 4px;
+    gap: 8px;
 }
 
 .form-group label {
@@ -197,7 +202,7 @@ aside button:active {
 
 textarea {
     width: 100%;
-    min-height: 60px;
+    min-height: 40px;
     max-height: 50vh;
     resize: vertical;
     box-sizing: border-box;
@@ -219,14 +224,13 @@ button.add-button {
 
 .ai-btn {
     padding: 0;
-    width: 28px;
-    height: 28px;
-    border: 2px solid var(--hover-color);
+    width: 40px;
+    height: 40px;
 }
 
 .text-with-btn {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto;
     gap: 8px;
 }
 
@@ -303,6 +307,11 @@ body.modal-open {
 
     .form-group {
         grid-template-columns: 1fr 1fr;
+        gap: 4px;
+    }
+
+    .text-with-btn {
+        align-items: end;
     }
 
     aside {
@@ -324,6 +333,10 @@ body.modal-open {
     .submit {
         padding: 8px 12px;
     }
+
+    #small-text {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -338,6 +351,11 @@ body.modal-open {
 
     .form-group {
         grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .text-with-btn {
+        align-items: end;
     }
 
     button {
@@ -346,5 +364,9 @@ body.modal-open {
 
     .submit {
         padding: 6px 12px;
+    }
+
+    #small-text {
+        font-size: 12px;
     }
 }
