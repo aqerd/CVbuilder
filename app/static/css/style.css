@@ -38,6 +38,10 @@ h2 {
     margin: 24px 0 8px 0;
 }
 
+#no-margin-h2 {
+    margin-top: 8px;
+}
+
 input, textarea, select {
     font-size: 1em;
     border-radius: 10px;
@@ -46,6 +50,37 @@ input, textarea, select {
     color: var(--main-color);
     border: 2px solid var(--hover-color);
     padding: 1px 5px 1px 5px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 40px;
+    overflow: auto;
+    max-height: 50vh;
+    resize: vertical;
+    box-sizing: border-box;
+    padding: 0 0 0 5px;
+    position: relative;
+}
+
+textarea::-webkit-resizer {
+    background: var(--hover-color);
+    border-radius: 10px 0 8px 0;
+    width: 10px !important;
+    height: 10px !important;
+    display: block;
+}
+
+textarea::-webkit-scrollbar-corner {
+    background: transparent !important;
+    width: 0;
+    height: 0;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 5px;
+    border-radius: 10px;
 }
 
 input:focus, textarea:focus, select:focus {
@@ -200,15 +235,6 @@ aside button:active {
     background-color: var(--hover-color);
 }
 
-textarea {
-    width: 100%;
-    min-height: 40px;
-    max-height: 50vh;
-    resize: vertical;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
 a, a:hover, a:visited, b {
     color: var(--accent-color);
 }
@@ -252,26 +278,25 @@ hr {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    overflow: auto;
+    overflow: hidden;
 }
 
 .modal-content {
     background-color: var(--bg-color);
     padding: 20px;
     border: none;
-    width: 60%;
-    max-height: 90%;
-    text-align: center;
+    width: 70vw;
+    max-height: 90vh;
     border-radius: 10px;
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     overflow-y: auto;
+    position: relative;
 }
 
 body.modal-open {
-    padding-right: var(--scroll-size);
+    overflow: hidden;
 }
 
 ::selection {
@@ -281,6 +306,7 @@ body.modal-open {
 
 ::-webkit-scrollbar {
     width: var(--scroll-size);
+    height: var(--scroll-size);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -294,6 +320,12 @@ body.modal-open {
 
 ::-webkit-scrollbar-track {
     background: var(--interaction-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--hover-color);
+    border: none;
 }
 
 @media (max-width: 768px) {

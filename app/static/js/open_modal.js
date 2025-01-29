@@ -19,7 +19,7 @@ function openModal(event) {
     modalDiv.classList.add('modal');
     modalDiv.innerHTML = `
         <div class="modal-content">
-            <h2>Generate your description with AI</h2>
+            <h2 id="no-margin-h2">Generate your description with AI</h2>
             <p id="small-text">List your key highlights from your professional experience, like notable achievements, skills acquired, or the impact of your contributions</p>
             <textarea id="prompt" name="prompt" placeholder="Enter your prompt here">${prompt}</textarea>
             <p id="status-text" style="display: ${generatedText ? 'block' : 'none'};">${generatedText || ''}</p>
