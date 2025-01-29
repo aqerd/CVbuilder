@@ -15,6 +15,7 @@ def index():
 def profile():
     if request.method == 'POST':
         action = request.form.get('action')
+        app.logger.info(f"Action received: {action}")
         if action == 'submit':
             data = collect_data(request)
             response = make_response(redirect('/export'))
@@ -27,8 +28,9 @@ def profile():
 
         if action == 'generate_description':
             prompt = request.form['prompt']
-            # code
-            generated_description = f"Processed: {prompt}"
+            if not prompt.strip():
+                return jsonify({'description': ''})
+            generated_description = prompt[::-1]
             return jsonify({'description': generated_description})
 
     data = {}

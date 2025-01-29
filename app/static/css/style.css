@@ -310,19 +310,17 @@ body.modal-open {
         gap: 4px;
     }
 
-    .text-with-btn {
-        align-items: end;
-    }
-
     aside {
         flex-direction: row;
         gap: 8px;
         padding: 20px;
+        justify-content: center;
     }
 
     aside button {
         flex-grow: 0;
         width: 100%;
+        margin-bottom: 0;
     }
 
     button {
