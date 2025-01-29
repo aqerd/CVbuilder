@@ -27,10 +27,19 @@ def profile():
             return response
 
         if action == 'generate_description':
-            prompt = request.form['prompt']
-            if not prompt.strip():
-                return jsonify({'description': ''})
-            generated_description = prompt[::-1]
+            prompt = request.form.get('prompt')
+            textarea_type = request.form.get('textarea_type')
+
+            if not prompt:
+                return jsonify({'description': 'No prompt provided'}), 400
+
+            if textarea_type == "project":
+                generated_description = f"Project details reversed: {prompt[::-1]}"
+            elif textarea_type == "job":
+                generated_description = f"Job experience reversed: {prompt[::-1]}"
+            else:
+                generated_description = f"Unknown type: {prompt[::-1]}"
+
             return jsonify({'description': generated_description})
 
     data = {}

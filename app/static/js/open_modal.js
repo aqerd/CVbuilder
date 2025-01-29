@@ -4,13 +4,14 @@ function openModal(event) {
     event.preventDefault();
     const button = event.currentTarget;
     const textareaId = button.getAttribute('data-id');
-    if (!textareaId) {
-        return;
-    }
-    let selectedTextareaId = textareaId;
+    if (!textareaId) return;
+
+    selectedTextareaId = textareaId;
+
+    const textareaType = textareaId.includes("project") ? "project" : "job";
 
     if (!modalState[textareaId]) {
-        modalState[textareaId] = { prompt: '', generatedText: '' };
+        modalState[textareaId] = { prompt: '', generatedText: '', type: textareaType };
     }
 
     const { prompt, generatedText } = modalState[textareaId];
@@ -61,7 +62,8 @@ function openModal(event) {
             },
             body: new URLSearchParams({
                 action: 'generate_description',
-                prompt: promptTextarea.value
+                prompt: promptTextarea.value,
+                textarea_type: textareaType
             }),
         })
             .then(response => response.json())
@@ -89,7 +91,8 @@ function openModal(event) {
                     generateButton.disabled = false;
                 }
             })
-            .catch(() => {
+            .catch(error => {
+                console.error("Error generating description:", error);
                 alert("Error generating description.");
                 statusText.style.display = "none";
                 generateButton.textContent = "Generate";
