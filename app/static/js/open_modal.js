@@ -20,13 +20,15 @@ function openModal(event) {
     modalDiv.classList.add('modal');
     modalDiv.innerHTML = `
         <div class="modal-content">
-            <h2 id="no-margin-h2">Generate your description with AI</h2>
-            <p id="small-text">List your key highlights from your professional experience, like notable achievements, skills acquired, or the impact of your contributions</p>
+            <h2 class="no-margin-h2">Generate your description with AI</h2>
+            <p class="small-text">List your key highlights from your professional experience, like notable achievements, skills acquired, or the impact of your contributions</p>
             <textarea id="prompt" name="prompt" placeholder="Enter your prompt here">${prompt}</textarea>
-            <p id="status-text" style="display: ${generatedText ? 'block' : 'none'};">${generatedText || ''}</p>
+            <div class="boxed-text">
+                <p id="status-text" class="small-text" style="display: ${generatedText ? 'block' : 'none'};">${generatedText || ''}</p>
+            </div>
             <div class="button-row center">
-                <button class="close-button" id="small-text">Close</button>
-                <button class="generate" id="small-text" disabled>Generate</button>
+                <button class="close-button" class="small-text">Close</button>
+                <button class="generate" class="small-text" disabled>Generate</button>
             </div>
         </div>
     `;
@@ -62,42 +64,52 @@ function openModal(event) {
             },
             body: new URLSearchParams({
                 action: 'generate_description',
-                prompt: promptTextarea.value,
+                prompt: encodeURIComponent(promptTextarea.value),
                 textarea_type: textareaType
             }),
         })
-            .then(response => response.json())
-            .then(data => {
-                if (data.description) {
-                    modalState[textareaId].generatedText = data.description;
-                    statusText.textContent = data.description;
-                    generateButton.textContent = "Regenerate";
-                    generateButton.disabled = false;
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(text => {
+            console.log("Raw response:", text);
 
-                    if (!modalDiv.querySelector('.insert')) {
-                        const insertButton = document.createElement('button');
-                        insertButton.classList.add('insert');
-                        insertButton.id = 'small-text';
-                        insertButton.textContent = "Insert";
-                        modalDiv.querySelector('.button-row').appendChild(insertButton);
+            const lines = text.trim().split(/\r?\n/).filter(line => line.trim() !== "").map(line => JSON.parse(line));
 
-                        insertButton.addEventListener('click', function () {
-                            insertDescription(data.description, modalDiv, textareaId);
-                        });
-                    }
-                } else {
-                    alert("An error occurred: Empty response.");
-                    generateButton.textContent = "Generate";
-                    generateButton.disabled = false;
+            const finalData = lines.find(line => line.description !== "Generating...");
+
+            if (finalData && finalData.description) {
+                modalState[textareaId].generatedText = finalData.description;
+                statusText.textContent = finalData.description;
+                generateButton.textContent = "Regenerate";
+                generateButton.disabled = false;
+
+                if (!modalDiv.querySelector('.insert')) {
+                    const insertButton = document.createElement('button');
+                    insertButton.classList.add('insert');
+                    insertButton.id = 'small-text';
+                    insertButton.textContent = "Insert";
+                    modalDiv.querySelector('.button-row').appendChild(insertButton);
+                    insertButton.addEventListener('click', function () {
+                        insertDescription(finalData.description, modalDiv, textareaId);
+                    });
                 }
-            })
-            .catch(error => {
-                console.error("Error generating description:", error);
-                alert("Error generating description.");
-                statusText.style.display = "none";
+            } else {
+                alert("Empty response received.");
                 generateButton.textContent = "Generate";
                 generateButton.disabled = false;
-            });
+            }
+        })
+        .catch(error => {
+            console.error("Error generating description:", error);
+            alert("Error generating description. Try again");
+            statusText.style.display = "none";
+            generateButton.textContent = "Generate";
+            generateButton.disabled = false;
+        });
     });
 }
 

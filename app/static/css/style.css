@@ -38,8 +38,21 @@ h2 {
     margin: 24px 0 8px 0;
 }
 
-#no-margin-h2 {
+.no-margin-h2 {
     margin-top: 8px;
+}
+
+.boxed-text {
+    background-color: var(--hover-color);
+    color: var(--bg-color);
+    border-radius: 10px;
+    padding: 0  10px 0 10px;
+    margin: 8px 0 8px 0;
+}
+
+#status-text {
+    margin: 0;
+    /*font-size: 16px;*/
 }
 
 input, textarea, select {
@@ -140,6 +153,10 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--border-color);
 }
 
 .submit {
@@ -364,7 +381,7 @@ body.modal-open {
         padding: 8px 12px;
     }
 
-    #small-text {
+    .small-text {
         font-size: 16px;
     }
 }
@@ -396,7 +413,7 @@ body.modal-open {
         padding: 6px 12px;
     }
 
-    #small-text {
+    .small-text {
         font-size: 12px;
     }
 }

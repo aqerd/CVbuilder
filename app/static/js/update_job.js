@@ -7,7 +7,7 @@ function addExperience(event) {
     const newExperienceDiv = document.createElement('div');
     newExperienceDiv.classList.add('experience-item');
     newExperienceDiv.innerHTML = `
-        <h2 id="job-title-${experienceCount}">A Job</h2>
+        <h2 id="job-title-${experienceCount}">Job</h2>
         <div class="form-group">
             <label for="company-name-${experienceCount}">Name</label>
             <input type="text" id="company-name-${experienceCount}" name="company-name-${experienceCount}" placeholder="Company">
@@ -38,7 +38,6 @@ function addExperience(event) {
 
     document.getElementById('experience-container').appendChild(newExperienceDiv);
 
-    // Добавляем обработчик для обновления заголовка компании
     const companyNameInput = document.getElementById(`company-name-${experienceCount}`);
     if (companyNameInput) {
         companyNameInput.addEventListener('input', updateJobTitle);
