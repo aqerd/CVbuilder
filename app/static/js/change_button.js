@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             button.classList.add('current');
 
             selectedFormat = button.getAttribute('data-format');
-            console.log('Выбранный формат:', selectedFormat);
+            console.log('Chosen format:', selectedFormat);
 
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/set_format', true);
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     downloadBtn.addEventListener('click', function() {
         if (!selectedFormat) {
-            alert('First select the format');
+            showAlert('First select the format');
         } else {
             window.location.href = '/download';
         }
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     emailBtn.addEventListener('click', function() {
         if (!selectedFormat) {
-            alert('First select the format');
+            showAlert('First select the format');
         } else {
             window.location.href = '/email';
         }

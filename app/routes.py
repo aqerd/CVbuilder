@@ -1,7 +1,8 @@
-from flask import render_template, send_file, jsonify, request, session, make_response, redirect, jsonify
+from flask import render_template, send_file, request, session, redirect, jsonify, Response
+from app.utils.actions import submit, ai_generate
+from app.utils.cookies import load_cookies
 from app.utils.email_utils import send_cv_mail
 from app.utils.file_utils import create_type
-from app.utils.data_collector import collect_data
 from app.utils.middlewares import data_required
 from app import app
 import json
@@ -13,22 +14,13 @@ def index():
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if request.method == 'POST':
-        data = collect_data(request)
-        response = make_response(redirect('/export'))
-        for key, value in data.items():
-            if isinstance(value, (list, dict)):
-                continue
-            response.set_cookie(key, str(value))
-        session['data'] = data
-        return response
-
-    data = {}
-    cookies_to_load = ["name", "middle_name", "last_name", "email", "age", "dob", "citizenship", "city"]
-    for key in cookies_to_load:
-        value = request.cookies.get(key)
-        if value:
-            data[key] = value
-
+        action = request.form.get('action')
+        app.logger.info(f"Action received: {action}")
+        if action == 'submit':
+            return submit()
+        if action == 'generate_description':
+            return ai_generate()
+    data = load_cookies()
     return render_template('profile.html', **data)
 
 @app.route('/samples')

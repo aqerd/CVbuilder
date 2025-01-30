@@ -10,12 +10,20 @@
 #### Build your CV fast and easy way
 ![Profile](images/profile.png)
 
-## 🔗 How to start the project on your own
+## 🔗 How to run
 To start this you can clone our repository:
 ```shell
 git clone https://github.com/aqerd/CVbuilder.git
 ```
-Make sure you have Flask and Python installed on your machine
+Set the environmental variables:
+```dotenv
+GROQCLOUD_API_KEY=token
+MAIL_PASSWORD=password
+```
+To get your GroqCloud API key, visit the [documentation](https://console.groq.com/docs/overview).  
+Note that you might encounter a connection error if you're running this in Russia.  
+You can collect your email password by creating a new email on any service and retrieving it from the settings.  
+Make sure you have Flask, Python, and the [necessary libraries](https://github.com/aqerd/CVbuilder/blob/main/requirements.txt) installed on your machine.
 
 ## 🔨 Powered by
 - Python 
@@ -29,6 +37,9 @@ Make sure you have Flask and Python installed on your machine
 - HTML 
   - CSS
   - JavaScript
+- LLM
+  - GroqCloud
+  - Llama 3.3 70B Versatile
 
 ## 🎨 Site design
 Design was produced by Ruslan Suleymanov with Figma. See this project on [Behance](https://www.behance.net/gallery/215413437/CVbuilder) or in [Figma Community](https://www.figma.com/community/file/1465009107029457211/cv-builder).
@@ -37,7 +48,7 @@ Design was produced by Ruslan Suleymanov with Figma. See this project on [Behanc
 Want to contribute our project with new theme design? See this [documentation](https://github.com/aqerd/CVbuilder/blob/main/docs/THEMES.md)
 ![Themes](images/themes.png)
 
-## 🚀 Usage
+## 🚀 Deployment
 Site is not deployed yet
 
 ## 🧑‍💻 Credits
