@@ -1,7 +1,7 @@
 from flask import make_response, redirect, session, request, jsonify, Response, stream_with_context
 from app import app
 from app.utils.data_collector import collect_data
-from app.utils.groqcloud import generate_description
+from app.utils.groq import generate_description
 import time
 import json
 import urllib.parse
@@ -19,19 +19,15 @@ def submit():
 def ai_generate():
     prompt = request.form.get('prompt')
     textarea_type = request.form.get('textarea_type')
-
     if not prompt:
         return jsonify({'description': 'No prompt provided'}), 400
-
     prompt = urllib.parse.unquote(prompt)
 
     def stream_response():
         yield json.dumps({"description": "Generating..."}) + "\n"
         time.sleep(3)
         generated_description = generate_description(prompt, textarea_type)
-
         app.logger.info(f"Generated text: {generated_description}")
-
         yield json.dumps({"description": generated_description}) + "\n"
 
     return Response(stream_with_context(stream_response()), mimetype="application/json")

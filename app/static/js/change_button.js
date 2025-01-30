@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     downloadBtn.addEventListener('click', function() {
         if (!selectedFormat) {
-            alert('First select the format');
+            showAlert('First select the format');
         } else {
             window.location.href = '/download';
         }
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     emailBtn.addEventListener('click', function() {
         if (!selectedFormat) {
-            alert('First select the format');
+            showAlert('First select the format');
         } else {
             window.location.href = '/email';
         }

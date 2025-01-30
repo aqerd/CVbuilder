@@ -24,7 +24,6 @@ function addEducation(event) {
 
     document.getElementById('education-container').appendChild(newEducationDiv);
 
-    // Программно добавляем обработчик для обновления заголовка
     const institutionNameInput = document.getElementById(`institution-name-${educationCount}`);
     if (institutionNameInput) {
         institutionNameInput.addEventListener('input', updateEducationTitle);

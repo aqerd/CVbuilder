@@ -1,5 +1,5 @@
 from flask import render_template, send_file, request, session, redirect, jsonify, Response
-from app.utils.action_handler import submit, ai_generate
+from app.utils.actions import submit, ai_generate
 from app.utils.cookies import load_cookies
 from app.utils.email_utils import send_cv_mail
 from app.utils.file_utils import create_type

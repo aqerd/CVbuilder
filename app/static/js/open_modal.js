@@ -6,7 +6,7 @@ function openModal(event) {
     const textareaId = button.getAttribute('data-id');
     if (!textareaId) return;
 
-    selectedTextareaId = textareaId;
+    let selectedTextareaId = textareaId;
 
     const textareaType = textareaId.includes("project") ? "project" : "job";
 
@@ -20,7 +20,7 @@ function openModal(event) {
     modalDiv.classList.add('modal');
     modalDiv.innerHTML = `
         <div class="modal-content">
-            <h2 class="no-margin-h2">Generate your description with AI</h2>
+            <h2 class="modal-h2">Generate your description with AI</h2>
             <p class="small-text">List your key highlights from your professional experience, like notable achievements, skills acquired, or the impact of your contributions</p>
             <textarea id="prompt" name="prompt" placeholder="Enter your prompt here">${prompt}</textarea>
             <div class="boxed-text">
@@ -52,8 +52,7 @@ function openModal(event) {
     });
 
     generateButton.addEventListener('click', function () {
-        statusText.style.display = "block";
-        statusText.textContent = "Generating...";
+        showAlert("Generating...");
         generateButton.disabled = true;
 
         fetch('/profile', {
@@ -78,12 +77,28 @@ function openModal(event) {
             console.log("Raw response:", text);
 
             const lines = text.trim().split(/\r?\n/).filter(line => line.trim() !== "").map(line => JSON.parse(line));
-
             const finalData = lines.find(line => line.description !== "Generating...");
 
             if (finalData && finalData.description) {
-                modalState[textareaId].generatedText = finalData.description;
-                statusText.textContent = finalData.description;
+                let generatedText = finalData.description;
+
+                if (generatedText.startsWith("[ERROR]")) {
+                    let cleanText = generatedText.replace("[ERROR]", "").trim();
+                    if (cleanText) {
+                        cleanText = cleanText.charAt(0).toUpperCase() + cleanText.slice(1);
+                        showAlert(cleanText);
+                    } else {
+                        showAlert("Bad prompt detected, but no additional message provided.");
+                    }
+
+                    generateButton.textContent = "Generate";
+                    generateButton.disabled = false;
+                    return;
+                }
+
+                modalState[textareaId].generatedText = generatedText;
+                statusText.style.display = "block";
+                statusText.textContent = generatedText;
                 generateButton.textContent = "Regenerate";
                 generateButton.disabled = false;
 
@@ -94,19 +109,18 @@ function openModal(event) {
                     insertButton.textContent = "Insert";
                     modalDiv.querySelector('.button-row').appendChild(insertButton);
                     insertButton.addEventListener('click', function () {
-                        insertDescription(finalData.description, modalDiv, textareaId);
+                        insertDescription(generatedText, modalDiv, textareaId);
                     });
                 }
             } else {
-                alert("Empty response received.");
+                showAlert("Empty response received.");
                 generateButton.textContent = "Generate";
                 generateButton.disabled = false;
             }
         })
         .catch(error => {
             console.error("Error generating description:", error);
-            alert("Error generating description. Try again");
-            statusText.style.display = "none";
+            showAlert("Error generating description. Try again");
             generateButton.textContent = "Generate";
             generateButton.disabled = false;
         });
