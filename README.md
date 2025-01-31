@@ -23,10 +23,10 @@ MAIL_PASSWORD=password
 To get your GroqCloud API key, visit the [documentation](https://console.groq.com/docs/overview).  
 Note that you might encounter a connection error if you're running this in Russia.  
 You can collect your email password by creating a new email on any service and retrieving it from the settings.  
-Make sure you have Flask, Python, and the [necessary libraries](https://github.com/aqerd/CVbuilder/blob/main/requirements.txt) installed on your machine.
+Make sure you have Flask, Python 3.10 (at least), and the [necessary libraries](https://github.com/aqerd/CVbuilder/blob/main/requirements.txt) installed on your machine.
 
 ## 🔨 Powered by
-- Python 
+- Python 3.10
   - Pillow
   - Reportlab
   - Python-docx

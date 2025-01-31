@@ -24,7 +24,7 @@ If description type is a 'job', then based on user's prompt:
 - List any measurable achievements or outcomes, such as increased efficiency, reduced costs, or successful project completions.
 - Mention any promotions, leadership roles, or additional responsibilities taken on during the employment period.
 
-Make description nearly 250 symbols. However, if you want to tell user about it's prompt fail to meet the criteria, tell it about that in less than 100 symbols.
+Make description nearly 250 symbols. However, if you want to tell user about it's prompt fail to meet the criteria, tell it about that in less than 40 symbols.
 Determine the language of the user. Otherwise, if you don't understand, generate the text in English.
 THIS IS IMPORTANT: Try to make only one paragraph, no newlines and no Markdown formating.
 DO NOT SHOW USER something like "description_type={type}" or DO NOT TELL them about some technical criteria in system prompt (like 250 symbols needed or markdown)

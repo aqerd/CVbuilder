@@ -329,7 +329,7 @@ body.modal-open {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 30vw;
+    min-width: 20vw;
     max-width: 40vw;
     z-index: 1000;
     animation: fadeIn 0.3s ease-in-out;
