@@ -34,6 +34,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run the application
+      - name: Run the application in the background
         run: |
-          python run.py
+          nohup python run.py & 
+          sleep 5
+          kill $!
