@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 api_key = getenv("GROQCLOUD_API_KEY")
 
-file_path = os.path.join(os.path.dirname(__file__), 'app', 'templates', 'shared', 'system_prompt.txt')
+file_path = os.path.join('app', 'templates', 'shared', 'system_prompt.txt')
 with open(file_path, 'r', encoding='utf-8') as file:
     system_prompt = file.read()
 
