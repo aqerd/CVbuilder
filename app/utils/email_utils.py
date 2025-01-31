@@ -25,9 +25,9 @@ def send_cv_mail(recipient, name, lastname, cv_path):
 
     try:
         send_mail(
-            subject='Your CV',
+            subject="Your CV",
             recipients=[recipient],
-            text_body=render_template('shared/cv_email.txt', name=name, lastname=lastname),
+            text_body=render_template("shared/cv_email.txt", name=name, lastname=lastname),
             attachments=[new_path]
         )
     finally:
