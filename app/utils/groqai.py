@@ -1,3 +1,4 @@
+import os
 from os import getenv
 from groq import Groq
 from dotenv import load_dotenv
@@ -5,7 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 api_key = getenv("GROQCLOUD_API_KEY")
 
-with open(r"app\templates\shared\system_prompt.txt", "r", encoding="utf-8") as file:
+file_path = os.path.join('app', 'templates', 'shared', 'system_prompt.txt')
+with open(file_path, 'r', encoding='utf-8') as file:
     system_prompt = file.read()
 
 def generate_description(prompt, description_type):
