@@ -167,3 +167,15 @@ function insertDescription(description, modalDiv, textareaId) {
     targetTextarea.value = description;
     closeModal(modalDiv, textareaId);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            const activeElement = document.activeElement;
+            if (activeElement && activeElement.tagName !== "TEXTAREA") {
+                event.preventDefault();
+            }
+        }
+    });
+});
+
