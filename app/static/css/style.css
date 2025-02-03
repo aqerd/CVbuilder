@@ -61,7 +61,8 @@ input, textarea, select {
     background-color: var(--interaction-color);
     color: var(--main-color);
     border: 2px solid var(--hover-color);
-    padding: 1px 5px 1px 5px;
+    padding: 1px 10px 1px 10px;
+    font-family: inherit;
 }
 
 textarea {
@@ -73,6 +74,10 @@ textarea {
     box-sizing: border-box;
     padding: 0 0 0 5px;
     position: relative;
+}
+
+.modal-textarea {
+    height: 20vh;
 }
 
 textarea::-webkit-resizer {
@@ -296,6 +301,7 @@ hr {
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    animation: fadeIn 0.1s ease-in-out;
 }
 
 .modal-content {
@@ -332,7 +338,7 @@ body.modal-open {
     min-width: 20vw;
     max-width: 40vw;
     z-index: 1000;
-    animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.2s ease-in-out;
 }
 
 .custom-alert p {
