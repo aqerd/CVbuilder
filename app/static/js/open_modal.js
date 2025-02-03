@@ -22,7 +22,7 @@ function openModal(event) {
         <div class="modal-content">
             <h2 class="modal-h2">Generate your description with AI</h2>
             <p class="small-text">List your key highlights from your professional experience, like notable achievements, skills acquired, or the impact of your contributions</p>
-            <textarea id="prompt" class="small-text" name="prompt" placeholder="Enter your prompt here">${prompt}</textarea>
+            <textarea id="prompt" class="small-text modal-textarea" name="prompt" placeholder="Enter your prompt here">${prompt}</textarea>
             <div class="boxed-text">
                 <p id="status-text" class="small-text" style="display: ${generatedText ? 'block' : 'none'};">${generatedText || ''}</p>
             </div>
@@ -52,6 +52,11 @@ function openModal(event) {
     });
 
     generateButton.addEventListener('click', function () {
+        if (!promptTextarea.value.trim()) {
+            showAlert("Please enter some text first");
+            return;
+        }
+
         showAlert("Generating...");
         generateButton.disabled = true;
 
@@ -138,7 +143,15 @@ function closeModal(modalToClose, textareaId) {
 }
 
 function updateGenerateButtonState(promptTextarea, generateButton) {
-    generateButton.disabled = !promptTextarea.value.trim();
+    if (!promptTextarea.value.trim()) {
+        generateButton.disabled = false;
+        generateButton.addEventListener('click', function showAlertMessage() {
+            showAlert("Please enter some text first");
+            generateButton.removeEventListener('click', showAlertMessage);
+        });
+    } else {
+        generateButton.disabled = false;
+    }
 }
 
 function insertDescription(description, modalDiv, textareaId) {
