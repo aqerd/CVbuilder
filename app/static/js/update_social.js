@@ -1,19 +1,41 @@
 let socialCount = 1;
 
+function getDomain(link) {
+    try {
+        const domain = new URL(link).hostname;
+        return domain;
+    } catch (e) {
+        return null;
+    }
+}
+
 function addSocial(event) {
     event.preventDefault();
+    
+    const linkInput = document.getElementById('social-link-input');
+    const link = linkInput.value.trim();
+    
+    if (!link) {
+        showAlert('Please fill in the link');
+        return;
+    }
+
+    const domain = getDomain(link);
+    if (!domain) {
+        showAlert('Invalid link');
+        return;
+    }
+
     socialCount++;
+
     const newSocialDiv = document.createElement('div');
-    newSocialDiv.classList.add('social-item');
+    newSocialDiv.classList.add('form-group');
     newSocialDiv.innerHTML = `
-        <div class="form-group">
-            <label for="social-service-${socialCount}">Service</label>
-            <input type="text" id="social-service-${socialCount}" name="social-service-${socialCount}" placeholder="Service">
-        </div>
-        <div class="form-group">
-            <label for="social-link-${socialCount}">Link</label>
-            <input type="url" id="social-link-${socialCount}" name="social-link-${socialCount}" placeholder="https://example.com/you">
-        </div>
+        <p id="no-margin-p">${domain}</p>
+        <a href="${link}" target="_blank">${link}</a>
     `;
+    
     document.getElementById('socials-container').appendChild(newSocialDiv);
+
+    linkInput.value = '';
 }

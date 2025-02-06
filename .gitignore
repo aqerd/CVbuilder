@@ -162,6 +162,7 @@ cython_debug/
 .idea/
 
 structure.txt
+todo.txt
 /app/utils/files/CV.pdf
 /app/utils/files/CV.jpg
 /app/utils/files/CV.docx
