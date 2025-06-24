@@ -1,3 +1,0 @@
-{{ name }} {{ lastname }}'s CV.
-
-Created with CVbuilder

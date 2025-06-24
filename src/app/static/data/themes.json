@@ -1,56 +1,56 @@
 {
-    "dark": {
-        "background": "#111",
-        "main": "#fff",
-        "interaction": "#222",
-        "accent": "crimson"
-    },
-    "light": {
-        "background": "white",
-        "main": "black",
-        "interaction": "#ddd",
-        "accent": "blue"
-    },
-    "miami": {
-        "background": "#18181A",
-        "main": "#47BAC0",
-        "interaction": "#121212",
-        "accent": "#E4609B"
-    },
-    "error": {
-        "background": "#0000aa",
-        "main": "white",
-        "interaction": "#0f62fe",
-        "accent": "cyan"
-    },
-    "bronze": {
-        "background": "#0C0C0C",
-        "main": "#D3C2C3",
-        "interaction": "#252525",
-        "accent": "#CE8946"
-    },
-    "violet": {
-        "background": "#2E1A47",
-        "main": "#F7F2EA",
-        "interaction": "#472375",
-        "accent": "#F04E98"
-    },
-    "crimson": {
-        "background": "#6E2626",
-        "main": "#FCA7A7",
-        "interaction": "#3F1616",
-        "accent": "coral"
-    },
-    "solarized": {
-        "background": "#002b36",
-        "main": "#268bd2",
-        "interaction": "#00222b",
-        "accent": "#2aa198"
-    },
-    "cupcake": {
-        "background": "#dadbdc",
-        "main": "#DA0066",
-        "interaction": "#c8c8c8",
-        "accent": "#3846b1"
-    }
+		"dark": {
+				"background": "#111",
+				"main": "#fff",
+				"interaction": "#222",
+				"accent": "crimson"
+		},
+		"light": {
+				"background": "white",
+				"main": "black",
+				"interaction": "#ddd",
+				"accent": "blue"
+		},
+		"miami": {
+				"background": "#18181A",
+				"main": "#47BAC0",
+				"interaction": "#121212",
+				"accent": "#E4609B"
+		},
+		"error": {
+				"background": "#0000aa",
+				"main": "white",
+				"interaction": "#0f62fe",
+				"accent": "cyan"
+		},
+		"bronze": {
+				"background": "#0C0C0C",
+				"main": "#D3C2C3",
+				"interaction": "#252525",
+				"accent": "#CE8946"
+		},
+		"violet": {
+				"background": "#2E1A47",
+				"main": "#F7F2EA",
+				"interaction": "#472375",
+				"accent": "#F04E98"
+		},
+		"crimson": {
+				"background": "#6E2626",
+				"main": "#FCA7A7",
+				"interaction": "#3F1616",
+				"accent": "coral"
+		},
+		"solarized": {
+				"background": "#002b36",
+				"main": "#268bd2",
+				"interaction": "#00222b",
+				"accent": "#2aa198"
+		},
+		"cupcake": {
+				"background": "#dadbdc",
+				"main": "#DA0066",
+				"interaction": "#c8c8c8",
+				"accent": "#3846b1"
+		}
 }
