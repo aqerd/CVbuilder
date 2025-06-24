@@ -1,0 +1,9 @@
+services:
+  cvb:
+    build: .
+    ports:
+      - "${PORT_APP}:${PORT_APP}"
+    command: uv run --env-file .env python -u main.py
+    env_file:
+      - .env
+  
