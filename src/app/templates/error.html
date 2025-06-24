@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		{% include 'shared/info.html' %}
+		<title>Error - CVbuilder</title>
+	</head>
+	<body>
+		<div class="container">
+			{% include 'shared/aside.html' %}
+			<main>
+				<h1>Unexpected error</h1>
+				<p>{{ msg_error }}</p>
+				{% if e %}
+				<p>Details: {{ e }}</p>
+				{% endif %}
+				<form action="/profile" method="get"><button type="submit">Back to Profile page</button></form>
+			</main>
+		</div>
+	</body>
+</html>

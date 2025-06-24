@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		{% include 'shared/info.html' %}
+		<title>Profile - CVbuilder</title>
+		<script src="{{ url_for('static', filename='js/update_project.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/update_job.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/update_education.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/update_social.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/update_language.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/valid_url.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/valid_email.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/open_modal.js') }}" defer></script>
+	</head>
+	<body>
+		<div class="container">
+			{% include 'shared/aside.html' %}
+			<main>
+				<h1>Profile</h1>
+				<form action="/profile" method="post">
+					<div class="group" id="main-info">
+						<div class="form-group">
+							<label for="name">Name <b>*</b></label>
+							<input type="text" id="name" name="name" placeholder="Ivan" value="{{ name }}">
+							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+						</div>
+						<div class="form-group">
+							<label for="middle-name">Middle Name / Patronym</label>
+							<input type="text" id="middle-name" name="middle-name" placeholder="Ivanovich" value="{{ middle_name }}">
+							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+						</div>
+						<div class="form-group">
+							<label for="last-name">Last Name <b>*</b></label>
+							<input type="text" id="last-name" name="last-name" placeholder="Ivanov" value="{{ last_name }}">
+							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+						</div>
+						<div class="form-group">
+							<label for="email">Email <b>*</b></label>
+							<input type="email" id="email" name="email" placeholder="example@cvbuilder.com" value="{{ email }}">
+							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+						</div>
+						<div class="form-group">
+							<label for="age">Age</label>
+							<input type="number" id="age" name="age" placeholder="20" value="{{ age }}">
+							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+						</div>
+						<div class="form-group">
+							<label for="dob">Date of Birth</label>
+							<input type="date" id="dob" name="dob" placeholder="06.06.2005" value="{{ dob }}">
+							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+						</div>
+						<div class="form-group">
+							<label for="citizenship">Citizenship</label>
+							<input type="text" id="citizenship" name="citizenship" placeholder="Russia" value="{{ citizenship }}">
+							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+						</div>
+						<div class="form-group">
+							<label for="city">City</label>
+							<input type="text" id="city" name="city" placeholder="Yekaterinburg" value="{{ city }}">
+							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+						</div>
+					</div>
+					<div class="group" id="socials">
+						<h2>Socials</h2>
+						<div id="socials-container">
+						</div>
+						<div class="form-group">
+							<label for="social-link-input">Link</label>
+							<input type="url" id="social-link-input" name="social-link-1" placeholder="https://example.com/">
+						</div>
+						<button class="add-button" type="button" onclick="addSocial(event)">+ Add Social</button>
+					</div>
+					<div class="group" id="projects">
+						<div id="portfolio-container">
+							<div class="portfolio-item">
+								<h2 id="project-title-1">Project</h2>
+								<div class="form-group">
+									<label for="project-name-1">Name</label>
+									<input type="text" id="project-name-1" name="project-name-1" placeholder="Project Title">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+								</div>
+								<div class="form-group">
+									<label for="project-time-1">Timeline</label>
+									<input type="text" id="project-time-1" name="project-time-1" placeholder="from - to">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+								</div>
+								<div class="form-group">
+									<label for="project-link-1">Link</label>
+									<input type="url" id="project-link-1" name="project-link-1" placeholder="https://example.com">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+								</div>
+								<div class="form-group">
+									<div class="text-with-btn">
+										<label for="project-description-1">Description</label>
+										<button class="ai-btn" onclick="openModal(event)" data-id="project-description-1">{% include 'shared/ai-icon.html' %}</button>
+									</div>
+									<textarea id="project-description-1" name="project-description-1" placeholder="Describe the project"></textarea>
+								</div>
+							</div>
+						</div>
+						<button class="add-button" type="button" onclick="addProject(event)">+ Add Project</button>
+					</div>
+					<div class="group" id="jobs">
+						<div id="experience-container">
+							<div class="experience-item">
+								<h2 id="job-title-1">Job</h2>
+								<div class="form-group">
+									<label for="company-name-1">Company</label>
+									<input type="text" id="company-name-1" name="company-name-1" placeholder="Company Name">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+								</div>
+								<div class="form-group">
+									<label for="job-title-1">Job Title</label>
+									<input type="text" id="job-position-1" name="job-position-1" placeholder="Job Position">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+								</div>
+								<div class="form-group">
+									<label for="work-period-1">Work Period</label>
+									<input type="text" id="work-period-1" name="work-period-1" placeholder="from - to">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+								</div>
+								<div class="form-group">
+									<div class="text-with-btn">
+										<label for="job-description-1">Description</label>
+										<button class="ai-btn" onclick="openModal(event)" data-id="job-description-1">{% include 'shared/ai-icon.html' %}</button>
+									</div>
+									<textarea id="job-description-1" name="job-description-1" placeholder="Describe your job responsibilities"></textarea>
+								</div>
+							</div>
+						</div>
+						<button class="add-button" type="button" onclick="addExperience(event)">+ Add Job</button>
+					</div>
+					<div class="group" id="edu">
+						<div id="education-container">
+							<div class="education-item">
+								<h2 id="education-title-1">Education</h2>
+								<div class="form-group">
+									<label for="institution-name-1">Institution Name</label>
+									<input type="text" id="institution-name-1" name="institution-name-1" placeholder="University Name">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+								</div>
+								<div class="form-group">
+									<label for="education-period-1">Study Period</label>
+									<input type="text" id="education-period-1" name="education-period-1" placeholder="from - to">
+								</div>
+								<div class="form-group">
+									<label for="field-of-study-1">Field of Study</label>
+									<input type="text" id="field-of-study-1" name="field-of-study-1" placeholder="Field of Study">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+								</div>
+							</div>
+						</div>
+						<button class="add-button" type="button" onclick="addEducation(event)">+ Add Education</button>
+					</div>
+					<div class="group" id="langs">
+						<h2>Languages</h2>
+						<div id="languages-container">
+							<div class="language-item">
+								<div class="form-group">
+									<label for="language-name-1">Language</label>
+									<input type="text" id="language-name-1" name="language-name-1" placeholder="Language">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+								</div>
+								<div class="form-group">
+									<label for="language-level-1">Level</label>
+									<select id="language-level-1" name="language-level-1">
+										<option value="beginner">Beginner</option>
+										<option value="elementary">Elementary</option>
+										<option value="intermediate">Intermediate</option>
+										<option value="upper-intermediate">Upper Intermediate</option>
+										<option value="advanced">Advanced</option>
+										<option value="fluent">Fluent</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<button class="add-button" type="button" onclick="addLanguage(event)">+ Add Language</button>
+					</div>
+					<p>Fields with <b>*</b> are required</p>
+					<button type="submit" name="action" value="submit" class="submit">Submit</button>
+				</form>
+			</main>
+		</div>
+	</body>
+</html>
