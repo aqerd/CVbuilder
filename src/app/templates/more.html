@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'shared/info.html' %}
+        <title>More - CVbuilder</title>
+    </head>
+    <body>
+        <div class="container">
+            {% include 'shared/aside.html' %}
+            <main>
+                <h1>Switch themes</h1>
+                <div class="button-row" id="theme-buttons">
+                    {% for theme, data in themes.items() %}
+                        <button data-theme="{{ theme }}" class="theme-toggle">
+                            <span class="theme-toggle-text">{{ theme.capitalize() }}</span>
+                            <div class="color-main" style="background-color: {{ data.background }};">
+                                <div class="color-box" style="background-color: {{ data.main }};"></div>
+                                <div class="color-box" style="background-color: {{ data.interaction }};"></div>
+                                <div class="color-box" style="background-color: {{ data.accent }};"></div>
+                            </div>
+                        </button>
+                    {% endfor %}
+                </div>
+                <h1>About this site</h1>
+                <p>Build your CV fast and easy way</p>
+                <ol>
+                    <li>Create your profile. Fill your CV with work experience etc</li>
+                    <li>Choose sample design we got for you</li>
+                    <li>Export it in pdf, doc or send email</li>
+                </ol>
+                <p>We use cookies and by continuing to use this site you agree to their use</p>
+                <p>This project were made by Ruslan Suleymanov, Rasul Gasanbekov and Vladimir Golubev</p>
+                <a href="https://github.com/aqerd/CVbuilder">See our GitHub!</a>
+            </main>
+        </div>
+    </body>
+</html>
