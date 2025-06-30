@@ -181,7 +181,6 @@ def create_jpg(data):
         font_bold = ImageFont.truetype(bold_font_path, 20)
         font_bold_big_size = ImageFont.truetype(bold_font_path, 30)
     except IOError:
-        print("Font file not found")
         return
 
     y_position = 30

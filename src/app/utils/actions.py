@@ -37,8 +37,21 @@ def ai_generate():
     def stream_response():
         yield json.dumps({"description": "Generating..."}) + "\n"
         time.sleep(3)
-        generated_description = generate_description(prompt, textarea_type)
-        # app.logger.info(f"Generated text: {generated_description}")
-        yield json.dumps({"description": generated_description}) + "\n"
+        generated_description, error_code, error_message = generate_description(
+            prompt, textarea_type
+        )
+        if error_code != 0:
+            yield (
+                json.dumps(
+                    {
+                        "description": generated_description,
+                        "error_code": error_code,
+                        "error_message": error_message,
+                    }
+                )
+                + "\n"
+            )
+        else:
+            yield json.dumps({"description": generated_description}) + "\n"
 
     return Response(stream_with_context(stream_response()), mimetype="application/json")

@@ -33,7 +33,7 @@ dependencies = [
 	"flask==3.1.1",
 	"flask_mail==0.10.0",
 	"flask_wtf==1.2.2",
-	"groq==0.28.0",
+	"google-genai==1.23.0",
 	"python-docx==1.2.0",
 	"pillow==11.2.1",
 	"reportlab==4.4.2"
