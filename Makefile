@@ -1,3 +1,5 @@
+.PHONY: down push pull lint test format build up
+
 all: build up
 
 build:
@@ -16,10 +18,22 @@ push:
 	docker push cvbuilder
 
 lint:
-	echo "lint will be added soon"
+	docker exec cvbuilder-app uv run ruff check .
 
 format:
-	echo "format will be added soon"
+	uv run ruff format .
+
+venv-windows:
+	.\.venv\Scripts\activate
+
+venv-linux:
+	source .venv/Scripts/activate
 
 test:
-	echo "test will be added soon"
+	pytest
+
+install-dev:
+	docker exec cvbuilder-app uv pip install .[test,lint]
+
+logs:
+	docker logs -f cvbuilder-app

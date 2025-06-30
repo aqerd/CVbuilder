@@ -11,19 +11,18 @@
 ![Profile](images/profile.png)
 
 ## 🔗 How to run
-Make sure you have Flask, Python 3.10 (at least), and the [necessary libraries](https://github.com/aqerd/CVbuilder/blob/main/requirements.txt) installed on your machine.
-
-To start this you can clone our repository:
+Clone our repository:
 ```shell
 git clone https://github.com/aqerd/CVbuilder.git
 ```
 Set the environmental variables in `.env`. For reference see `.env.example`.
-To get your GroqCloud API key, visit the [documentation](https://console.groq.com/docs/overview).
 
 > [!NOTE]
+> To get your GroqCloud API key, visit the [documentation](https://console.groq.com/docs/overview).
 > You can collect your email password by creating a new email on any SMTP Server and retrieving it from the settings.
 
-Make sure you have Python 3.10 (at least), `make` (install it if you have Windows) and Docker installed on your machine. \
+Make sure you have Python 3.10 (at least), `make` (install it if you have Windows) and Docker installed on your machine.
+
 To build and up docker container run this:
 ```bash
 make
