@@ -40,9 +40,6 @@ def ai_generate():
         generated_description, error_code, error_message = generate_description(
             prompt, textarea_type
         )
-        print(
-            f"Generated text: {generated_description},\nError_code: {error_code},\nError_message: {error_message}"
-        )
         if error_code != 0:
             yield (
                 json.dumps(
