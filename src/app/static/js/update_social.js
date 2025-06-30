@@ -16,7 +16,7 @@ function addSocial(event) {
 	const link = linkInput.value.trim();
 	
 	if (!link) {
-		showAlert('Please fill in the link');
+		showAlert('Please fill in the link first');
 		return;
 	}
 

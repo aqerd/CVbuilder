@@ -3,7 +3,7 @@ import os
 
 
 class Settings:
-    GROQCLOUD_API_KEY = os.getenv("GROQCLOUD_API_KEY")
+    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
     SECRET_KEY = os.urandom(36)
     MAIL_SERVER = os.getenv("MAIL_SERVER")
     MAIL_PORT = int(os.getenv("MAIL_PORT"))

@@ -84,7 +84,13 @@ function openModal(event) {
 			const lines = text.trim().split(/\r?\n/).filter(line => line.trim() !== "").map(line => JSON.parse(line));
 			const finalData = lines.find(line => line.description !== "Generating...");
 
-			if (finalData && finalData.description) {
+			if (finalData && (finalData.description || finalData.error_message)) {
+				if (finalData.error_code !== 0 && finalData.error_message) {
+					showAlert(finalData.error_message);
+					generateButton.textContent = "Generate";
+					generateButton.disabled = false;
+					return;
+				}
 				let generatedText = finalData.description;
 
 				if (generatedText.startsWith("[ERROR]")) {
@@ -93,7 +99,7 @@ function openModal(event) {
 						cleanText = cleanText.charAt(0).toUpperCase() + cleanText.slice(1);
 						showAlert(cleanText);
 					} else {
-						showAlert("Bad prompt detected, but no additional message provided.");
+						showAlert("Bad prompt detected, but no additional message provided");
 					}
 
 					generateButton.textContent = "Generate";
@@ -118,7 +124,7 @@ function openModal(event) {
 					});
 				}
 			} else {
-				showAlert("Empty response received.");
+				showAlert(finalData.error_message || "Empty response received");
 				generateButton.textContent = "Generate";
 				generateButton.disabled = false;
 			}
