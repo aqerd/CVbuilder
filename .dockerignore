@@ -86,7 +86,7 @@ ipython_config.py
 # locks
 Pipfile.lock
 poetry.lock
-uv.lock
+# uv.lock
 
 # pdm
 .pdm.toml

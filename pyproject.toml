@@ -2,9 +2,10 @@
 name = "CVbuilder"
 version = "0.1"
 description = "Build your CV fast and easy way. A Python app powered with Flask framework"
-readme = "README.md"
+readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = "==3.13.5"
 license = "MIT"
+license-files = ["LICEN[CS]E.*"]
 authors = [
 	{ name = "Ruslan Suleymanov", email = "2195486@gmail.com" },
 	{ name = "Rasul Gasanbekov" },
@@ -20,6 +21,9 @@ classifiers = [
 	"Intended Audience :: End Users/Desktop",
 	"Topic :: Office/Business",
 	"Topic :: Utilities",
+	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python :: 3.12",
 	"Programming Language :: Python :: 3.13",
 	"Framework :: Flask",
 	"Environment :: Web Environment",
@@ -30,23 +34,20 @@ dependencies = [
 	"flask_mail==0.10.0",
 	"flask_wtf==1.2.2",
 	"groq==0.28.0",
-	"dotenv==0.9.9",
 	"python-docx==1.2.0",
 	"pillow==11.2.1",
 	"reportlab==4.4.2"
 ]
 
 [project.optional-dependencies]
-dev = [
-	"pytest",
-	"black",
-	"flake8"
-]
+test = ["pytest"]
+lint = ["ruff"]
 
 [project.urls]
 homepage = "https://example.com" # Soon to be deployed
 documentation = "https://github.com/aqerd/CVbuilder/tree/main/docs"
 repository = "https://github.com/aqerd/CVbuilder"
+issues = "https://github.com/aqerd/CVbuilder/issues"
 
 [project.entry-points]
 console_scripts = { cvbuilder = "main:main" }
