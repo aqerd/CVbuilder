@@ -52,5 +52,47 @@
 				"main": "#DA0066",
 				"interaction": "#c8c8c8",
 				"accent": "#3846b1"
+		},
+		"ink": {
+				"background": "#ffffff",
+				"main": "#ff360d",
+				"interaction": "#ececec",
+				"accent": "#000000"
+		},
+		"paper": {
+				"background": "#eeeeee",
+				"main": "#444444",
+				"interaction": "#dddddd",
+				"accent": "#444444"
+		},
+		"milkshake": {
+				"background": "#ffffff",
+				"main": "#212b43",
+				"interaction": "#ddeff3",
+				"accent": "#62cfe6"
+		},
+		"mint": {
+				"background": "#b2d2c8",
+				"main": "#c13117",
+				"interaction": "#c6ddd3",
+				"accent": "#490909"
+		},
+		"nautilus": {
+				"background": "#132237",
+				"main": "#ebb723",
+				"interaction": "#0e1a29",
+				"accent": "#1cbaac"
+		},
+		"tropicwave": {
+				"background": "#07737a",
+				"main": "#88dbdf",
+				"interaction": "#26858b",
+				"accent": "#f3e03b"
+		},
+		"grass": {
+				"background": "#ffffff",
+				"main": "#f5b1cc",
+				"interaction": "#f2f2f2",
+				"accent": "#00ac8c"
 		}
 }

@@ -13,7 +13,7 @@ from flask import (
 )
 
 from app.utils.data_collector import collect_data
-from app.utils.groqai import generate_description
+from app.utils.ai import generate_description
 
 
 def submit():
