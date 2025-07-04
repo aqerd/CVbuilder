@@ -5,23 +5,11 @@
 				"interaction": "#222",
 				"accent": "crimson"
 		},
-		"light": {
-				"background": "white",
-				"main": "black",
-				"interaction": "#ddd",
-				"accent": "blue"
-		},
 		"miami": {
 				"background": "#18181A",
 				"main": "#47BAC0",
 				"interaction": "#121212",
 				"accent": "#E4609B"
-		},
-		"error": {
-				"background": "#0000aa",
-				"main": "white",
-				"interaction": "#0f62fe",
-				"accent": "cyan"
 		},
 		"bronze": {
 				"background": "#0C0C0C",
@@ -29,29 +17,11 @@
 				"interaction": "#252525",
 				"accent": "#CE8946"
 		},
-		"violet": {
-				"background": "#2E1A47",
-				"main": "#F7F2EA",
-				"interaction": "#472375",
-				"accent": "#F04E98"
-		},
-		"crimson": {
-				"background": "#6E2626",
-				"main": "#FCA7A7",
-				"interaction": "#3F1616",
-				"accent": "coral"
-		},
-		"solarized": {
-				"background": "#002b36",
-				"main": "#268bd2",
-				"interaction": "#00222b",
-				"accent": "#2aa198"
-		},
-		"cupcake": {
-				"background": "#dadbdc",
-				"main": "#DA0066",
-				"interaction": "#c8c8c8",
-				"accent": "#3846b1"
+		"light": {
+				"background": "white",
+				"main": "black",
+				"interaction": "#ddd",
+				"accent": "blue"
 		},
 		"ink": {
 				"background": "#ffffff",
@@ -71,11 +41,47 @@
 				"interaction": "#ddeff3",
 				"accent": "#62cfe6"
 		},
+		"grass": {
+				"background": "#ffffff",
+				"main": "#00ac8c",
+				"interaction": "#f2f2f2",
+				"accent": "#f5b1cc"
+		},
+		"cupcake": {
+				"background": "#dadbdc",
+				"main": "#DA0066",
+				"interaction": "#c8c8c8",
+				"accent": "#3846b1"
+		},
+		"error": {
+				"background": "#0000aa",
+				"main": "white",
+				"interaction": "#0f62fe",
+				"accent": "cyan"
+		},
+		"violet": {
+				"background": "#2E1A47",
+				"main": "#F7F2EA",
+				"interaction": "#472375",
+				"accent": "#F04E98"
+		},
+		"crimson": {
+				"background": "#6E2626",
+				"main": "#FCA7A7",
+				"interaction": "#3F1616",
+				"accent": "coral"
+		},
+		"solarized": {
+				"background": "#002b36",
+				"main": "#268bd2",
+				"interaction": "#00222b",
+				"accent": "#2aa198"
+		},
 		"mint": {
-				"background": "#b2d2c8",
-				"main": "#c13117",
-				"interaction": "#c6ddd3",
-				"accent": "#490909"
+				"background": "#90D5B5",
+				"main": "#E6602B",
+				"interaction": "#FF956F",
+				"accent": "#666666"
 		},
 		"nautilus": {
 				"background": "#132237",
@@ -88,11 +94,5 @@
 				"main": "#88dbdf",
 				"interaction": "#26858b",
 				"accent": "#f3e03b"
-		},
-		"grass": {
-				"background": "#ffffff",
-				"main": "#f5b1cc",
-				"interaction": "#f2f2f2",
-				"accent": "#00ac8c"
 		}
 }
