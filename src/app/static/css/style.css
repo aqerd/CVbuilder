@@ -145,6 +145,10 @@ button {
 
 .button-icon svg {
 	display: block;
+}
+
+.button-icon svg .logo-object,
+.button-icon svg .logo-stroke {
 	stroke: var(--main-color);
 }
 
@@ -410,12 +414,16 @@ body.modal-open {
 	fill: var(--main-color);
 }
 
-.logo .logo-shape {
+.logo-bg {
+	stroke: none;
+}
+
+.logo-shape {
 	fill: var(--bg-color);
 }
 
-.logo-bg {
-	fill: var(--bg-color);
+.logo-inner {
+	fill: var(--interaction-color);
 }
 
 .logo-object {
@@ -542,14 +550,6 @@ body.modal-open {
 
 	.text-with-btn {
 		align-items: end;
-	}
-
-	button {
-		padding: 6px 12px;
-	}
-
-	.submit {
-		padding: 6px 12px;
 	}
 
 	.small-text {
