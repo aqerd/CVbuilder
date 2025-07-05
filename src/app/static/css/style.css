@@ -136,6 +136,20 @@ button {
 	padding: 8px 30px;
 	cursor: pointer;
 	font-family: inherit;
+	transition: background-color 0.2s;
+}
+
+.button-icon {
+	display: none;
+}
+
+.button-icon svg {
+	display: block;
+	stroke: var(--main-color);
+}
+
+.top-nav button:hover {
+	background-color: var(--hover-color);
 }
 
 button:hover {
@@ -255,8 +269,15 @@ main form {
 	border-radius: 20px;
 	padding: 8px;
 	margin: 0 auto;
-	min-width: 360px;
+	min-width: 300px;
 	gap: 8px;
+}
+
+.goto {
+	text-decoration: none;
+	color: inherit;
+	display: flex;
+	align-items: center;
 }
 
 #logo-on-left + .goto {
@@ -385,12 +406,24 @@ body.modal-open {
 	display: block;
 }
 
-.logo .logo-bg {
+.logo .logo-cvb {
 	fill: var(--main-color);
 }
 
 .logo .logo-shape {
 	fill: var(--bg-color);
+}
+
+.logo-bg {
+	fill: var(--bg-color);
+}
+
+.logo-object {
+	fill: var(--main-color);
+}
+
+.logo-stroke {
+	stroke: var(--main-color);
 }
 
 @keyframes fadeIn {
@@ -427,7 +460,7 @@ body.modal-open {
 	border: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 780px) {
 	main {
 		padding: 80px 20px 80px 20px;
 	}
@@ -472,12 +505,29 @@ body.modal-open {
 	}
 }
 
-@media (max-width: 480px) {
+@media (max-width: 490px) {
 	main {
 		padding: 80px 10px 80px 10px;
 	}
+
 	h1 {
 		font-size: 28px;
+	}
+
+	.button-text {
+		display: none;
+	}
+
+	.button-icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.top-nav button {
+		width: 40px;
+		height: 40px;
+		padding: 0;
 	}
 
 	.container {
