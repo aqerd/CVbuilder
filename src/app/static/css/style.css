@@ -49,8 +49,7 @@ h2 {
 .boxed-text {
 	background-color: var(--bg-color);
 	color: var(--main-color);
-	border-radius: 10px;
-	/*padding: 0	10px 0 10px;*/
+	border-radius: 12px;
 	margin: 12px 0 16px 0;
 }
 
@@ -60,7 +59,7 @@ h2 {
 
 input, textarea, select {
 	font-size: 1em;
-	border-radius: 10px;
+	border-radius: 12px;
 	outline: none;
 	background-color: var(--interaction-color);
 	color: var(--main-color);
@@ -133,7 +132,7 @@ button {
 	display: inline-block;
 	font-size: 20px;
 	border: none;
-	border-radius: 10px;
+	border-radius: 12px;
 	padding: 8px 30px;
 	cursor: pointer;
 	font-family: inherit;
@@ -209,7 +208,7 @@ button:focus-visible {
 }
 
 main {
-	padding: 20px;
+	padding: 80px;
 	flex: 1;
 }
 
@@ -233,30 +232,50 @@ main form {
 }
 
 .container {
-	display: grid;
-	grid-template-columns: auto 1fr;
 	min-height: 100vh;
 }
 
-aside {
-	padding: 40px;
-	display: flex;
-	flex-direction: column;
-}
-
-aside button {
-	background-color: var(--bg-color);
+.top-nav {
+	padding: 16px 80px 16px 80px;
 	width: 100%;
-	height: 60px;
-	text-align: left;
-	margin-bottom: 4px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	box-sizing: border-box;
 }
 
-aside button:hover {
-	background-color: var(--interaction-color);
+.top-nav .blured {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: rgb(from var(--bg-color) r g b / 0.1);
+	backdrop-filter: blur(40px);
+	border: 2px solid var(--hover-color);
+	border-radius: 20px;
+	padding: 8px;
+	margin: 0 auto;
+	min-width: 360px;
+	gap: 8px;
 }
 
-aside button:active {
+#logo-on-left + .goto {
+	margin-left: auto;
+}
+
+.top-nav button {
+	width: auto;
+	height: 40px;
+	padding: 0 20px;
+	text-align: center;
+	font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+	margin: 0;
+}
+
+.top-nav button:active {
 	background-color: var(--hover-color);
 }
 
@@ -314,7 +333,7 @@ hr {
 	border: none;
 	width: 70vw;
 	max-height: 90vh;
-	border-radius: 10px;
+	border-radius: 12px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -335,7 +354,7 @@ body.modal-open {
 	bottom: 20px;
 	right: 20px;
 	padding: 20px;
-	border-radius: 20px;
+	border-radius: 32px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -356,34 +375,23 @@ body.modal-open {
 	display: inline-block;
 	margin-top: 16px;
 	border: none;
-	border-radius: 10px;
+	border-radius: 12px;
 	padding: 8px 30px;
 	cursor: pointer;
 	font-family: inherit;
 }
 
-/*#socials-container {*/
-/*	display: flex;*/
-/*	flex-wrap: wrap;*/
-/*	gap: 10px;*/
-/*}*/
+.logo {
+	display: block;
+}
 
-/*.social-item {*/
-/*	display: flex;*/
-/*	align-items: center;*/
-/*}*/
+.logo .logo-bg {
+	fill: var(--main-color);
+}
 
-/*.social-item img {*/
-/*	width: 30px;*/
-/*	height: 30px;*/
-/*	border-radius: 50%;*/
-/*	margin-right: 10px;*/
-/*}*/
-
-/*.social-item a {*/
-/*	text-decoration: none;*/
-/*	color: inherit;*/
-/*}*/
+.logo .logo-shape {
+	fill: var(--bg-color);
+}
 
 @keyframes fadeIn {
 	from { opacity: 0; transform: translateY(10px); }
@@ -420,6 +428,10 @@ body.modal-open {
 }
 
 @media (max-width: 768px) {
+	main {
+		padding: 80px 20px 80px 20px;
+	}
+
 	h1 {
 		font-size: 36px;
 	}
@@ -433,17 +445,8 @@ body.modal-open {
 		gap: 4px;
 	}
 
-	aside {
-		flex-direction: row;
-		gap: 8px;
-		padding: 20px;
-		justify-content: center;
-	}
-
-	aside button {
-		flex-grow: 0;
-		width: 100%;
-		margin-bottom: 0;
+	.top-nav {
+		padding: 16px 20px 16px 20px;
 	}
 
 	button {
@@ -470,6 +473,9 @@ body.modal-open {
 }
 
 @media (max-width: 480px) {
+	main {
+		padding: 80px 10px 80px 10px;
+	}
 	h1 {
 		font-size: 28px;
 	}

@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<div class="container">
-			{% include 'shared/aside.html' %}
+			{% include 'shared/nav.html' %}
 			<main>
 				<h1>Profile</h1>
 				<form action="/profile" method="post">
@@ -41,7 +41,7 @@
 						</div>
 						<div class="form-group">
 							<label for="age">Age</label>
-							<input type="number" id="age" name="age" placeholder="20" value="{{ age }}">
+							<input type="number" id="age" name="age" placeholder="20" value="{{ age }}" min="0" max="130">
 							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 						</div>
 						<div class="form-group">

@@ -25,5 +25,5 @@ function showAlert(message) {
 		if (alertDiv) {
 			alertDiv.remove();
 		}
-	}, 10000);
+	}, 8000);
 }

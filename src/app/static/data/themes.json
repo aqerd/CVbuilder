@@ -1,98 +1,98 @@
 {
-		"dark": {
-				"background": "#111",
-				"main": "#fff",
-				"interaction": "#222",
-				"accent": "crimson"
-		},
-		"miami": {
-				"background": "#18181A",
-				"main": "#47BAC0",
-				"interaction": "#121212",
-				"accent": "#E4609B"
-		},
-		"bronze": {
-				"background": "#0C0C0C",
-				"main": "#D3C2C3",
-				"interaction": "#252525",
-				"accent": "#CE8946"
-		},
-		"light": {
-				"background": "white",
-				"main": "black",
-				"interaction": "#ddd",
-				"accent": "blue"
-		},
-		"ink": {
-				"background": "#ffffff",
-				"main": "#ff360d",
-				"interaction": "#ececec",
-				"accent": "#000000"
-		},
-		"paper": {
-				"background": "#eeeeee",
-				"main": "#444444",
-				"interaction": "#dddddd",
-				"accent": "#444444"
-		},
-		"milkshake": {
-				"background": "#ffffff",
-				"main": "#212b43",
-				"interaction": "#ddeff3",
-				"accent": "#62cfe6"
-		},
-		"grass": {
-				"background": "#ffffff",
-				"main": "#00ac8c",
-				"interaction": "#f2f2f2",
-				"accent": "#f5b1cc"
-		},
-		"cupcake": {
-				"background": "#dadbdc",
-				"main": "#DA0066",
-				"interaction": "#c8c8c8",
-				"accent": "#3846b1"
-		},
-		"error": {
-				"background": "#0000aa",
-				"main": "white",
-				"interaction": "#0f62fe",
-				"accent": "cyan"
-		},
-		"violet": {
-				"background": "#2E1A47",
-				"main": "#F7F2EA",
-				"interaction": "#472375",
-				"accent": "#F04E98"
-		},
-		"crimson": {
-				"background": "#6E2626",
-				"main": "#FCA7A7",
-				"interaction": "#3F1616",
-				"accent": "coral"
-		},
-		"solarized": {
-				"background": "#002b36",
-				"main": "#268bd2",
-				"interaction": "#00222b",
-				"accent": "#2aa198"
-		},
-		"mint": {
-				"background": "#90D5B5",
-				"main": "#E6602B",
-				"interaction": "#FF956F",
-				"accent": "#666666"
-		},
-		"nautilus": {
-				"background": "#132237",
-				"main": "#ebb723",
-				"interaction": "#0e1a29",
-				"accent": "#1cbaac"
-		},
-		"tropicwave": {
-				"background": "#07737a",
-				"main": "#88dbdf",
-				"interaction": "#26858b",
-				"accent": "#f3e03b"
-		}
+	"dark": {
+		"background": "#111",
+		"main": "#fff",
+		"interaction": "#222",
+		"accent": "crimson"
+	},
+	"miami": {
+		"background": "#18181A",
+		"main": "#47BAC0",
+		"interaction": "#121212",
+		"accent": "#E4609B"
+	},
+	"bronze": {
+		"background": "#0C0C0C",
+		"main": "#D3C2C3",
+		"interaction": "#252525",
+		"accent": "#CE8946"
+	},
+	"light": {
+		"background": "white",
+		"main": "black",
+		"interaction": "#ddd",
+		"accent": "blue"
+	},
+	"ink": {
+		"background": "#ffffff",
+		"main": "#ff360d",
+		"interaction": "#ececec",
+		"accent": "#000000"
+	},
+	"paper": {
+		"background": "#eeeeee",
+		"main": "#444444",
+		"interaction": "#dddddd",
+		"accent": "#444444"
+	},
+	"milkshake": {
+		"background": "#ffffff",
+		"main": "#212b43",
+		"interaction": "#ddeff3",
+		"accent": "#62cfe6"
+	},
+	"grass": {
+		"background": "#ffffff",
+		"main": "#00ac8c",
+		"interaction": "#f2f2f2",
+		"accent": "#f5b1cc"
+	},
+	"cupcake": {
+		"background": "#dadbdc",
+		"main": "#DA0066",
+		"interaction": "#c8c8c8",
+		"accent": "#3846b1"
+	},
+	"error": {
+		"background": "#0000aa",
+		"main": "white",
+		"interaction": "#0f62fe",
+		"accent": "cyan"
+	},
+	"violet": {
+		"background": "#2E1A47",
+		"main": "#F7F2EA",
+		"interaction": "#472375",
+		"accent": "#F04E98"
+	},
+	"crimson": {
+		"background": "#6E2626",
+		"main": "#FCA7A7",
+		"interaction": "#3F1616",
+		"accent": "coral"
+	},
+	"solarized": {
+		"background": "#002b36",
+		"main": "#268bd2",
+		"interaction": "#00222b",
+		"accent": "#2aa198"
+	},
+	"mint": {
+		"background": "#90D5B5",
+		"main": "#E6602B",
+		"interaction": "#FF956F",
+		"accent": "#666666"
+	},
+	"nautilus": {
+		"background": "#132237",
+		"main": "#ebb723",
+		"interaction": "#0e1a29",
+		"accent": "#1cbaac"
+	},
+	"tropicwave": {
+		"background": "#07737a",
+		"main": "#88dbdf",
+		"interaction": "#26858b",
+		"accent": "#f3e03b"
+	}
 }
