@@ -4,7 +4,7 @@ import shutil
 
 from flask import render_template
 from flask_mail import Message
-
+from settings import Settings
 
 def send_mail(subject, recipients, text_body, attachments=None, mail=None):
     with mail.app_context():
@@ -29,7 +29,9 @@ def send_cv_mail(recipient, name, lastname, cv_path, mail):
             subject="Your CV",
             recipients=[recipient],
             text_body=render_template(
-                "shared/cv_email.txt", name=name, lastname=lastname
+                Settings.EMAIL_TEMPLATE_FILE_PATH,
+                name=name,
+                lastname=lastname,
             ),
             attachments=[new_path],
             mail=mail,

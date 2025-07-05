@@ -17,6 +17,7 @@ class Settings:
     THEMES_FILE_PATH = os.getenv("THEMES_FILE_PATH")
     REGULAR_FONT_PATH = os.getenv("REGULAR_FONT_PATH")
     BOLD_FONT_PATH = os.getenv("BOLD_FONT_PATH")
+    EMAIL_TEMPLATE_FILE_PATH = os.getenv("EMAIL_TEMPLATE_FILE_PATH")
     SYSTEM_PROMPT_FILE_PATH = os.getenv("SYSTEM_PROMPT_FILE_PATH")
     DEBUG_APP = bool(os.getenv("DEBUG_APP"))
     HOST_APP = os.getenv("HOST_APP")

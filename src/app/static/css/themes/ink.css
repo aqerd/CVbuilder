@@ -1,9 +1,9 @@
 :root {
 	--bg-color: #ffffff;
 	--main-color: #ff360d;
-	--interaction-color: #ececec;
+	--interaction-color: #e0e0e0;
 	--accent-color: #000000;
-	--hover-color: #b7b7b7;
+	--hover-color: #f8f8f8;
 	--neutral-color: #ff0000;
 	--border-color: #d70000;
 }

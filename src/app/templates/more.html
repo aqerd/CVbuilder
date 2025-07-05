@@ -6,25 +6,12 @@
 	</head>
 	<body>
 		<div class="container">
-			{% include 'shared/aside.html' %}
+			{% include 'shared/nav.html' %}
 			<main>
-				<h1>Switch themes</h1>
-				<div class="button-row" id="theme-buttons">
-					{% for theme, data in themes.items() %}
-						<button data-theme="{{ theme }}" class="theme-toggle">
-							<span class="theme-toggle-text">{{ theme.capitalize() }}</span>
-							<div class="color-main" style="background-color: {{ data.background }};">
-								<div class="color-box" style="background-color: {{ data.main }};"></div>
-								<div class="color-box" style="background-color: {{ data.interaction }};"></div>
-								<div class="color-box" style="background-color: {{ data.accent }};"></div>
-							</div>
-						</button>
-					{% endfor %}
-				</div>
 				<h1>About this site</h1>
 				<p>Build your CV fast and easy way</p>
 				<ol>
-					<li>Create your profile. Fill your CV with work experience etc</li>
+					<li>Create your profile. Fill your CV with work experience et cetera</li>
 					<li>Choose sample design we got for you</li>
 					<li>Export it in pdf, doc or send email</li>
 				</ol>

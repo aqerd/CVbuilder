@@ -50,9 +50,14 @@ def export():
 
 @router.route("/more")
 def more():
+    return render_template("more.html")
+
+
+@router.route("/themes")
+def themes():
     with open(Settings.THEMES_FILE_PATH) as f:
         themes = json.load(f)
-    return render_template("more.html", themes=themes)
+    return render_template("themes.html", themes=themes)
 
 
 @router.route("/set_format", methods=["POST"])
@@ -94,8 +99,5 @@ def email(data):
         )
 
 
-@router.errorhandler(404)
 def page_not_found(e):
-    return render_template(
-        "error.html", msg_error=f"Page not available: {e}", error=404
-    )
+    return render_template("error.html", msg_error=e, error=404), 404
