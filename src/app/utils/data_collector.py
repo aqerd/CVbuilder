@@ -8,7 +8,7 @@ def collect_data(request):
         "age": request.form.get("age"),
         "email": request.form.get("email"),
         "dob": request.form.get("dob"),
-        "citizenship": request.form.get("citizenship"),
+        "country": request.form.get("country"),
         "city": request.form.get("city"),
         "socials": [],
         "projects": [],

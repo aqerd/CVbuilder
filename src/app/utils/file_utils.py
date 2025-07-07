@@ -55,7 +55,7 @@ def create_pdf(data):
     elements.append(Paragraph(f"Age: {data['age']}", styleN))
     elements.append(Paragraph(f"Date of Birth: {data['dob']}", styleN))
     elements.append(Paragraph(f"Email: {data['email']}", styleN))
-    elements.append(Paragraph(f"Citizenship: {data['citizenship']}", styleN))
+    elements.append(Paragraph(f"Country: {data['country']}", styleN))
     elements.append(Paragraph(f"City: {data['city']}", styleN))
     elements.append(Spacer(1, 12))
 
@@ -74,7 +74,7 @@ def create_pdf(data):
             if project.get("link"):
                 link = f'<a href="{project["link"]}" color="blue">{project["link"]}</a>'
                 elements.append(Paragraph(link, styleN))
-            elements.append(Paragraph(f"Description: {project['description']}", styleN))
+            elements.append(Paragraph(project['description'], styleN))
             elements.append(Spacer(1, 6))
         elements.append(Spacer(1, 12))
 
@@ -84,7 +84,7 @@ def create_pdf(data):
             elements.append(Paragraph(f"Company: {exp['company']}", styleN))
             elements.append(Paragraph(f"Job Title: {exp['title']}", styleN))
             elements.append(Paragraph(f"Period: {exp['period']}", styleN))
-            elements.append(Paragraph(f"Description: {exp['description']}", styleN))
+            elements.append(Paragraph(exp['description'], styleN))
             elements.append(Spacer(1, 6))
         elements.append(Spacer(1, 12))
 
@@ -117,7 +117,7 @@ def create_docx(data):
     doc.add_paragraph(f"Age: {data['age']}")
     doc.add_paragraph(f"Date of Birth: {data['dob']}")
     doc.add_paragraph(f"Email: {data['email']}")
-    doc.add_paragraph(f"Citizenship: {data['citizenship']}")
+    doc.add_paragraph(f"Country: {data['country']}")
     doc.add_paragraph(f"City: {data['city']}")
 
     if data["socials"]:
@@ -131,7 +131,7 @@ def create_docx(data):
             doc.add_paragraph(f"Project Name: {project['name']}")
             doc.add_paragraph(f"Time: {project['time']}")
             doc.add_paragraph(f"Link: {project['link']}")
-            doc.add_paragraph(f"Description: {project['description']}")
+            doc.add_paragraph(project['description'])
 
     if data["experiences"]:
         doc.add_heading("Experience", level=1)
@@ -139,7 +139,7 @@ def create_docx(data):
             doc.add_paragraph(f"Company: {exp['company']}")
             doc.add_paragraph(f"Job Title: {exp['title']}")
             doc.add_paragraph(f"Period: {exp['period']}")
-            doc.add_paragraph(f"Description: {exp['description']}")
+            doc.add_paragraph(exp['description'])
 
     if data["education"]:
         doc.add_heading("Education", level=1)
@@ -197,7 +197,7 @@ def create_jpg(data):
     y_position += 23
     draw.text(
         (100, y_position),
-        f"Citizenship: {data['citizenship']}",
+        f"Country: {data['country']}",
         font=font_regular,
         fill=(0, 0, 0),
     )
@@ -246,7 +246,7 @@ def create_jpg(data):
             y_position += 23
             draw.text(
                 (100, y_position),
-                f"Description: {project['description']}",
+                project['description'],
                 font=font_regular,
                 fill=(0, 0, 0),
             )
@@ -279,7 +279,7 @@ def create_jpg(data):
             y_position += 23
             draw.text(
                 (100, y_position),
-                f"Description: {exp['description']}",
+                exp['description'],
                 font=font_regular,
                 fill=(0, 0, 0),
             )

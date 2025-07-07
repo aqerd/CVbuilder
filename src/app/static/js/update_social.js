@@ -1,10 +1,10 @@
-let socialCount = 1;
+let socialCount = 0;
 
 function getDomain(link) {
 	try {
 		const url = new URL(link);
 		if (url.hostname && url.hostname.includes('.')) {
-			return url.hostname;
+			return url.hostname.replace(/^www\./, '');
 		}
 		return null;
 	} catch (e) {
@@ -12,29 +12,30 @@ function getDomain(link) {
 	}
 }
 
-function addSocial(event) {
-    event.preventDefault();
-
-    const lastLinkInput = document.getElementById(`social-link-${socialCount}`);
-    let link = lastLinkInput.value.trim();
+function updateLabel(input) {
+    let link = input.value.trim();
+    const label = document.querySelector(`label[for="${input.id}"]`);
 
     if (!link) {
-		showAlert('Please fill in the link first');
-		return;
-	}
+        if (label) label.textContent = 'Link';
+        return;
+    }
 
     if (!/^https?:\/\//i.test(link)) {
         link = 'https://' + link;
+        input.value = link;
     }
 
-	const domain = getDomain(link);
-	if (!domain) {
-		showAlert('Please enter a correct link format');
-		return;
-	}
-    lastLinkInput.value = link;
-    lastLinkInput.setAttribute('readonly', true);
+    const domain = getDomain(link);
+    if (domain) {
+        if (label) label.textContent = domain;
+    } else {
+        if (label) label.textContent = 'Invalid Link';
+    }
+}
 
+function addSocial(event) {
+    event.preventDefault();
     socialCount++;
 
     const newSocialDiv = document.createElement('div');
@@ -48,24 +49,48 @@ function addSocial(event) {
     `;
 
     document.getElementById('socials-container').appendChild(newSocialDiv);
-	document.getElementById(`social-link-${socialCount}`).focus();
-
-	const newLinkInput = document.getElementById(`social-link-${socialCount}`);
-    if (newLinkInput) {
-        newLinkInput.addEventListener('keydown', handleSocialLinkEnter);
-    }
+    const newLinkInput = document.getElementById(`social-link-${socialCount}`);
+    newLinkInput.addEventListener('blur', (e) => updateLabel(e.target));
+    newLinkInput.addEventListener('keydown', handleEnterKey);
+    newLinkInput.focus();
 }
 
-function handleSocialLinkEnter(event) {
+function handleEnterKey(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
-        document.getElementById('add-social-button').click();
+        event.target.blur();
+
+        const allInputs = Array.from(document.querySelectorAll('#socials-container input[type="url"]'));
+        const lastInput = allInputs[allInputs.length - 1];
+
+        if (event.target === lastInput && event.target.value.trim() !== '') {
+            const domain = getDomain(event.target.value);
+            if (domain) {
+                document.getElementById('add-social-button').click();
+            } else {
+                showAlert('Please enter a correct link format');
+            }
+        }
     }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const initialLinkInput = document.getElementById('social-link-1');
-    if (initialLinkInput) {
-        initialLinkInput.addEventListener('keydown', handleSocialLinkEnter);
+    const container = document.getElementById('socials-container');
+    const inputs = container.querySelectorAll('input[type="url"]');
+
+    let maxId = 0;
+    inputs.forEach(input => {
+        const currentId = parseInt(input.id.split('-').pop());
+        if (currentId > maxId) {
+            maxId = currentId;
+        }
+        updateLabel(input);
+        input.addEventListener('blur', (e) => updateLabel(e.target));
+        input.addEventListener('keydown', handleEnterKey);
+    });
+    socialCount = maxId || 0;
+
+    if (inputs.length === 0) {
+        addSocial(new Event('manual-init'));
     }
 });
