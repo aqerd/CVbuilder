@@ -21,42 +21,42 @@
 					<div class="group" id="main-info">
 						<div class="form-group">
 							<label for="name">Name <b>*</b></label>
-							<input type="text" id="name" name="name" placeholder="Ivan" value="{{ name }}">
+							<input type="text" id="name" name="name" placeholder="John" value="{{ name }}">
 							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 						</div>
 						<div class="form-group">
-							<label for="middle-name">Middle Name / Patronym</label>
-							<input type="text" id="middle-name" name="middle-name" placeholder="Ivanovich" value="{{ middle_name }}">
+							<label for="middle-name">Middle Name</label>
+							<input type="text" id="middle-name" name="middle-name" placeholder="Zac" value="{{ middle_name }}">
 							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 						</div>
 						<div class="form-group">
 							<label for="last-name">Last Name <b>*</b></label>
-							<input type="text" id="last-name" name="last-name" placeholder="Ivanov" value="{{ last_name }}">
+							<input type="text" id="last-name" name="last-name" placeholder="Doe" value="{{ last_name }}">
 							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 						</div>
 						<div class="form-group">
 							<label for="email">Email <b>*</b></label>
-							<input type="email" id="email" name="email" placeholder="example@cvbuilder.com" value="{{ email }}">
+							<input type="email" id="email" name="email" placeholder="johndoe@cvbuilder.art" value="{{ email }}">
 							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 						</div>
 						<div class="form-group">
 							<label for="age">Age</label>
-							<input type="number" id="age" name="age" placeholder="20" value="{{ age }}" min="0" max="130">
+							<input type="number" id="age" name="age" placeholder="22" value="{{ age }}" min="0" max="130">
 							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 						</div>
 						<div class="form-group">
 							<label for="dob">Date of Birth</label>
-							<input type="date" id="dob" name="dob" placeholder="06.06.2005" value="{{ dob }}">
+							<input type="date" id="dob" name="dob" placeholder="14.07.2003" value="{{ dob }}">
 							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 						</div>
 						<div class="form-group">
 							<label for="citizenship">Citizenship</label>
-							<input type="text" id="citizenship" name="citizenship" placeholder="Russia" value="{{ citizenship }}">
+							<input type="text" id="citizenship" name="citizenship" placeholder="United States" value="{{ citizenship }}">
 							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 						</div>
 						<div class="form-group">
 							<label for="city">City</label>
-							<input type="text" id="city" name="city" placeholder="Yekaterinburg" value="{{ city }}">
+							<input type="text" id="city" name="city" placeholder="Seattle" value="{{ city }}">
 							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 						</div>
 					</div>
@@ -66,7 +66,7 @@
 						</div>
 						<div class="form-group">
 							<label for="social-link-input">Link</label>
-							<input type="url" id="social-link-input" name="social-link-1" placeholder="https://example.com/">
+							<input type="url" id="social-link-input" name="social-link-1" placeholder="https://cvbuilder.art/">
 						</div>
 						<button class="add-button" type="button" onclick="addSocial(event)">+ Add Social</button>
 					</div>
@@ -76,23 +76,23 @@
 								<h2 id="project-title-1">Project</h2>
 								<div class="form-group">
 									<label for="project-name-1">Name</label>
-									<input type="text" id="project-name-1" name="project-name-1" placeholder="Project Title">
+									<input type="text" id="project-name-1" name="project-name-1" placeholder="Name">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
 									<label for="project-time-1">Timeline</label>
-									<input type="text" id="project-time-1" name="project-time-1" placeholder="from - to">
+									<input type="text" id="project-time-1" name="project-time-1" placeholder="Timeline">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
 									<label for="project-link-1">Link</label>
-									<input type="url" id="project-link-1" name="project-link-1" placeholder="https://example.com">
+									<input type="url" id="project-link-1" name="project-link-1" placeholder="https://cvbuilder.art">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
 									<div class="text-with-btn">
 										<label for="project-description-1">Description</label>
-										<button class="ai-btn" onclick="openModal(event)" data-id="project-description-1">{% include 'icons/ai-generate.html' %}</button>
+										<button class="ai-btn" onclick="openModal(event)" data-id="project-description-1">{% include 'icons/ai-generate.svg' %}</button>
 									</div>
 									<textarea id="project-description-1" name="project-description-1" placeholder="Describe the project"></textarea>
 								</div>
@@ -106,7 +106,7 @@
 								<h2 id="job-title-1">Job</h2>
 								<div class="form-group">
 									<label for="company-name-1">Company</label>
-									<input type="text" id="company-name-1" name="company-name-1" placeholder="Company Name">
+									<input type="text" id="company-name-1" name="company-name-1" placeholder="Company">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
@@ -116,13 +116,13 @@
 								</div>
 								<div class="form-group">
 									<label for="work-period-1">Work Period</label>
-									<input type="text" id="work-period-1" name="work-period-1" placeholder="from - to">
+									<input type="text" id="work-period-1" name="work-period-1" placeholder="Timeline">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
 									<div class="text-with-btn">
 										<label for="job-description-1">Description</label>
-										<button class="ai-btn" onclick="openModal(event)" data-id="job-description-1">{% include 'icons/ai-generate.html' %}</button>
+										<button class="ai-btn" onclick="openModal(event)" data-id="job-description-1">{% include 'icons/ai-generate.svg' %}</button>
 									</div>
 									<textarea id="job-description-1" name="job-description-1" placeholder="Describe your job responsibilities"></textarea>
 								</div>
@@ -136,12 +136,12 @@
 								<h2 id="education-title-1">Education</h2>
 								<div class="form-group">
 									<label for="institution-name-1">Institution Name</label>
-									<input type="text" id="institution-name-1" name="institution-name-1" placeholder="University Name">
+									<input type="text" id="institution-name-1" name="institution-name-1" placeholder="Institution">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
 									<label for="education-period-1">Study Period</label>
-									<input type="text" id="education-period-1" name="education-period-1" placeholder="from - to">
+									<input type="text" id="education-period-1" name="education-period-1" placeholder="Timeline">
 								</div>
 								<div class="form-group">
 									<label for="field-of-study-1">Field of Study</label>

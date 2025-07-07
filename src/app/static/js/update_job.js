@@ -18,7 +18,7 @@ function addExperience(event) {
 		</div>
 		<div class="form-group">
 			<label for="work-period-${experienceCount}">Period</label>
-			<input type="text" id="work-period-${experienceCount}" name="work-period-${experienceCount}" placeholder="from - to">
+			<input type="text" id="work-period-${experienceCount}" name="work-period-${experienceCount}" placeholder="Timeline">
 		</div>
 		<div class="form-group">
 			<div class="text-with-btn">

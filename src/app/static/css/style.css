@@ -77,13 +77,14 @@ textarea {
 	box-sizing: border-box;
 	padding: 0 0 0 10px;
 	position: relative;
+    scrollbar-color: var(--hover-color) transparent;
 }
 
 .modal-textarea {
 	height: 20vh;
 }
 
-textarea::-webkit-resizer {
+textarea::-webkit-resizer, textarea::-moz-resizer {
 	background: var(--hover-color);
 	border-radius: 10px 0 8px 0;
 	width: 10px !important;
@@ -376,7 +377,8 @@ body.modal-open {
 }
 
 .custom-alert {
-	background-color: var(--bg-color);
+	background-color: rgb(from var(--bg-color) r g b / 0.1);
+	backdrop-filter: blur(40px);
 	color: var(--main-color);
 	outline: 2px solid var(--hover-color);
 	position: fixed;
@@ -520,7 +522,7 @@ body.modal-open {
 
 @media (max-width: 490px) {
 	main {
-		padding: 80px 10px 80px 10px;
+		padding: 80px 20px 80px 20px;
 	}
 
 	h1 {
@@ -545,7 +547,6 @@ body.modal-open {
 
 	.container {
 		grid-template-columns: 1fr;
-		padding: 8px;
 	}
 
 	.form-group {

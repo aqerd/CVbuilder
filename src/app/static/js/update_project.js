@@ -14,11 +14,11 @@ function addProject(event) {
 		</div>
 		<div class="form-group">
 			<label for="project-time-${projectCount}">Period</label>
-			<input type="text" id="project-time-${projectCount}" name="project-time-${projectCount}" placeholder="from - to">
+			<input type="text" id="project-time-${projectCount}" name="project-time-${projectCount}" placeholder="Timeline">
 		</div>
 		<div class="form-group">
 			<label for="project-link-${projectCount}">Link</label>
-			<input type="url" id="project-link-${projectCount}" name="project-link-${projectCount}" placeholder="https://example.com">
+			<input type="url" id="project-link-${projectCount}" name="project-link-${projectCount}" placeholder="https://cvbuilder.art">
 		</div>
 		<div class="form-group">
 			<div class="text-with-btn">

@@ -10,11 +10,11 @@ function addEducation(event) {
 		<h2 id="education-title-${educationCount}">Education</h2>
 		<div class="form-group">
 			<label for="institution-name-${educationCount}">Institution Name</label>
-			<input type="text" id="institution-name-${educationCount}" name="institution-name-${educationCount}" placeholder="University Name">
+			<input type="text" id="institution-name-${educationCount}" name="institution-name-${educationCount}" placeholder="Institution">
 		</div>
 		<div class="form-group">
 			<label for="education-period-${educationCount}">Study Period</label>
-			<input type="text" id="education-period-${educationCount}" name="education-period-${educationCount}" placeholder="from - to">
+			<input type="text" id="education-period-${educationCount}" name="education-period-${educationCount}" placeholder="Timeline">
 		</div>
 		<div class="form-group">
 			<label for="field-of-study-${educationCount}">Field of Study</label>
