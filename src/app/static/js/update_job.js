@@ -61,3 +61,10 @@ function updateJobTitle(event) {
 	const titleElement = document.getElementById(`job-title-${jobId}`);
 	titleElement.textContent = input.value.trim() || 'Job';
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const initialCompanyNameInput = document.getElementById('company-name-1');
+    if (initialCompanyNameInput) {
+        initialCompanyNameInput.addEventListener('input', updateJobTitle);
+    }
+});

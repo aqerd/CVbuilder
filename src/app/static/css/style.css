@@ -415,6 +415,7 @@ body.modal-open {
 
 .custom-alert p {
 	margin: 0;
+	padding: 0 8px 16px 8px;
 	flex-grow: 1;
 }
 
@@ -422,7 +423,6 @@ body.modal-open {
 	background-color: var(--interaction-color);
 	color: var(--main-color);
 	display: inline-block;
-	margin-top: 16px;
 	border: none;
 	border-radius: 16px;
 	padding: 8px 30px;

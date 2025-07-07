@@ -62,3 +62,10 @@ function updateProjectTitle(event) {
 	const titleElement = document.getElementById(`project-title-${projectId}`);
 	titleElement.textContent = input.value.trim() || 'Project';
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const initialProjectNameInput = document.getElementById('project-name-1');
+    if (initialProjectNameInput) {
+        initialProjectNameInput.addEventListener('input', updateProjectTitle);
+    }
+});
