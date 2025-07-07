@@ -68,7 +68,7 @@
 							<label for="social-link-input">Link</label>
 							<input type="url" id="social-link-input" name="social-link-1" placeholder="https://cvbuilder.art/">
 						</div>
-						<button class="add-button" type="button" onclick="addSocial(event)">+ Add Social</button>
+						<button class="add-button" type="button" onclick="addSocial(event)"><b>+</b> Add Social</button>
 					</div>
 					<div class="group" id="projects">
 						<div id="portfolio-container">
@@ -76,12 +76,12 @@
 								<h2 id="project-title-1">Project</h2>
 								<div class="form-group">
 									<label for="project-name-1">Name</label>
-									<input type="text" id="project-name-1" name="project-name-1" placeholder="Name">
+									<input type="text" id="project-name-1" name="project-name-1" placeholder="Resume Building App">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
 									<label for="project-time-1">Timeline</label>
-									<input type="text" id="project-time-1" name="project-time-1" placeholder="Timeline">
+									<input type="text" id="project-time-1" name="project-time-1" placeholder="2024 - 2025">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
@@ -94,11 +94,11 @@
 										<label for="project-description-1">Description</label>
 										<button class="ai-btn" onclick="openModal(event)" data-id="project-description-1">{% include 'icons/ai-generate.svg' %}</button>
 									</div>
-									<textarea id="project-description-1" name="project-description-1" placeholder="Describe the project"></textarea>
+									<textarea id="project-description-1" name="project-description-1" placeholder="Tell something about this project"></textarea>
 								</div>
 							</div>
 						</div>
-						<button class="add-button" type="button" onclick="addProject(event)">+ Add Project</button>
+						<button class="add-button" type="button" onclick="addProject(event)"><b>+</b> Add Project</button>
 					</div>
 					<div class="group" id="jobs">
 						<div id="experience-container">
@@ -106,17 +106,17 @@
 								<h2 id="job-title-1">Job</h2>
 								<div class="form-group">
 									<label for="company-name-1">Company</label>
-									<input type="text" id="company-name-1" name="company-name-1" placeholder="Company">
+									<input type="text" id="company-name-1" name="company-name-1" placeholder="Google">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
 									<label for="job-title-1">Job Title</label>
-									<input type="text" id="job-position-1" name="job-position-1" placeholder="Job Position">
+									<input type="text" id="job-position-1" name="job-position-1" placeholder="Software Engineer">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
 									<label for="work-period-1">Work Period</label>
-									<input type="text" id="work-period-1" name="work-period-1" placeholder="Timeline">
+									<input type="text" id="work-period-1" name="work-period-1" placeholder="2024 - 2025">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
@@ -124,11 +124,11 @@
 										<label for="job-description-1">Description</label>
 										<button class="ai-btn" onclick="openModal(event)" data-id="job-description-1">{% include 'icons/ai-generate.svg' %}</button>
 									</div>
-									<textarea id="job-description-1" name="job-description-1" placeholder="Describe your job responsibilities"></textarea>
+									<textarea id="job-description-1" name="job-description-1" placeholder="Describe your experience"></textarea>
 								</div>
 							</div>
 						</div>
-						<button class="add-button" type="button" onclick="addExperience(event)">+ Add Job</button>
+						<button class="add-button" type="button" onclick="addExperience(event)"><b>+</b> Add Job</button>
 					</div>
 					<div class="group" id="edu">
 						<div id="education-container">
@@ -136,21 +136,21 @@
 								<h2 id="education-title-1">Education</h2>
 								<div class="form-group">
 									<label for="institution-name-1">Institution Name</label>
-									<input type="text" id="institution-name-1" name="institution-name-1" placeholder="Institution">
+									<input type="text" id="institution-name-1" name="institution-name-1" placeholder="MIT">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
 									<label for="education-period-1">Study Period</label>
-									<input type="text" id="education-period-1" name="education-period-1" placeholder="Timeline">
+									<input type="text" id="education-period-1" name="education-period-1" placeholder="2022 - 2024">
 								</div>
 								<div class="form-group">
 									<label for="field-of-study-1">Field of Study</label>
-									<input type="text" id="field-of-study-1" name="field-of-study-1" placeholder="Field of Study">
+									<input type="text" id="field-of-study-1" name="field-of-study-1" placeholder="Computer Science">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 							</div>
 						</div>
-						<button class="add-button" type="button" onclick="addEducation(event)">+ Add Education</button>
+						<button class="add-button" type="button" onclick="addEducation(event)"><b>+</b> Add Education</button>
 					</div>
 					<div class="group" id="langs">
 						<h2>Languages</h2>
@@ -158,7 +158,7 @@
 							<div class="language-item">
 								<div class="form-group">
 									<label for="language-name-1">Language</label>
-									<input type="text" id="language-name-1" name="language-name-1" placeholder="Language">
+									<input type="text" id="language-name-1" name="language-name-1" placeholder="English">
 									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 								</div>
 								<div class="form-group">
@@ -174,7 +174,7 @@
 								</div>
 							</div>
 						</div>
-						<button class="add-button" type="button" onclick="addLanguage(event)">+ Add Language</button>
+						<button class="add-button" type="button" onclick="addLanguage(event)"><b>+</b> Add Language</button>
 					</div>
 					<p>Fields with <b>*</b> are required</p>
 					<button type="submit" name="action" value="submit" class="submit">Submit</button>

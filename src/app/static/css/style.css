@@ -66,16 +66,15 @@ input, textarea, select {
 	border: 2px solid var(--hover-color);
 	padding: 1px 10px 1px 10px;
 	font-family: inherit;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 textarea {
-	width: 100%;
 	min-height: 40px;
 	overflow: auto;
 	max-height: 50vh;
 	resize: vertical;
-	box-sizing: border-box;
-	padding: 0 0 0 10px;
 	position: relative;
     scrollbar-color: var(--hover-color) transparent;
 }
@@ -192,13 +191,11 @@ button:focus-visible {
 
 .submit {
 	width: 100%;
-	padding: 8px 15px;
-	font-size: 20px;
+	padding: 16px;
+	font-size: 24px;
 	border: none;
-	border-radius: 8px;
+	border-radius: 16px;
 	cursor: pointer;
-	background-color: var(--interaction-color);
-	color: var(--main-color);
 }
 
 .submit:active {
@@ -220,7 +217,7 @@ button:focus-visible {
 	gap: 4px;
 	align-items: center;
 	border: none;
-	border-radius: 6px;
+	border-radius: 8px;
 	padding: 4px;
 	height: auto;
 }
@@ -314,19 +311,39 @@ a, a:hover, a:visited, b {
 	color: var(--accent-color);
 }
 
-.current, .current:hover {
-	color: var(--bg-color);
-	background-color: var(--main-color);
-}
-
-button.add-button {
-	margin-bottom: 4px;
+b {
+	font-size: 24px;
 }
 
 .ai-btn {
 	padding: 0;
 	width: 40px;
 	height: 40px;
+}
+
+.ai-btn:hover .star {
+	fill: var(--main-color);
+}
+
+.star {
+	fill: var(--accent-color);
+}
+
+.current, .current:hover {
+	color: var(--bg-color);
+	background-color: var(--main-color);
+}
+
+button.add-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	height: 42px;
+}
+
+button.add-button:hover {
+	background-color: var(--accent-color);
 }
 
 .text-with-btn {

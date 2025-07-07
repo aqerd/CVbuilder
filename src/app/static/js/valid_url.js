@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 
 			if (domainPattern.test(url) || ipPattern.test(url) || localhostPattern.test(url)) {
-				urlInput.value = "http://" + url;
+				urlInput.value = "https://" + url;
 			} else {
 				showAlert("Please enter a valid URL address");
 			}
