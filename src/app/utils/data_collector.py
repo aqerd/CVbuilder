@@ -1,3 +1,5 @@
+from urllib.parse import urlparse
+
 def collect_data(request):
     data = {
         "name": request.form.get("name"),
@@ -16,13 +18,20 @@ def collect_data(request):
     }
 
     social_count = 1
-    while request.form.get(f"social-service-{social_count}"):
-        data["socials"].append(
-            {
-                "service": request.form.get(f"social-service-{social_count}"),
-                "link": request.form.get(f"social-link-{social_count}"),
-            }
-        )
+    while True:
+        link = request.form.get(f"social-link-{social_count}")
+        if not link:
+            break
+
+        service = "link"
+        try:
+            hostname = urlparse(link).hostname
+            if hostname:
+                service = hostname.replace("www.", "")
+        except Exception:
+            pass
+
+        data["socials"].append({"service": service, "link": link})
         social_count += 1
 
     project_count = 1

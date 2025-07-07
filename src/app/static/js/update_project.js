@@ -54,6 +54,11 @@ function addProject(event) {
 	if (projectNameInput) {
 		projectNameInput.addEventListener('input', updateProjectTitle);
 	}
+
+	const projectLinkInput = document.getElementById(`project-link-${projectCount}`);
+    if (projectLinkInput) {
+        projectLinkInput.addEventListener('blur', validateAndFormatUrl);
+    }
 }
 
 function updateProjectTitle(event) {
@@ -61,6 +66,15 @@ function updateProjectTitle(event) {
 	const projectId = input.id.replace('project-name-', '');
 	const titleElement = document.getElementById(`project-title-${projectId}`);
 	titleElement.textContent = input.value.trim() || 'Project';
+}
+
+function validateAndFormatUrl(event) {
+    const input = event.target;
+    const url = input.value.trim();
+    if (url) {
+        const formattedUrl = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+        input.value = `https://${formattedUrl}`;
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {

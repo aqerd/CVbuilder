@@ -57,7 +57,7 @@ def create_pdf(data):
     y_position = height - 240
     if data["socials"]:
         c.setFont(bold_font, 14)
-        c.drawString(80, y_position, "Social Networks:")
+        c.drawString(80, y_position, "Socials:")
 
         y_position -= 20
         c.setFont(regular_font, 12)
@@ -133,7 +133,7 @@ def create_docx(data):
     doc.add_paragraph(f"City: {data['city']}")
 
     if data["socials"]:
-        doc.add_heading("Social Networks", level=1)
+        doc.add_heading("Socials", level=1)
         for social in data["socials"]:
             doc.add_paragraph(f"{social['service']}: {social['link']}")
 
@@ -220,7 +220,7 @@ def create_jpg(data):
     y_position += 30
 
     if data["socials"]:
-        draw.text((80, y_position), "Social Networks:", font=font_bold, fill=(0, 0, 0))
+        draw.text((80, y_position), "Socials:", font=font_bold, fill=(0, 0, 0))
         y_position += 25
         for social in data["socials"]:
             draw.text(
