@@ -2,40 +2,51 @@ let socialCount = 1;
 
 function getDomain(link) {
 	try {
-		const domain = new URL(link).hostname;
-		return domain;
+		const url = new URL(link);
+		if (url.hostname && url.hostname.includes('.')) {
+			return url.hostname;
+		}
+		return null;
 	} catch (e) {
 		return null;
 	}
 }
 
 function addSocial(event) {
-	event.preventDefault();
-	
-	const linkInput = document.getElementById('social-link-input');
-	const link = linkInput.value.trim();
-	
-	if (!link) {
-		showAlert('Please fill in the link first');
+    event.preventDefault();
+
+    const lastLinkInput = document.getElementById(`social-link-${socialCount}`);
+    let link = lastLinkInput.value.trim();
+
+    if (!link) {
+		alert('Please fill in the link first');
 		return;
 	}
+
+    if (!/^https?:\/\//i.test(link)) {
+        link = 'https://' + link;
+    }
 
 	const domain = getDomain(link);
 	if (!domain) {
-		showAlert('Invalid link');
+		alert('Please enter a correct link format (e.g., google.com)');
 		return;
 	}
+    lastLinkInput.value = link;
+    lastLinkInput.setAttribute('readonly', true);
 
-	socialCount++;
+    socialCount++;
 
-	const newSocialDiv = document.createElement('div');
-	newSocialDiv.classList.add('form-group');
-	newSocialDiv.innerHTML = `
-		<p id="no-margin-p">${domain}</p>
-		<a href="${link}" target="_blank">${link}</a>
-	`;
-	
-	document.getElementById('socials-container').appendChild(newSocialDiv);
+    const newSocialDiv = document.createElement('div');
+    newSocialDiv.classList.add('social-item');
 
-	linkInput.value = '';
+    newSocialDiv.innerHTML = `
+        <div class="form-group">
+            <label for="social-link-${socialCount}">Link</label>
+            <input type="url" id="social-link-${socialCount}" name="social-link-${socialCount}" placeholder="https://another-link.com">
+        </div>
+    `;
+
+    document.getElementById('socials-container').appendChild(newSocialDiv);
+	document.getElementById(`social-link-${socialCount}`).focus();
 }

@@ -48,15 +48,3 @@ function updateEducationTitle(event) {
 	const titleElement = document.getElementById(`education-title-${educationId}`);
 	titleElement.textContent = input.value.trim() || 'Education';
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-	const institutionNameInput = document.getElementById('institution-name-1');
-	if (institutionNameInput) {
-		institutionNameInput.addEventListener('input', updateEducationTitle);
-	}
-
-	const addButton = document.querySelector('.add-button');
-	if (addButton) {
-		addButton.addEventListener('click', addEducation);
-	}
-});

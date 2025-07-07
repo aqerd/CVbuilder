@@ -64,7 +64,7 @@ input, textarea, select {
 	background-color: var(--interaction-color);
 	color: var(--main-color);
 	border: 2px solid var(--hover-color);
-	padding: 1px 10px 1px 10px;
+	padding: 1px 16px 1px 16px;
 	font-family: inherit;
 	width: 100%;
 	box-sizing: border-box;

@@ -61,14 +61,3 @@ function updateJobTitle(event) {
 	const titleElement = document.getElementById(`job-title-${jobId}`);
 	titleElement.textContent = input.value.trim() || 'Job';
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-	const companyNameInput = document.getElementById('company-name-1');
-	if (companyNameInput) {
-		companyNameInput.addEventListener('input', updateJobTitle);
-	}
-	const addButton = document.querySelector('.add-button');
-	if (addButton) {
-		addButton.addEventListener('click', addExperience);
-	}
-});
