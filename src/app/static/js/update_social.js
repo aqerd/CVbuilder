@@ -19,7 +19,7 @@ function addSocial(event) {
     let link = lastLinkInput.value.trim();
 
     if (!link) {
-		alert('Please fill in the link first');
+		showAlert('Please fill in the link first');
 		return;
 	}
 
@@ -29,7 +29,7 @@ function addSocial(event) {
 
 	const domain = getDomain(link);
 	if (!domain) {
-		alert('Please enter a correct link format (e.g., google.com)');
+		showAlert('Please enter a correct link format');
 		return;
 	}
     lastLinkInput.value = link;
@@ -49,4 +49,23 @@ function addSocial(event) {
 
     document.getElementById('socials-container').appendChild(newSocialDiv);
 	document.getElementById(`social-link-${socialCount}`).focus();
+
+	const newLinkInput = document.getElementById(`social-link-${socialCount}`);
+    if (newLinkInput) {
+        newLinkInput.addEventListener('keydown', handleSocialLinkEnter);
+    }
 }
+
+function handleSocialLinkEnter(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        document.getElementById('add-social-button').click();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const initialLinkInput = document.getElementById('social-link-1');
+    if (initialLinkInput) {
+        initialLinkInput.addEventListener('keydown', handleSocialLinkEnter);
+    }
+});
