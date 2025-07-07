@@ -5,7 +5,9 @@ from PIL import Image, ImageDraw, ImageFont
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.pdfgen import canvas
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.enums import TA_LEFT
 
 from settings import Settings
 
@@ -39,85 +41,71 @@ def create_type(data, file_type):
 
 def create_pdf(data):
     pdf_path = os.path.join(PATH_SAVE, "CV.pdf")
-    c = canvas.Canvas(pdf_path, pagesize=letter)
-    width, height = letter
+    styles = getSampleStyleSheet()
+    styleN = styles["BodyText"]
+    styleN.alignment = TA_LEFT
+    styleH = styles["Heading1"]
+    styleH.alignment = TA_LEFT
 
-    c.setFont(bold_font, 20)
-    c.drawString(
-        80, height - 100, f"{data['name']} {data['middle_name']} {data['last_name']}"
-    )
+    elements = []
 
-    c.setFont(regular_font, 12)
-    c.drawString(100, height - 130, f"Age: {data['age']}")
-    c.drawString(100, height - 150, f"Date of Birth: {data['dob']}")
-    c.drawString(100, height - 170, f"Email: {data['email']}")
-    c.drawString(100, height - 190, f"Citizenship: {data['citizenship']}")
-    c.drawString(100, height - 210, f"City: {data['city']}")
+    elements.append(Paragraph(f"{data['name']} {data['middle_name']} {data['last_name']}", styleH))
+    elements.append(Spacer(1, 12))
 
-    y_position = height - 240
-    if data["socials"]:
-        c.setFont(bold_font, 14)
-        c.drawString(80, y_position, "Social Networks:")
+    elements.append(Paragraph(f"Age: {data['age']}", styleN))
+    elements.append(Paragraph(f"Date of Birth: {data['dob']}", styleN))
+    elements.append(Paragraph(f"Email: {data['email']}", styleN))
+    elements.append(Paragraph(f"Country: {data['country']}", styleN))
+    elements.append(Paragraph(f"City: {data['city']}", styleN))
+    elements.append(Spacer(1, 12))
 
-        y_position -= 20
-        c.setFont(regular_font, 12)
+    if data.get("socials"):
+        elements.append(Paragraph("Socials", styles["h2"]))
         for social in data["socials"]:
-            c.drawString(100, y_position, f"{social['service']}: {social['link']}")
-            y_position -= 20
+            link = f'<a href="{social["link"]}" color="blue">{social["service"]}</a>'
+            elements.append(Paragraph(link, styleN))
+        elements.append(Spacer(1, 12))
 
-    if data["projects"]:
-        c.setFont(bold_font, 14)
-        c.drawString(80, y_position, "Projects:")
-
-        y_position -= 20
-        c.setFont(regular_font, 12)
+    if data.get("projects"):
+        elements.append(Paragraph("Projects", styles["h2"]))
         for project in data["projects"]:
-            c.drawString(100, y_position, f"Project Name: {project['name']}")
-            y_position -= 20
-            c.drawString(100, y_position, f"Time: {project['time']}")
-            y_position -= 20
-            c.drawString(100, y_position, f"Link: {project['link']}")
-            y_position -= 20
-            c.drawString(100, y_position, f"Description: {project['description']}")
-            y_position -= 20
+            elements.append(Paragraph(f"Project Name: {project['name']}", styleN))
+            elements.append(Paragraph(f"Time: {project['time']}", styleN))
+            if project.get("link"):
+                link = f'<a href="{project["link"]}" color="blue">{project["link"]}</a>'
+                elements.append(Paragraph(link, styleN))
+            elements.append(Paragraph(project['description'], styleN))
+            elements.append(Spacer(1, 6))
+        elements.append(Spacer(1, 12))
 
-    if data["experiences"]:
-        c.setFont(bold_font, 14)
-        c.drawString(80, y_position, "Experience:")
-        y_position -= 20
-        c.setFont(regular_font, 12)
+    if data.get("experiences"):
+        elements.append(Paragraph("Experience", styles["h2"]))
         for exp in data["experiences"]:
-            c.drawString(100, y_position, f"Company: {exp['company']}")
-            y_position -= 20
-            c.drawString(100, y_position, f"Job Title: {exp['title']}")
-            y_position -= 20
-            c.drawString(100, y_position, f"Period: {exp['period']}")
-            y_position -= 20
-            c.drawString(100, y_position, f"Description: {exp['description']}")
-            y_position -= 20
+            elements.append(Paragraph(f"Company: {exp['company']}", styleN))
+            elements.append(Paragraph(f"Job Title: {exp['title']}", styleN))
+            elements.append(Paragraph(f"Period: {exp['period']}", styleN))
+            elements.append(Paragraph(exp['description'], styleN))
+            elements.append(Spacer(1, 6))
+        elements.append(Spacer(1, 12))
 
-    if data["education"]:
-        c.setFont(bold_font, 14)
-        c.drawString(80, y_position, "Education:")
-        y_position -= 20
-        c.setFont(regular_font, 12)
+    if data.get("education"):
+        elements.append(Paragraph("Education", styles["h2"]))
         for edu in data["education"]:
-            c.drawString(100, y_position, f"Institution: {edu['institution']}")
-            y_position -= 20
-            c.drawString(100, y_position, f"Period: {edu['period']}")
-            y_position -= 20
-            c.drawString(100, y_position, f"Field of Study: {edu['field']}")
-            y_position -= 20
+            elements.append(Paragraph(f"Institution: {edu['institution']}", styleN))
+            elements.append(Paragraph(f"Period: {edu['period']}", styleN))
+            elements.append(Paragraph(f"Field of Study: {edu['field']}", styleN))
+            elements.append(Spacer(1, 6))
+        elements.append(Spacer(1, 12))
 
-    if data["languages"]:
-        c.setFont(bold_font, 14)
-        c.drawString(80, y_position, "Languages:")
-        y_position -= 20
-        c.setFont(regular_font, 12)
+    if data.get("languages"):
+        elements.append(Paragraph("Languages", styles["h2"]))
         for lang in data["languages"]:
-            c.drawString(100, y_position, f"{lang['language']}: {lang['level']}")
-            y_position -= 20
-    c.save()
+            elements.append(Paragraph(f"{lang['language']}: {lang['level']}", styleN))
+            elements.append(Spacer(1, 6))
+        elements.append(Spacer(1, 12))
+
+    doc = SimpleDocTemplate(pdf_path, pagesize=letter)
+    doc.build(elements)
 
     return pdf_path
 
@@ -129,11 +117,11 @@ def create_docx(data):
     doc.add_paragraph(f"Age: {data['age']}")
     doc.add_paragraph(f"Date of Birth: {data['dob']}")
     doc.add_paragraph(f"Email: {data['email']}")
-    doc.add_paragraph(f"Citizenship: {data['citizenship']}")
+    doc.add_paragraph(f"Country: {data['country']}")
     doc.add_paragraph(f"City: {data['city']}")
 
     if data["socials"]:
-        doc.add_heading("Social Networks", level=1)
+        doc.add_heading("Socials", level=1)
         for social in data["socials"]:
             doc.add_paragraph(f"{social['service']}: {social['link']}")
 
@@ -143,7 +131,7 @@ def create_docx(data):
             doc.add_paragraph(f"Project Name: {project['name']}")
             doc.add_paragraph(f"Time: {project['time']}")
             doc.add_paragraph(f"Link: {project['link']}")
-            doc.add_paragraph(f"Description: {project['description']}")
+            doc.add_paragraph(project['description'])
 
     if data["experiences"]:
         doc.add_heading("Experience", level=1)
@@ -151,7 +139,7 @@ def create_docx(data):
             doc.add_paragraph(f"Company: {exp['company']}")
             doc.add_paragraph(f"Job Title: {exp['title']}")
             doc.add_paragraph(f"Period: {exp['period']}")
-            doc.add_paragraph(f"Description: {exp['description']}")
+            doc.add_paragraph(exp['description'])
 
     if data["education"]:
         doc.add_heading("Education", level=1)
@@ -209,7 +197,7 @@ def create_jpg(data):
     y_position += 23
     draw.text(
         (100, y_position),
-        f"Citizenship: {data['citizenship']}",
+        f"Country: {data['country']}",
         font=font_regular,
         fill=(0, 0, 0),
     )
@@ -220,7 +208,7 @@ def create_jpg(data):
     y_position += 30
 
     if data["socials"]:
-        draw.text((80, y_position), "Social Networks:", font=font_bold, fill=(0, 0, 0))
+        draw.text((80, y_position), "Socials:", font=font_bold, fill=(0, 0, 0))
         y_position += 25
         for social in data["socials"]:
             draw.text(
@@ -258,7 +246,7 @@ def create_jpg(data):
             y_position += 23
             draw.text(
                 (100, y_position),
-                f"Description: {project['description']}",
+                project['description'],
                 font=font_regular,
                 fill=(0, 0, 0),
             )
@@ -291,7 +279,7 @@ def create_jpg(data):
             y_position += 23
             draw.text(
                 (100, y_position),
-                f"Description: {exp['description']}",
+                exp['description'],
                 font=font_regular,
                 fill=(0, 0, 0),
             )

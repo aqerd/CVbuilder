@@ -10,7 +10,7 @@ def load_cookies():
         "email",
         "age",
         "dob",
-        "citizenship",
+        "country",
         "city",
     ]
     for key in cookies_to_load:
