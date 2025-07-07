@@ -49,7 +49,7 @@ h2 {
 .boxed-text {
 	background-color: var(--bg-color);
 	color: var(--main-color);
-	border-radius: 12px;
+	border-radius: 16px;
 	margin: 12px 0 16px 0;
 }
 
@@ -59,7 +59,7 @@ h2 {
 
 input, textarea, select {
 	font-size: 1em;
-	border-radius: 12px;
+	border-radius: 16px;
 	outline: none;
 	background-color: var(--interaction-color);
 	color: var(--main-color);
@@ -137,7 +137,7 @@ button {
 	display: inline-block;
 	font-size: 20px;
 	border: none;
-	border-radius: 12px;
+	border-radius: 16px;
 	padding: 8px 30px;
 	cursor: pointer;
 	font-family: inherit;
@@ -275,7 +275,7 @@ main form {
 	background-color: rgb(from var(--bg-color) r g b / 0.1);
 	backdrop-filter: blur(40px);
 	border: 2px solid var(--hover-color);
-	border-radius: 20px;
+	border-radius: 16px;
 	padding: 8px;
 	margin: 0 auto;
 	min-width: 300px;
@@ -301,7 +301,7 @@ main form {
 	font-size: 14px;
     border: none;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 8px;
 	margin: 0;
 }
 
@@ -363,7 +363,7 @@ hr {
 	border: none;
 	width: 70vw;
 	max-height: 90vh;
-	border-radius: 12px;
+	border-radius: 16px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -383,7 +383,7 @@ body.modal-open {
 	font-size: 20px;
 	bottom: 20px;
 	right: 20px;
-	padding: 20px;
+	padding: 16px;
 	border-radius: 32px;
 	display: flex;
 	flex-direction: column;
@@ -405,7 +405,7 @@ body.modal-open {
 	display: inline-block;
 	margin-top: 16px;
 	border: none;
-	border-radius: 12px;
+	border-radius: 16px;
 	padding: 8px 30px;
 	cursor: pointer;
 	font-family: inherit;
