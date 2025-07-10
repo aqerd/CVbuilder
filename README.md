@@ -48,7 +48,7 @@ Want to contribute our project with new theme design? See this [documentation](h
 ![Themes](images/themes.png)
 
 ## 🚀 Deployment
-Site is not deployed yet
+Site is deployed on https://cvbuilder.art on Yandex Cloud with Apache HTTP-Server
 
 ## 🧑‍💻 Credits
 Project made by **Ruslan Suleymanov**, **Rasul Gasanbekov** and **Vladimir Golubev** for Python course at Ural Federal University 

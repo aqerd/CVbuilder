@@ -44,7 +44,7 @@ test = ["pytest"]
 lint = ["ruff"]
 
 [project.urls]
-homepage = "https://example.com" # Soon to be deployed
+homepage = "https://cvbuilder.art"
 documentation = "https://github.com/aqerd/CVbuilder/tree/main/docs"
 repository = "https://github.com/aqerd/CVbuilder"
 issues = "https://github.com/aqerd/CVbuilder/issues"
