@@ -342,10 +342,6 @@ button.add-button {
 	height: 42px;
 }
 
-button.add-button:hover {
-	background-color: var(--accent-color);
-}
-
 .text-with-btn {
 	display: grid;
 	grid-template-columns: 1fr auto;
