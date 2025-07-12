@@ -1,15 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const themeStylesheet = document.getElementById("theme-stylesheet");
+	let currentLink = document.getElementById("theme-stylesheet");
 	const themeButtons = document.querySelectorAll(".theme-toggle");
-	const savedTheme = localStorage.getItem("theme") || "dark";
-	themeStylesheet.href = `/static/css/themes/${savedTheme}.css`;
-	themeButtons.forEach(button => {
-		button.addEventListener("click", (e) => {
-			const selectedTheme = e.currentTarget.dataset.theme;
-			if (selectedTheme) {
-				themeStylesheet.href = `/static/css/themes/${selectedTheme}.css`;
-				localStorage.setItem("theme", selectedTheme);
+
+	const swapTheme = (selectedTheme) => {
+		if (!selectedTheme || selectedTheme === localStorage.getItem("theme")) return;
+
+		const newLink = document.createElement("link");
+		newLink.rel = "stylesheet";
+		newLink.href = `/static/css/themes/${selectedTheme}.css`;
+
+		newLink.onload = () => {
+			if (currentLink && currentLink.parentNode) {
+				currentLink.parentNode.removeChild(currentLink);
 			}
-		});
+			newLink.id = "theme-stylesheet";
+			currentLink = newLink;
+		};
+
+		document.head.appendChild(newLink);
+		localStorage.setItem("theme", selectedTheme);
+	};
+
+	themeButtons.forEach(button => {
+		button.addEventListener("click", (e) => swapTheme(e.currentTarget.dataset.theme));
 	});
 });

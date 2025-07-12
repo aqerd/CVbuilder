@@ -57,7 +57,9 @@ h2 {
 	margin: 0;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
 	font-size: 1em;
 	border-radius: 16px;
 	outline: none;
@@ -83,7 +85,8 @@ textarea {
 	height: 20vh;
 }
 
-textarea::-webkit-resizer, textarea::-moz-resizer {
+textarea::-webkit-resizer,
+textarea::-moz-resizer {
 	background: var(--hover-color);
 	border-radius: 10px 0 8px 0;
 	width: 10px !important;
@@ -103,11 +106,15 @@ textarea::-webkit-scrollbar-track {
 	border-radius: 10px;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
 	border: 2px solid var(--border-color);
 }
 
-input[type="date"], input::placeholder, textarea::placeholder {
+input[type="date"],
+input::placeholder,
+textarea::placeholder {
 	color: var(--neutral-color);
 }
 
@@ -126,8 +133,7 @@ input[type="number"]::-webkit-outer-spin-button {
 	margin: 0;
 }
 
-input[type="number"],
-input[type="date"] {
+input[type="number"] {
 	-moz-appearance: textfield;
 }
 
@@ -157,11 +163,10 @@ button {
 	stroke: var(--main-color);
 }
 
-.top-nav button:hover {
-	background-color: var(--hover-color);
-}
-
-button:hover {
+.top-nav button:hover,
+button:hover,
+.top-nav button:active,
+.link-button:hover {
 	background-color: var(--hover-color);
 }
 
@@ -303,11 +308,10 @@ main form {
 	margin: 0;
 }
 
-.top-nav button:active {
-	background-color: var(--hover-color);
-}
-
-a, a:hover, a:visited, b {
+a,
+a:hover,
+a:visited,
+b {
 	color: var(--accent-color);
 }
 
@@ -329,7 +333,8 @@ b {
 	fill: var(--accent-color);
 }
 
-.current, .current:hover {
+.current,
+.current:hover {
 	color: var(--bg-color);
 	background-color: var(--main-color);
 }
@@ -340,10 +345,6 @@ button.add-button {
 	justify-content: center;
 	gap: 8px;
 	height: 42px;
-}
-
-button.add-button:hover {
-	background-color: var(--accent-color);
 }
 
 .text-with-btn {
@@ -434,22 +435,8 @@ body.modal-open {
 	display: block;
 }
 
-.logo .logo-cvb {
-	fill: var(--main-color);
-}
-
-.logo-bg {
-	stroke: none;
-}
-
-.logo-shape {
-	fill: var(--bg-color);
-}
-
-.logo-inner {
-	fill: var(--interaction-color);
-}
-
+.logo .logo-cvb,
+.logo-social-bg,
 .logo-object {
 	fill: var(--main-color);
 }
@@ -458,10 +445,24 @@ body.modal-open {
 	stroke: var(--main-color);
 }
 
+.logo-social,
+.logo-shape {
+	fill: var(--bg-color);
+}
+
+.logo-inner {
+	fill: var(--interaction-color);
+}
+
+.logo-bg,
+.logo-social-bg {
+	stroke: none;
+	rx: 8px;
+}
+
 .link-button {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	gap: 8px;
 	padding: 16px;
 	border-radius: 16px;
@@ -476,10 +477,6 @@ body.modal-open {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 16px;
-}
-
-.link-button:hover {
-	background-color: var(--hover-color);
 }
 
 .link-button-top {
@@ -571,7 +568,8 @@ body.modal-open {
 		padding: 8px 12px;
 	}
 
-	.small-text, button {
+	.small-text,
+	button {
 		font-size: 16px;
 	}
 

@@ -8,20 +8,20 @@
 		<div class="container">
 			{% include 'shared/nav.html' %}
 			<main>
-                <h1>Switch themes</h1>
-                <div class="button-row" id="theme-buttons">
-                    {% for theme, data in themes.items() %}
-                        <button data-theme="{{ theme }}" class="theme-toggle">
-                            <span class="theme-toggle-text">{{ theme.capitalize() }}</span>
-                            <div class="color-main" style="background-color: {{ data.background }};">
-                                <div class="color-box" style="background-color: {{ data.main }};"></div>
-                                <div class="color-box" style="background-color: {{ data.interaction }};"></div>
-                                <div class="color-box" style="background-color: {{ data.accent }};"></div>
-                            </div>
-                        </button>
-                    {% endfor %}
-                </div>
-            </main>
-        </div>
-    </body>
+				<h1>Switch themes</h1>
+				<div class="button-row" id="theme-buttons">
+					{% for theme, data in themes.items() %}
+						<button data-theme="{{ theme }}" class="theme-toggle">
+							<span class="theme-toggle-text">{{ theme.capitalize() }}</span>
+							<div class="color-main" style="background-color: {{ data.background }};">
+								<div class="color-box" style="background-color: {{ data.main }};"></div>
+								<div class="color-box" style="background-color: {{ data.interaction }};"></div>
+								<div class="color-box" style="background-color: {{ data.accent }};"></div>
+							</div>
+						</button>
+					{% endfor %}
+				</div>
+			</main>
+		</div>
+	</body>
 </html>

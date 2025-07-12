@@ -1,5 +1,5 @@
 <svg class="logo" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect class="logo-bg" width="40" height="40" rx="12"/>
-    <path class="logo-stroke" d="M10 36V36C12.8151 25.8655 27.1849 25.8655 30 36V36" stroke-width="2"/>
-    <rect class="logo-object" x="12" y="8" width="16" height="16" rx="8"/>
+	<rect class="logo-bg" width="40" height="40" rx="12"/>
+	<path class="logo-stroke" d="M10 36V36C12.8151 25.8655 27.1849 25.8655 30 36V36" stroke-width="2"/>
+	<rect class="logo-object" x="12" y="8" width="16" height="16" rx="8"/>
 </svg>

@@ -1,6 +1,6 @@
 .PHONY: down push pull lint test format build up
 
-all: build up
+all: down build up
 
 build:
 	docker-compose build

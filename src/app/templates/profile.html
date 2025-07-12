@@ -94,7 +94,7 @@
 								<div class="form-group">
 									<div class="text-with-btn">
 										<label for="project-description-1">Description</label>
-										<button class="ai-btn" onclick="openModal(event)" data-id="project-description-1">{% include 'icons/ai-generate.svg' %}</button>
+										<button class="ai-btn" onclick="openModal(event)" data-id="project-description-1">{% include 'icons/ai_stars.svg' %}</button>
 									</div>
 									<textarea id="project-description-1" name="project-description-1" placeholder="Tell something about this project"></textarea>
 								</div>
@@ -124,7 +124,7 @@
 								<div class="form-group">
 									<div class="text-with-btn">
 										<label for="job-description-1">Description</label>
-										<button class="ai-btn" onclick="openModal(event)" data-id="job-description-1">{% include 'icons/ai-generate.svg' %}</button>
+										<button class="ai-btn" onclick="openModal(event)" data-id="job-description-1">{% include 'icons/ai_stars.svg' %}</button>
 									</div>
 									<textarea id="job-description-1" name="job-description-1" placeholder="Describe your experience"></textarea>
 								</div>
@@ -183,5 +183,6 @@
 				</form>
 			</main>
 		</div>
+		<template id="ai-icon-template">{% include 'icons/ai_stars.svg' %}</template>
 	</body>
 </html>
