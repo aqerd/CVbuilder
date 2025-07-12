@@ -15,19 +15,19 @@ Clone our repository:
 ```shell
 git clone https://github.com/aqerd/CVbuilder.git
 ```
-Set the environmental variables in `.env`. For reference see `.env.example`.
+Set the environmental variables in `.env`. For reference see [`.env.example`](https://github.com/aqerd/CVbuilder/blob/main/.env.example) file.
 
 > [!NOTE]
-> To get your GroqCloud API key, visit the [documentation](https://console.groq.com/docs/overview).
+> To get your Google API key, visit the [documentation](https://console.developers.google.com/).
 > You can collect your email password by creating a new email on any SMTP Server and retrieving it from the settings.
 
-Make sure you have Python 3.10 (at least), `make` (install it if you have Windows) and Docker installed on your machine.
+Make sure you have `Python 3.10` (at least), `make` (install it if you have Windows) and `Docker Engine` installed on your machine.
 
 To build and up docker container run this:
 ```bash
 make
 ```
-Now go to `localhost:8181` in your browser.
+Now go to [`localhost:8181`](http://localhost:8181) in your browser.
 
 > [!IMPORTANT]
 > Note that you might encounter a connection error if you're running this in Russia.
@@ -35,20 +35,21 @@ Now go to `localhost:8181` in your browser.
 ## 🔨 Powered by
 - Python
 - uv
+- Ruff
 - Flask
 - Docker
 - HTML, CSS and JavaScript
-- GroqCloud with Llama 3.3 70B Versatile
+- Google's Gemini 2.5 Flash with GenAI
 
 ## 🎨 Site design
-Designed by Ruslan Suleymanov in Figma. See this project on [Behance](https://www.behance.net/gallery/215413437/CVbuilder) or in [Figma Community](https://www.figma.com/community/file/1465009107029457211/cv-builder).
+Designed by Ruslan Suleymanov in Figma. See this project on [`Behance`](https://www.behance.net/gallery/215413437/CVbuilder) or in [`Figma Community`](https://www.figma.com/community/file/1465009107029457211/cv-builder).
 
 ## 🖼️ Contribute with new theme
-Want to contribute our project with new theme design? See this [documentation](https://github.com/aqerd/CVbuilder/blob/main/docs/THEMES.md)
+Want to contribute our project with new theme design? See this [`documentation`](/docs/THEMES.md)
 ![Themes](images/themes.png)
 
 ## 🚀 Deployment
-Site is deployed on https://cvbuilder.art on Yandex Cloud with Apache HTTP-Server
+Site is deployed on [`cvbuilder.art`](https://cvbuilder.art/) on `Yandex Cloud` with `Apache HTTP Server`. AI features are disabled since it's deployed in Russia
 
 ## 🧑‍💻 Credits
-Project made by **Ruslan Suleymanov**, **Rasul Gasanbekov** and **Vladimir Golubev** for Python course at Ural Federal University 
+Project made by `Ruslan Suleymanov`, `Rasul Gasanbekov` and `Vladimir Golubev` for Python course at Ural Federal University 
