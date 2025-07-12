@@ -95,7 +95,7 @@ def email(data):
                 "error.html", msg_error="Paste your email in Profile page", error=501
             )
         return render_template(
-            "error.html", msg_error=f"Error sending email: {e}", error=500
+            "error.html", msg_error="Error sending email", error=500
         )
 
 

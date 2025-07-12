@@ -29,5 +29,5 @@ def generate_description(user_prompt, description_type):
         return data.get("result"), data.get("error_code"), data.get("error_message")
     except json.JSONDecodeError:
         return "", 1, "Error with decoding the response"
-    except Exception as e:
-        return "", 1, f"Error occurred with LLM service: {e}"
+    except Exception:
+        return "", 1, "Error occurred with LLM service"
