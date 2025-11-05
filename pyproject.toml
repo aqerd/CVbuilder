@@ -36,7 +36,8 @@ dependencies = [
 	"google-genai==1.23.0",
 	"python-docx==1.2.0",
 	"pillow==11.2.1",
-	"reportlab==4.4.2"
+	"reportlab==4.4.2",
+	"ruff==0.14.2"
 ]
 
 [project.optional-dependencies]
