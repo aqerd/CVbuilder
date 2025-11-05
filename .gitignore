@@ -144,3 +144,4 @@ todo.txt
 /src/app/utils/files/*
 .ruff_cache
 docs/doxygen
+.DS_Store
