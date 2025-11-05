@@ -2,7 +2,7 @@ FROM python:3.13-slim
 
 WORKDIR /work/
 
-RUN apt-get update && apt-get install -y make && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y make docker-compose && rm -rf /var/lib/apt/lists/*
 
 RUN pip install uv
 COPY ./pyproject.toml /work/pyproject.toml
