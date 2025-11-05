@@ -142,3 +142,5 @@ cython_debug/
 structure.txt
 todo.txt
 /src/app/utils/files/*
+.ruff_cache
+docs/doxygen

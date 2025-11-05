@@ -1,3 +1,14 @@
+"""\file actions.py
+\brief Handle user actions in the CVbuilder application.
+
+\details Provides functions for processing form submissions, generating AI
+text and managing user session data.
+
+
+\version 0.1
+\copyright MIT License
+"""
+
 import json
 import time
 import urllib.parse
@@ -16,7 +27,15 @@ from app.utils.data_collector import collect_data
 from app.utils.ai import generate_description
 
 
-def submit():
+def submit() -> Response:
+    """\brief Handle resume form data submission.
+
+    \details Collects data from the request, saves it in the session and sets
+    cookies. Then redirects the user to the export page.
+
+    \return Flask :pyclass:`flask.Response` redirect to /export with cookies set.
+    \note Skips list and dict values when setting cookies.
+    """
     data = collect_data(request)
     response = make_response(redirect("/export"))
     for key, value in data.items():
@@ -27,7 +46,19 @@ def submit():
     return response
 
 
-def ai_generate():
+def ai_generate() -> Response:
+    """\brief Generate a description using artificial intelligence.
+
+    \details Accepts a request with a text field and textarea type, calls
+    :pyfunc:`app.utils.ai.generate_description` to create the text and streams
+    the result back to the client.
+
+    \return Streaming JSON :pyclass:`flask.Response` with generated description
+    or error information.
+
+    \exception 400 No prompt provided.
+    \note Uses a streaming response with a 3-second delay for better UX.
+    """
     prompt = request.form.get("prompt")
     textarea_type = request.form.get("textarea_type")
     if not prompt:

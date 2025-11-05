@@ -1,3 +1,14 @@
+"""\file file_utils.py
+\brief File operations and CV generation utilities.
+
+\details Provides functions for creating CVs in PDF, DOCX and JPG formats using
+collected form data.
+
+
+\version 0.1
+\copyright MIT License
+"""
+
 import os
 
 from docx import Document
@@ -11,22 +22,33 @@ from reportlab.lib.enums import TA_LEFT
 
 from settings import Settings
 
-regular_font = "Arial"
-bold_font = "Arial-Bold"
+regular_font = "Arial"  # Name of the regular font.
+bold_font = "Arial-Bold"  # Name of the bold font.
 
-regular_font_path = Settings.REGULAR_FONT_PATH
-bold_font_path = Settings.BOLD_FONT_PATH
+regular_font_path = (
+    Settings.REGULAR_FONT_PATH
+)  # Path to the regular font file.
+bold_font_path = Settings.BOLD_FONT_PATH  # Path to the bold font file.
 
 pdfmetrics.registerFont(TTFont(regular_font, regular_font_path))
 pdfmetrics.registerFont(TTFont(bold_font, bold_font_path))
 
-PATH_SAVE = os.path.join(os.path.dirname(__file__), "files")
+PATH_SAVE = os.path.join(
+    os.path.dirname(__file__), "files"
+)  # Path to save generated CV files.
 
 if not os.path.exists(PATH_SAVE):
     os.makedirs(PATH_SAVE)
 
 
-def create_type(data, file_type):
+def create_type(data: dict, file_type: str) -> str:
+    """\brief Create a CV file of the specified type.
+
+    \param data Dictionary with CV data.
+    \param file_type Desired format: *pdf*, *doc*, *jpg*.
+    \return Path or name of the created file (or tuple with error).
+    \exception ValueError If *file_type* is unsupported.
+    """
     match file_type:
         case "pdf":
             filename = create_pdf(data)
@@ -39,7 +61,22 @@ def create_type(data, file_type):
     return filename
 
 
-def create_pdf(data):
+def create_pdf(data: dict) -> str:
+    """Create a CV in PDF format.
+    
+    Creates a PDF document containing the CV data with proper formatting,
+    including personal information, social links, projects, work experience,
+    education, and languages.
+    
+    Args:
+        data: Dictionary with data for the CV.
+        
+    Returns:
+        str: Path to the created PDF file.
+        
+    Note:
+        Uses ReportLab for PDF generation with custom styling.
+    """
     pdf_path = os.path.join(PATH_SAVE, "CV.pdf")
     styles = getSampleStyleSheet()
     styleN = styles["BodyText"]
@@ -49,7 +86,9 @@ def create_pdf(data):
 
     elements = []
 
-    elements.append(Paragraph(f"{data['name']} {data['middle_name']} {data['last_name']}", styleH))
+    elements.append(
+        Paragraph(f"{data['name']} {data['middle_name']} {data['last_name']}", styleH)
+    )
     elements.append(Spacer(1, 12))
 
     elements.append(Paragraph(f"Age: {data['age']}", styleN))
@@ -74,7 +113,7 @@ def create_pdf(data):
             if project.get("link"):
                 link = f'<a href="{project["link"]}" color="blue">{project["link"]}</a>'
                 elements.append(Paragraph(link, styleN))
-            elements.append(Paragraph(project['description'], styleN))
+            elements.append(Paragraph(project["description"], styleN))
             elements.append(Spacer(1, 6))
         elements.append(Spacer(1, 12))
 
@@ -84,7 +123,7 @@ def create_pdf(data):
             elements.append(Paragraph(f"Company: {exp['company']}", styleN))
             elements.append(Paragraph(f"Job Title: {exp['title']}", styleN))
             elements.append(Paragraph(f"Period: {exp['period']}", styleN))
-            elements.append(Paragraph(exp['description'], styleN))
+            elements.append(Paragraph(exp["description"], styleN))
             elements.append(Spacer(1, 6))
         elements.append(Spacer(1, 12))
 
@@ -110,7 +149,22 @@ def create_pdf(data):
     return pdf_path
 
 
-def create_docx(data):
+def create_docx(data: dict) -> str:
+    """Create a CV in DOCX format.
+    
+    Creates a DOCX document containing the CV data with proper formatting,
+    including personal information, social links, projects, work experience,
+    education, and languages.
+    
+    Args:
+        data: Dictionary with data for the CV.
+        
+    Returns:
+        str: Path to the created DOCX file.
+        
+    Note:
+        Uses python-docx for DOCX generation with proper heading hierarchy.
+    """
     docx_path = os.path.join(PATH_SAVE, "CV.docx")
     doc = Document()
     doc.add_heading(f"{data['name']} {data['middle_name']} {data['last_name']}", 0)
@@ -131,7 +185,7 @@ def create_docx(data):
             doc.add_paragraph(f"Project Name: {project['name']}")
             doc.add_paragraph(f"Time: {project['time']}")
             doc.add_paragraph(f"Link: {project['link']}")
-            doc.add_paragraph(project['description'])
+            doc.add_paragraph(project["description"])
 
     if data["experiences"]:
         doc.add_heading("Experience", level=1)
@@ -139,7 +193,7 @@ def create_docx(data):
             doc.add_paragraph(f"Company: {exp['company']}")
             doc.add_paragraph(f"Job Title: {exp['title']}")
             doc.add_paragraph(f"Period: {exp['period']}")
-            doc.add_paragraph(exp['description'])
+            doc.add_paragraph(exp["description"])
 
     if data["education"]:
         doc.add_heading("Education", level=1)
@@ -157,7 +211,23 @@ def create_docx(data):
     return docx_path
 
 
-def create_jpg(data):
+def create_jpg(data: dict) -> str:
+    """Create a CV in JPG format.
+    
+    Creates a JPG image containing the CV data with proper formatting,
+    including personal information, social links, projects, work experience,
+    education, and languages. Uses PIL for image generation.
+    
+    Args:
+        data: Dictionary with data for the CV.
+        
+    Returns:
+        str: Path to the created JPG file, or None if font loading fails.
+        
+    Note:
+        Uses PIL/Pillow for image generation with custom font rendering.
+        Falls back gracefully if fonts cannot be loaded.
+    """
     jpg_path = os.path.join(PATH_SAVE, "CV.jpg")
 
     width, height = 600, 800
@@ -246,7 +316,7 @@ def create_jpg(data):
             y_position += 23
             draw.text(
                 (100, y_position),
-                project['description'],
+                project["description"],
                 font=font_regular,
                 fill=(0, 0, 0),
             )
@@ -279,7 +349,7 @@ def create_jpg(data):
             y_position += 23
             draw.text(
                 (100, y_position),
-                exp['description'],
+                exp["description"],
                 font=font_regular,
                 fill=(0, 0, 0),
             )

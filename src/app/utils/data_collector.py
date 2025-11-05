@@ -1,6 +1,31 @@
+"""\file data_collector.py
+\brief Collect data from CVbuilder form submissions.
+
+\details Extracts personal data, socials, projects, experience, education and
+languages from the Flask request object.
+
+
+\version 0.1
+\copyright MIT License
+"""
+
 from urllib.parse import urlparse
 
-def collect_data(request):
+
+def collect_data(request) -> dict:
+    """\brief Collect data from the Flask request object.
+
+    \details Extracts data from request forms, including main fields, as well
+    as dynamically added lists for social networks, projects, work experience,
+    education and languages. Social network URLs are parsed to determine the
+    service.
+
+    \param request Flask request object.
+    \return ``dict`` containing all collected data.
+    \note Structure keys: *name*, *middle_name*, *last_name*, *age*, *email*,
+          *dob*, *country*, *city*, *socials*, *projects*, *experiences*,
+          *education*, *languages*.
+    """
     data = {
         "name": request.form.get("name"),
         "middle_name": request.form.get("middle-name"),

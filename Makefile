@@ -1,4 +1,4 @@
-.PHONY: down push pull lint test format build up
+.PHONY: down push pull lint test format build up docs
 
 all: down build up
 
@@ -22,6 +22,9 @@ lint:
 
 format:
 	uv run ruff format .
+
+docs:
+	doxygen Doxyfile
 
 venv-windows:
 	.\.venv\Scripts\activate
